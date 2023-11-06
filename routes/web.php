@@ -1,4 +1,5 @@
 <?php
+use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\User\CartComponent;
 use App\Http\Livewire\User\CheckoutComponent;
 use App\Http\Livewire\User\HomeComponent;
@@ -20,3 +21,9 @@ Route::get('/checkout', CheckoutComponent::class);
 Route::get('/login', LoginComponent::class);
 Route::get('/register', RegistrationComponent::class);
 // Route::get('/logout', CheckoutComponent::class);
+
+
+
+Route::prefix('admin-panel')->group(function () {
+    Route::get('/dashboard', DashboardComponent::class);
+});
