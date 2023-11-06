@@ -1,7 +1,7 @@
 <div>
     <!-- breadcrumb area start -->
-    @include('partials.user._bread_crumb')
     @section('current-page-name', 'Checkout')
+    @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
     <!-- coupon-area start -->

@@ -1,7 +1,7 @@
 <div>
     <!-- breadcrumb area start -->
-    @include('partials.user._bread_crumb')
     @section('current-page-name', 'Product Details')
+    @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
     <!-- product area start -->

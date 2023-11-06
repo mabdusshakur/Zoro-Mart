@@ -1,7 +1,7 @@
 <div>
     <!-- breadcrumb area start -->
-    @include('partials.user._bread_crumb')
     @section('current-page-name', 'Wish List')
+    @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
     <!-- Cart Area Strat-->
