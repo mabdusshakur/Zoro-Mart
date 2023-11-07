@@ -1,3 +1,3 @@
 # Zoro Mart : E-Commerce Website
 
-Ecommerce Website with REST API based on Laravel Livewire . 
+Ecommerce Website based on Laravel Livewire . 
