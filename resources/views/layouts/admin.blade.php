@@ -29,6 +29,7 @@
     {{-- Fontawesome --}}
     <link href="{{ asset('admin/assets/plugins/fontawesome-free-6.4.2-web/css/all.min.css') }}" rel="stylesheet" />
 
+    @livewireStyles
 
     <title>@yield('title') ZoroMart e-Commerce Admin</title>
 </head>
@@ -90,6 +91,7 @@
     <!-- Main JS-->
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
 
+    @livewireScripts
 
 </body>
 

@@ -11,9 +11,13 @@
                     <div class="col-xl-6 col-lg-6 col-md-7">
                         <div class="header__action d-flex justify-content-center justify-content-md-end">
                             <ul>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">My Wishlist</a></li>
-                                <li><a href="#">Sign In</a></li>
+                                @if (Session::has('api_bearer_token'))
+                                    <li><a href="#">My Account</a></li>
+                                    <li><a href="#">My Wishlist</a></li>
+                                    <li><a href="">Logout</a></li>
+                                @else
+                                    <li><a href="#">Sign In</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

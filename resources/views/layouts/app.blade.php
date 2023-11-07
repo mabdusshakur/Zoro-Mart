@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('user/assets/css/ui-range-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/default.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
+    @livewireStyles
 </head>
 
 <body>
@@ -71,6 +72,7 @@
     <script src="{{ asset('user/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('user/assets/js/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('user/assets/js/main.js') }}"></script>
+    @livewireScripts
 </body>
 
 </html>

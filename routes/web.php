@@ -11,15 +11,18 @@ use App\Http\Livewire\User\WishListComponent;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', HomeComponent::class);
-Route::get('/products', ProductsComponent::class);
+Route::group(['middleware' => ['api_auth']], function () {
+    Route::get('/', HomeComponent::class)->name('home');
+});
+
+Route::get('/products', ProductsComponent::class)->name('products');
 Route::get('/product-details', ProductDetailsComponent::class);
 Route::get('/wishlist', WishListComponent::class);
 Route::get('/cart', CartComponent::class);
 Route::get('/checkout', CheckoutComponent::class);
 
-Route::get('/login', LoginComponent::class);
-Route::get('/register', RegistrationComponent::class);
+Route::get('/login', LoginComponent::class)->name('login');
+Route::get('/register', RegistrationComponent::class)->name('register');
 // Route::get('/logout', CheckoutComponent::class);
 
 
