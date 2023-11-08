@@ -11,7 +11,7 @@ use App\Http\Livewire\User\WishListComponent;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['middleware' => ['api_auth']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/', HomeComponent::class)->name('home');
 });
 

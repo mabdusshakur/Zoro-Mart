@@ -3,27 +3,42 @@
 namespace App\Http\Livewire\User;
 
 use Http;
+use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 
 class RegistrationComponent extends Component
 {
-    public $user_name, $email, $password;
+    public $user_name, $email, $password, $c_password;
     public function register()
     {
-        $request = Http::post('http://localhost:8001/api/register', [
+        $validatedData = $this->validate([
+            'user_name' => 'required|min:6',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|same:c_password',
+            'c_password' => 'required|min:6',
+        ]);
+
+        $errors = [];
+
+        if (!$validatedData) {
+            foreach ($validatedData as $key => $value) {
+                if ($value) {
+                    $errors[$key] = $value;
+                }
+            }
+            foreach ($errors as $key => $value) {
+                $this->addError($key, $value);
+            }
+        }
+        
+        User::create([
             'name' => $this->user_name,
             'email' => $this->email,
-            'password' => $this->password,
-            'password_confirmation' => $this->password
+            'password' => bcrypt($this->password),
         ]);
-        $response = $request->json();
-        if($response['success']){
 
-            $token = $response['data']['token'];
-            Session::put('api_bearer_token', $token);
-            return redirect()->route('home');
-        }    
+        return redirect()->route('login')->with('success', 'You have registered successfully.');
     }
     public function render()
     {

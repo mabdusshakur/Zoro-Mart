@@ -5,7 +5,7 @@
         @section('current-page-name', 'Login')
         @include('partials.user._bread_crumb')
         <!-- breadcrumb area end -->
-
+        @include('partials.user._alerts')
         <section class="login-area pb-100">
             <div class="container">
                 <div class="row">
@@ -14,12 +14,18 @@
                             <h3 class="text-center mb-60">Login From Here</h3>
                             <form wire:submit.prevent='login'>
                                 <label for="email">Email Address <span>**</span></label>
-                                <input id="email" type="text" placeholder="Email address..." wire:model='email'/>
-                                <label for="pass">Password <span>**</span></label>
-                                <input id="pass" type="password" placeholder="Enter password..." wire:model='password'/>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address"
+                                    wire:model='email' />
+                                @error('email') <span class="invalid-feedback"> {{ $message }}</span> @enderror
+
+                                <label for="password">Password <span>**</span></label>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="password"
+                                    wire:model='password' />
+                                @error('password') <span class="invalid-feedback"> {{ $message }}</span> @enderror
+
                                 <div class="login-action mb-20 fix">
                                     <span class="log-rem f-left">
-                                        <input id="remember" type="checkbox" />
+                                        <input id="remember" type="checkbox" wire:model="remember" />
                                         <label for="remember">Remember me!</label>
                                     </span>
                                     <span class="forgot-login f-right">
