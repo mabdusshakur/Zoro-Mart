@@ -38,7 +38,7 @@ class RegistrationComponent extends Component
             'password' => bcrypt($this->password),
         ]);
 
-        return redirect()->route('login')->with('success', 'You have registered successfully.');
+        return redirect()->route('user.login')->with('success', 'You have registered successfully.');
     }
     public function render()
     {

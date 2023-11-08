@@ -11,12 +11,12 @@
                     <div class="col-xl-6 col-lg-6 col-md-7">
                         <div class="header__action d-flex justify-content-center justify-content-md-end">
                             <ul>
-                                @if (Session::has('api_bearer_token'))
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">My Wishlist</a></li>
-                                    <li><a href="">Logout</a></li>
+                                @if (Auth::check())
+                                    <li><a href="">My Account</a></li>
+                                    <li><a href="{{ route('user.wishlist') }}">My Wishlist</a></li>
+                                    <li><a href="{{ route('user.logout') }}">Logout</a></li>
                                 @else
-                                    <li><a href="#">Sign In</a></li>
+                                    <li><a href="{{ route('user.login') }}">Sign In</a></li>
                                 @endif
                             </ul>
                         </div>
@@ -87,8 +87,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <div
-                                                class="cart__item d-flex justify-content-between align-items-center">
+                                            <div class="cart__item d-flex justify-content-between align-items-center">
                                                 <div class="cart__inner d-flex">
                                                     <div class="cart__thumb">
                                                         <a href="product-details.html">
@@ -110,8 +109,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <div
-                                                class="cart__sub d-flex justify-content-between align-items-center">
+                                            <div class="cart__sub d-flex justify-content-between align-items-center">
                                                 <h6>Car Subtotal</h6>
                                                 <span class="cart__sub-total">$255.00</span>
                                             </div>
@@ -136,8 +134,7 @@
                     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-6 col-6">
                         <div class="header__bottom-left d-flex d-xl-block align-items-center">
                             <div class="side-menu d-xl-none mr-20">
-                                <button type="button"
-                                    class="side-menu-btn side-menu-btn-2 offcanvas-toggle-btn"><i
+                                <button type="button" class="side-menu-btn side-menu-btn-2 offcanvas-toggle-btn"><i
                                         class="fas fa-bars"></i></button>
                             </div>
                             <div class="main-menu main-menu-2 d-none d-md-block">
