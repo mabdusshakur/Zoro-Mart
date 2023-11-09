@@ -32,6 +32,6 @@ Route::get('/register', RegistrationComponent::class)->name('user.register');
 
 
 
-Route::prefix('admin-panel')->group(function () {
-    Route::get('/dashboard', DashboardComponent::class);
+Route::group(['middleware' => ['auth','isAdmin']],function () {
+    Route::get('/admin-panel/dashboard', DashboardComponent::class);
 });

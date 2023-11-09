@@ -2,7 +2,7 @@
     <!-- slider area satrt -->
     @include('partials.user._slider_area')
     <!-- slider area end -->
-    @include('partials.user._alerts')
+    
     <!-- features area start -->
     <section class="features__area pt-40 pb-20 pl-10 pr-10">
         <div class="container">

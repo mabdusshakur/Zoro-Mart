@@ -36,7 +36,7 @@
                                 <div class="mt-10"></div>
                                 <button type="submit" class="t-y-btn w-100">Register Now</button>
                                 <div class="or-divide"><span>or</span></div>
-                                <a href="login.html" class="t-y-btn t-y-btn-grey w-100">login Now</a>
+                                <a href="{{ route('user.login') }}" class="t-y-btn t-y-btn-grey w-100">login Now</a>
                             </form>
                         </div>
                     </div>

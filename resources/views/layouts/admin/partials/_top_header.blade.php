@@ -121,8 +121,8 @@
                   <div class="d-flex flex-row align-items-center gap-2">
                     <img src="{{ asset('admin/assets/images/avatars/06.png') }}" alt="" class="rounded-circle" width="54" height="54">
                     <div class="">
-                      <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                      <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                      <h6 class="mb-0 dropdown-user-name">{{Auth::user()->name}}</h6>
+                      <small class="mb-0 dropdown-user-designation text-secondary">{{Auth::user()->role}}</small>
                     </div>
                   </div>
                 </a>
@@ -154,7 +154,7 @@
                 <hr class="dropdown-divider">
               </li>
               <li>
-                <a class="dropdown-item" href="javascript:;">
+                <a class="dropdown-item" href="{{ route('user.logout') }}">
                   <div class="d-flex align-items-center">
                     <div class="">
                       <ion-icon name="log-out-outline"></ion-icon>
