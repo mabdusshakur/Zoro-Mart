@@ -1,5 +1,4 @@
 <?php
-use App\Http\Livewire\Admin\DashboardComponent;
 use App\Http\Livewire\User\CartComponent;
 use App\Http\Livewire\User\CheckoutComponent;
 use App\Http\Livewire\User\HomeComponent;
@@ -33,5 +32,11 @@ Route::get('/register', RegistrationComponent::class)->name('user.register');
 
 
 Route::group(['middleware' => ['auth','isAdmin']],function () {
-    Route::get('/admin-panel/dashboard', DashboardComponent::class);
+    Route::get('/admin-panel/dashboard', \App\Http\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin-panel/dashboard/products', \App\Http\Livewire\Admin\ProductsComponent::class)->name('admin.products');
+    Route::get('/admin-panel/dashboard/add-product', \App\Http\Livewire\Admin\AddProductComponent::class)->name('admin.add-product');
+    Route::get('/admin-panel/dashboard/categories', \App\Http\Livewire\Admin\CategoriesComponent::class)->name('admin.categories');
+    Route::get('/admin-panel/dashboard/add-category', \App\Http\Livewire\Admin\AddCategoryComponent::class)->name('admin.add-category');
+    Route::get('/admin-panel/dashboard/sub-categories', \App\Http\Livewire\Admin\SubCategoriesComponent::class)->name('admin.sub-categories');
+    Route::get('/admin-panel/dashboard/add-sub-category', \App\Http\Livewire\Admin\AddSubCategoryComponent::class)->name('admin.add-sub-category');
 });
