@@ -24,7 +24,7 @@
     </div>
 @endif
 
-@if (Session::has('danger'))
+@if (Session::has('error'))
     <div class="alert alert-dismissible fade show py-2 bg-danger">
         <div class="d-flex align-items-center">
             <div class="fs-3 text-white"><ion-icon name="close-circle-sharp"></ion-icon>
