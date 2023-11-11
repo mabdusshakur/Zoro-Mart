@@ -26,19 +26,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($products as $product)
                         <tr>
-                            <td>Sports Shoe</td>
-                            <td><img src="assets/images/products/01.png" class="product-img-2" alt="product img"></td>
-                            <td>#9405822</td>
-                            <td>$1250.00</td>
+                            <td>{{$product->name}}</td>
+                            @php
+                                $images = App\Models\product_image::where('product_uid', $product->product_uid)->get()->take(1);
+                            @endphp      
+                            @foreach ($images as $image)
+                                <td><img src="{{Storage::url($image->image)}}" class="product-img-2" alt="product img"></td>
+                            @endforeach
+                            <td>{{$product->product_uid}}</td>
+                            <td>${{$product->price}}</td>
                             <td>
                                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Views" aria-label="Views"><i class="fa-solid fa-eye"></i></a>
-                                    <a href="javascript:;" wire:click="edit_product(1)" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i class="fa-solid fa-pencil"></i></a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="javascript:;" wire:click="view_product({{$product->id}})" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Views" aria-label="Views"><i class="fa-solid fa-eye"></i></a>
+                                    <a href="javascript:;" wire:click="edit_product({{$product->id}})" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="javascript:;" wire:click="delete_product({{$product->id}})" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
