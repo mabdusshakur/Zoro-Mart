@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
+use App\Models\product_image;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
@@ -13,7 +15,7 @@ class AddProductComponent extends Component
     use WithFileUploads;
 
     public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories;
-
+    public $test_product_images;
     public function mount()
     {
         $this->categories = Category::all();
@@ -31,7 +33,10 @@ class AddProductComponent extends Component
                 'category_id' => 'required',
                 'sub_category_id' => 'required'
             ]);
-    
+            
+            
+            $product_uid = Carbon::now()->timestamp . uniqid();
+
             $product = new Product();
             $product->name = $this->product_name;
             $product->slug = strtolower(str_replace(' ', '-', $this->product_name));
@@ -40,9 +45,14 @@ class AddProductComponent extends Component
             $product->quantity = $this->quantity;
             $product->category_id = $this->category_id;
             $product->sub_category_id = $this->sub_category_id;
+            $product->product_uid = $product_uid;
+
             foreach ($this->product_image as $image) {
                 $image_location = $image->storeAs('product/images', rand(1000,10000).'-'.time().'.'.$image->getClientOriginalExtension(), 'public');
-                $product->image = $image_location;
+                $product_image = new product_image();
+                $product_image->image = $image_location;
+                $product_image->product_uid = $product_uid;
+                $product_image->save();
             }
             Category::find($this->category_id)->increment('product_count',1);
             SubCategory::find($this->sub_category_id)->increment('product_count',1);
