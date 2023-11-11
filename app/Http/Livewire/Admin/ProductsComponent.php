@@ -24,7 +24,9 @@ class ProductsComponent extends Component
     public function render()
     {
         $searchQuery = '%'.$this->search.'%';
-        $products = Product::orderBy('id', 'DESC')->where('name', 'like', $searchQuery)->get();
+        $products = Product::orderBy('id', 'DESC')->where(function ($query) use ($searchQuery) {
+            $query->where('name', 'like', $searchQuery)->orWhere('product_uid', 'like', $searchQuery);
+        })->get();
         return view('livewire.admin.products-component',['products' => $products])->layout('layouts.admin');
     }
 }
