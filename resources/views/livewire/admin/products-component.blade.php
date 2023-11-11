@@ -11,7 +11,7 @@
                 <h5 class="mb-0">All Products</h5>
                 <form class="ms-auto position-relative">
                     <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <input class="form-control ps-5" type="text" placeholder="search">
+                    <input class="form-control ps-5" type="text" placeholder="Product Nameor Or Id" wire:model="search">
                 </form>
             </div>
             <div class="table-responsive mt-3">
