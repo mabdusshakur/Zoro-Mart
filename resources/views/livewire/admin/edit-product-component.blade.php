@@ -7,9 +7,9 @@
     @include('partials.admin._alerts')
     <div class="card">
         <div class="card-header">
-            <h6 class="mb-0">Add Product</h6>
+            <h6 class="mb-0">Edite Product</h6>
         </div>
-        <form wire:submit.prevent="add_product">
+        <form wire:submit.prevent="edit_product">
             <div class="card-body">
                 <input class="form-control form-control mb-3" type="text" placeholder="Product Name"
                     wire:model="product_name">
@@ -18,7 +18,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="product_image_input" class="form-label">Select Product Image's</label>
-                        <input class="form-control mb-3" type="file" multiple="" id="product_image_input" wire:model="product_image">
+                        <input class="form-control mb-3" type="file" multiple="" id="product_image_input"
+                            wire:model="product_image">
 
                         <label for="product_price_input" class="form-label">Enter Product Price</label>
                         <div class="input-group mb-3">
@@ -45,14 +46,27 @@
                             @endforeach
                         </select>
                     </div>
-
                 </div>
                 <div class="col-md-5 mb-4">
-                    <label for="product_quantity_input" class="form-label">Select Product Stock-quantity Available</label>
+                    <label for="product_quantity_input" class="form-label">Select Product Stock-quantity
+                        Available</label>
                     <input type="number" class="form-control" id="product_quantity_input" wire:model="quantity">
                 </div>
+
+
+                @if ($old_product_image)
+                    @foreach ($old_product_image as $image)
+                        <div class="col-md-6 mt-2 mb-2">
+                            <img src="{{ Storage::url($image->image) }}" class="img-fluid img-thumbnail"
+                                alt="product images" height="120rem" width="120rem" />
+                            <a href="" class="text-danger"
+                                wire:click.prevent="delete_image({{ $image->id }})"><i class="fa fa-x"> </i></a>
+                        </div>
+                    @endforeach
+                @endif
+
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-success">Add Product</button>
+                    <button type="submit" class="btn btn-success">Update Product</button>
                 </div>
             </div>
         </form>
@@ -103,14 +117,15 @@
             <hr>
             <div class="col-md-12">
                 <div class="row">
-{{-- 
+
                     @if ($product_image)
-                    @foreach ($product_image as $image)
-                    <div class="col-md-3">
-                        <img src="{{ $image->temporaryUrl() }}" class="img-fluid img-thumbnail" alt="product images"/>
-                    </div>
-                    @endforeach
-                    @endif --}}
+                        @foreach ($product_image as $image)
+                            <div class="col-md-3">
+                                <img src="{{ $image->temporaryUrl() }}" class="img-fluid img-thumbnail"
+                                    alt="product images" />
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 

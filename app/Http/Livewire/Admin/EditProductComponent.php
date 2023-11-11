@@ -16,10 +16,8 @@ class EditProductComponent extends Component
     use WithFileUploads;
 
     public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories;
-    public $test_product_images;
-
     public $old_product;
-    
+
     public function mount($id)
     {
         $product = Product::where('id', $id)->first();
@@ -30,11 +28,10 @@ class EditProductComponent extends Component
         $this->category_id = $product->category_id;
         $this->sub_category_id = $product->sub_category_id;
         $this->old_product = $product;
-        
         $this->categories = Category::all();
         $this->sub_categories = SubCategory::all();
     }
-    public function add_product()
+    public function edit_product()
     {
         try {
             $this->validate([
@@ -46,7 +43,7 @@ class EditProductComponent extends Component
                 'category_id' => 'required',
                 'sub_category_id' => 'required'
             ]);
-            
+
             $this->old_product->update([
                 'name' => $this->product_name,
                 'slug' => Str::slug($this->product_name),
@@ -56,15 +53,33 @@ class EditProductComponent extends Component
                 'category_id' => $this->category_id,
                 'sub_category_id' => $this->sub_category_id,
             ]);
+
             
+            if ($this->product_image != null) {
+                $product_uid = $this->old_product->product_uid;
+                foreach ($this->product_image as $image) {
+                    $image_location = $image->storeAs('product/images', rand(1000, 10000) . '-' . time() . '.' . $image->getClientOriginalExtension(), 'public');
+                    $product_image = new product_image();
+                    $product_image->image = $image_location;
+                    $product_image->product_uid = $product_uid;
+                    $product_image->save();
+                }
+            }
             return redirect()->route('admin.products')->with('success', 'Product updated successfully!');
         } catch (\Throwable $th) {
             session()->flash('error', 'Something went wrong!');
         }
     }
-    
+
+    public function delete_image($id)
+    {
+        $image = product_image::where('id', $id)->first();
+        $image->delete();
+        session()->flash('success', 'Image deleted successfully!');
+    }
     public function render()
     {
-        return view('livewire.admin.edit-product-component')->layout('layouts.admin');
+        $old_product_image = product_image::where('product_uid', $this->old_product->product_uid)->get();
+        return view('livewire.admin.edit-product-component', ['old_product_image' => $old_product_image])->layout('layouts.admin');
     }
 }
