@@ -15,7 +15,7 @@ class AddProductComponent extends Component
 {
     use WithFileUploads;
 
-    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories;
+    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories , $category_name, $sub_category_name;
     public $test_product_images;
     public function mount()
     {
@@ -65,6 +65,12 @@ class AddProductComponent extends Component
     }
     public function render()
     {
+        if($this->category_id != null){
+            $this->category_name = Category::where('id', $this->category_id)->first()->name;
+        }
+        if($this->sub_category_id != null){
+            $this->sub_category_name = SubCategory::where('id', $this->sub_category_id)->first()->name;
+        }
         return view('livewire.admin.add-product-component')->layout('layouts.admin');
     }
 }
