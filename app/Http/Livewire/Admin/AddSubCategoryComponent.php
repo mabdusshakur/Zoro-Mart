@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\SubCategory;
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\SubCategory;
+use Illuminate\Support\Str;
 
 class AddSubCategoryComponent extends Component
 {
@@ -26,7 +27,7 @@ class AddSubCategoryComponent extends Component
             $sub_category = new SubCategory();
             $sub_category->name = $this->sub_category_name;
             $sub_category->category_id = $this->category_id;
-            $sub_category->slug = strtolower($this->sub_category_name);
+            $sub_category->slug = Str::slug($this->sub_category_name);
             $sub_category->save();
             Category::find($this->category_id)->increment('sub_category_count',1);
             session()->flash('success', 'Sub Category has been created successfully!');

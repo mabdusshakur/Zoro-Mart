@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
-use App\Models\product_image;
-use Illuminate\Support\Carbon;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
+use Illuminate\Support\Str;
+use App\Models\product_image;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Carbon;
 
 class AddProductComponent extends Component
 {
@@ -39,7 +40,7 @@ class AddProductComponent extends Component
 
             $product = new Product();
             $product->name = $this->product_name;
-            $product->slug = strtolower(str_replace(' ', '-', $this->product_name));
+            $product->slug = Str::slug($this->product_name);
             $product->description = $this->description;
             $product->price = $this->price;
             $product->quantity = $this->quantity;
