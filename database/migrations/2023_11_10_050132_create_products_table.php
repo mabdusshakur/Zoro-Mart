@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('image')->nullable();
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');
+            $table->string('product_uid')->unique();
             $table->timestamps();
         });
     }
