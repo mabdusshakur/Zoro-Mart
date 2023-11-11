@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\SubCategory;
+use Illuminate\Support\Str;
 
 class EditSubCategoryComponent extends Component
 {
@@ -29,7 +30,7 @@ class EditSubCategoryComponent extends Component
             $this->current_sub_category->update([
                 'name' => $this->sub_category_name,
                 'category_id' => $this->category_id,
-                'slug' => strtolower($this->sub_category_name)
+                'slug' => Str::slug($this->sub_category_name)
             ]);
            return redirect()->route('admin.sub-categories')->with('success', 'Sub Category updated successfully!');
         } catch (\Throwable $th) {
