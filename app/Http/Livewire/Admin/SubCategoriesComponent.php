@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class SubCategoriesComponent extends Component
 {
+    public $search;
     public function view_sub_category($id)
     {
         
@@ -21,7 +22,8 @@ class SubCategoriesComponent extends Component
     }
     public function render()
     {
-        $sub_categories = SubCategory::all();
+        $searchQuery = '%'.$this->search.'%';
+        $sub_categories = SubCategory::orderBy('id', 'DESC')->where('name', 'like', $searchQuery)->get();
         return view('livewire.admin.sub-categories-component',['sub_categories' => $sub_categories])->layout('layouts.admin');
     }
 }
