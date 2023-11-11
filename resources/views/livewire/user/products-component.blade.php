@@ -329,115 +329,142 @@
 
                                 <div class="tab-pane fade" id="FiveCol" role="tabpanel"
                                     aria-labelledby="FiveCol-tab">
-                                    <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-4">
-                                        <div class="col">
-                                            <div class="product__item white-bg mb-30">
-                                                <div class="product__thumb p-relative">
-                                                    <a href="product-details.html" class="w-img">
-                                                        <img src="{{ asset('user/assets/img/shop/product/product-1.jpg') }}"
-                                                            alt="product">
-                                                        <img class="second-img"
-                                                            src="{{ asset('user/assets/img/shop/product/product-2.jpg') }}"
-                                                            alt="product">
-                                                    </a>
-                                                    <div class="product__action p-absolute">
-                                                        <ul>
-                                                            <li><a href="#" title="Add to Wishlist"><i
-                                                                        class="fal fa-heart"></i></a></li>
-                                                            <li><a href="#" title="Quick View"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#productModalId"><i
-                                                                        class="fal fa-search"></i></a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="far fa-sliders-h"></i></a></li>
-                                                        </ul>
+                                    @foreach ($products as $product)
+                                        @php
+                                            $images = App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                                        @endphp
+                                        <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-4">
+                                            <div class="col">
+                                                <div class="product__item white-bg mb-30">
+                                                    <div class="product__thumb p-relative">
+                                                        <a href="product-details.html" class="w-img">
+                                                            @if ($images->count() > 0)
+                                                                <img src="{{ Storage::url($images[0]->image) }}"
+                                                                    alt="product">
+                                                            @endif
+
+                                                            @if ($images->count() > 1)
+                                                                <img class="second-img"
+                                                                    src="{{ Storage::url($images[1]->image) }}"
+                                                                    alt="product">
+                                                            @endif
+
+                                                        </a>
+                                                        <div class="product__action p-absolute">
+                                                            <ul>
+                                                                <li><a href="#" title="Add to Wishlist"><i
+                                                                            class="fal fa-heart"></i></a></li>
+                                                                <li><a href="#" title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#productModalId"><i
+                                                                            class="fal fa-search"></i></a></li>
+                                                                <li><a href="#" title="Compare"><i
+                                                                            class="far fa-sliders-h"></i></a></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="product__content text-center">
-                                                    <h6 class="product-name">
-                                                        <a class="product-item-link" href="product-details.html"> High
-                                                            Quality Glass Ultra-Thin Kitchen Scale</a>
-                                                    </h6>
-                                                    <div class="rating">
-                                                        <ul>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                        </ul>
+                                                    <div class="product__content text-center">
+                                                        <h6 class="product-name">
+                                                            <a class="product-item-link" href="product-details.html">
+                                                                {{ $product->name }}</a>
+                                                        </h6>
+                                                        <div class="rating">
+                                                            <ul>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <span class="price">${{ $product->price }}</span>
                                                     </div>
-                                                    <span class="price">$500.00</span>
-                                                </div>
-                                                <div class="product__add-btn">
-                                                    <button type="button">Add to Cart</button>
+                                                    <div class="product__add-btn">
+                                                        <button type="button">Add to Cart</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
 
                                 <div class="tab-pane fade" id="list" role="tabpanel"
                                     aria-labelledby="list-tab">
                                     <div class="row">
-                                        <div class="col-xxl-12">
-                                            <div class="product__item product__list white-bg mb-30 d-md-flex">
-                                                <div class="product__thumb p-relative mr-20">
-                                                    <a href="product-details.html" class="w-img">
-                                                        <img src="{{ asset('user/assets/img/shop/product/product-1.jpg') }}"
-                                                            alt="product">
-                                                        <img class="second-img"
-                                                            src="{{ asset('user/assets/img/shop/product/product-2.jpg') }}"
-                                                            alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product__content">
-                                                    <h6 class="product-name">
-                                                        <a class="product-item-link" href="product-details.html">Ipad
-                                                            2019 6th Gen 64GB Memory</a>
-                                                    </h6>
-                                                    <div
-                                                        class="rating d-sm-flex d-lg-block d-xl-flex align-items-center">
-                                                        <ul>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                        </ul>
-                                                        <div class="product-review-action ml-30">
-                                                            <span><a href="#">2 Reviews</a></span>
-                                                            <span><a href="#">Add Your Review</a></span>
+                                        @foreach ($products as $product)
+                                            @php
+                                                $images = App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                                            @endphp
+                                            <div class="col-xxl-12">
+                                                <div class="product__item product__list white-bg mb-30 d-md-flex">
+                                                    <div class="product__thumb p-relative mr-20">
+                                                        <a href="product-details.html" class="w-img">
+                                                            @if ($images->count() > 0)
+                                                                <img src="{{ Storage::url($images[0]->image) }}"
+                                                                    alt="product">
+                                                            @endif
+
+                                                            @if ($images->count() > 1)
+                                                                <img class="second-img"
+                                                                    src="{{ Storage::url($images[1]->image) }}"
+                                                                    alt="product">
+                                                            @endif
+                                                        </a>
+                                                    </div>
+                                                    <div class="product__content">
+                                                        <h6 class="product-name">
+                                                            <a class="product-item-link"
+                                                                href="product-details.html">{{ $product->name }}</a>
+                                                        </h6>
+                                                        <div
+                                                            class="rating d-sm-flex d-lg-block d-xl-flex align-items-center">
+                                                            <ul>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                                <li><a href="#"><i class="far fa-star"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="product-review-action ml-30">
+                                                                <span><a href="#">2 Reviews</a></span>
+                                                                <span><a href="#">Add Your Review</a></span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <span class="price">$500.00</span>
-                                                    <p class="product-text">Typi non habent claritatem insitam, est
-                                                        usus legentis in iis qui facit eorum claritatem. Investigationes
-                                                        demonstraverunt lectores legere me lius quod ii legunt saepius.
-                                                        Claritas est etiam processus. Lorem Ipsum has been the
-                                                        industry's standard dummy text ever since the 1500s, when
-                                                        anunknown printer took a galley </p>
-                                                    <div class="product__list-features">
-                                                        <ul>
-                                                            <li>Light green crewneck sweatshirt.</li>
-                                                            <li>Hand pockets.</li>
-                                                            <li>Relaxed fit.</li>
-                                                            <li>Machine wash/dry.</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div
-                                                        class="product__action product__action-list d-sm-flex d-lg-block d-xl-flex align-items-center">
-                                                        <button class="t-y-btn mr-10">add to cart</button>
-                                                        <ul>
-                                                            <li><a href="#" title="Add to Wishlist"><i
-                                                                        class="fal fa-heart"></i></a></li>
-                                                            <li><a href="#" title="Compare"><i
-                                                                        class="far fa-sliders-h"></i></a></li>
-                                                        </ul>
+                                                        <span class="price">${{ $product->price }}</span>
+                                                        <p class="product-text">
+                                                            {{ Str::limit($product->description, 100) }} </p>
+                                                        <div class="product__list-features">
+                                                            <ul>
+                                                                <li>Light green crewneck sweatshirt.</li>
+                                                                <li>Hand pockets.</li>
+                                                                <li>Relaxed fit.</li>
+                                                                <li>Machine wash/dry.</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div
+                                                            class="product__action product__action-list d-sm-flex d-lg-block d-xl-flex align-items-center">
+                                                            <button class="t-y-btn mr-10">add to cart</button>
+                                                            <ul>
+                                                                <li><a href="#" title="Add to Wishlist"><i
+                                                                            class="fal fa-heart"></i></a></li>
+                                                                <li><a href="#" title="Compare"><i
+                                                                            class="far fa-sliders-h"></i></a></li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
