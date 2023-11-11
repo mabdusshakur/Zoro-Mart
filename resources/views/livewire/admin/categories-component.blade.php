@@ -1,4 +1,5 @@
 <div>
+    @include('partials.admin._alerts')
     <div class="card">
         <div class="card-body">
             <div class="d-flex align-items-center">
@@ -26,7 +27,7 @@
                             <td>
                                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
                                     <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Views" aria-label="Views"><i class="fa-solid fa-eye"></i></a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i class="fa-solid fa-pencil"></i></a>
+                                    <a href="javascript:;" wire:click="edit_category(1)" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit" aria-label="Edit"><i class="fa-solid fa-pencil"></i></a>
                                     <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="fa-solid fa-trash"></i></a>
                                 </div>
                             </td>

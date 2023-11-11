@@ -39,4 +39,7 @@ Route::group(['middleware' => ['auth','isAdmin']],function () {
     Route::get('/admin-panel/dashboard/add-category', \App\Http\Livewire\Admin\AddCategoryComponent::class)->name('admin.add-category');
     Route::get('/admin-panel/dashboard/sub-categories', \App\Http\Livewire\Admin\SubCategoriesComponent::class)->name('admin.sub-categories');
     Route::get('/admin-panel/dashboard/add-sub-category', \App\Http\Livewire\Admin\AddSubCategoryComponent::class)->name('admin.add-sub-category');
+
+    Route::get('/admin-panel/dashboard/edit-category/{id}', \App\Http\Livewire\Admin\EditCategoryComponent::class)->name('admin.edit-category');
+    Route::get('/admin-panel/dashboard/edit-sub-category/{id}', \App\Http\Livewire\Admin\EditSubCategoryComponent::class)->name('admin.edit-sub-category');
 });
