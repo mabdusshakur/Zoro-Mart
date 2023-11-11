@@ -10,7 +10,7 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li>
-                                        <a href="product.html">All Products</a>
+                                        <a href="{{route('user.products')}}">All Products</a>
                                     </li>
                                     <li>
                                         <a href="product.html">Best Sell Products
