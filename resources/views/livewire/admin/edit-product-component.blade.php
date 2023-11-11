@@ -78,46 +78,26 @@
             <h6 class="mb-0">Product Preview</h6>
         </div>
         <div class="card-body">
-            <h1>Product Name</h1>
-            <p>Product Description -- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate placeat
-                excepturi nulla, eligendi dolor nihil libero facilis ducimus, repellendus iste porro dicta quos maiores
-                alias odit assumenda. Autem repellendus aut officiis asperiores iste quibusdam excepturi doloremque odio
-                nemo quisquam ipsam, repudiandae magni molestias assumenda doloribus ducimus dignissimos nesciunt eius
-                inventore. Odit, id dolor! Quis voluptas facilis perspiciatis placeat eaque? Officia ipsam incidunt
-                aliquid necessitatibus quos ab, facere vel qui facilis perspiciatis ipsa quia expedita dignissimos
-                doloribus illo id architecto consequatur alias, debitis illum unde mollitia repudiandae adipisci eius!
-                Enim voluptates eum nostrum cum dolores culpa aliquid ut sapiente at non, nobis aliquam omnis modi illo
-                voluptate excepturi, assumenda ducimus autem odio corrupti rerum consectetur nulla dignissimos dolorum!
-                Nihil autem reiciendis cumque quidem alias facere odit quam quia quibusdam! Fuga deserunt eos eum quia,
-                natus nobis cumque sed dignissimos placeat eligendi voluptatibus, dolores animi pariatur vero fugit vel
-                delectus similique doloribus totam. Consequatur libero quae, adipisci quasi fugiat officia? Magnam est
-                facilis repellat, obcaecati expedita nihil quod omnis dolor quidem quia consequuntur possimus
-                perferendis maxime id numquam similique velit ullam assumenda. Iusto voluptatum ex inventore molestiae
-                laboriosam mollitia nihil quibusdam quasi ut perferendis ullam doloribus illo omnis necessitatibus
-                quisquam suscipit voluptas sit, atque numquam eveniet earum sint rerum in! Rem vero quae necessitatibus
-                vel numquam. Amet adipisci sint commodi beatae nisi sed vel mollitia quibusdam quos nulla? Aperiam
-                beatae repudiandae vero, laborum odio amet ea eligendi ratione ab vitae placeat itaque illo, iusto
-                impedit cupiditate obcaecati nulla veniam dolore doloribus aliquid qui sunt sint! Dolorum error
-                distinctio ratione nostrum repellendus labore quo ullam deserunt tempora fuga. Quam cumque accusantium
-                recusandae repellendus ipsa sit earum, vitae, placeat assumenda sed similique? Quia accusamus sed eius
-                tempora asperiores! Optio aperiam repellendus laborum! Dolorum, blanditiis molestiae unde quos alias
-                impedit! Nemo et rerum corporis animi!</p>
-
+            <h1>{{$product_name}}</h1>
+            <p><u>Short Description </u>:  {{Str::limit($description, 60)}}</p>
+            <p><u>Description </u>:  {{$description}}</p>
             <div class="row">
-                <div class="col-md-6">
-                    <h3>Price : $ 0.00</h3>
+                <div class="col-md-3">
+                    <h4><u>Price </u> : $  {{$price}}</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4><u>Quantity </u>: {{$quantity}}</h4>
                 </div>
 
                 <div class="col-md-6">
-                    <h4>Category</h4>
+                    <h5><u>Category </u>:  {{$category_name}}</h5>
                     <hr>
-                    <h5>Sub-Category</h5>
+                    <h6><u>Sub Category </u>:  {{$sub_category_name}}</h6>
                 </div>
             </div>
             <hr>
             <div class="col-md-12">
                 <div class="row">
-
                     @if ($product_image)
                         @foreach ($product_image as $image)
                             <div class="col-md-3">

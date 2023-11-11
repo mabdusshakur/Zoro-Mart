@@ -15,7 +15,7 @@ class EditProductComponent extends Component
 {
     use WithFileUploads;
 
-    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories;
+    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories, $category_name, $sub_category_name;
     public $old_product;
 
     public function mount($id)
@@ -80,6 +80,12 @@ class EditProductComponent extends Component
     public function render()
     {
         $old_product_image = product_image::where('product_uid', $this->old_product->product_uid)->get();
+        if($this->category_id != null){
+            $this->category_name = Category::where('id', $this->category_id)->first()->name;
+        }
+        if($this->sub_category_id != null){
+            $this->sub_category_name = SubCategory::where('id', $this->sub_category_id)->first()->name;
+        }
         return view('livewire.admin.edit-product-component', ['old_product_image' => $old_product_image])->layout('layouts.admin');
     }
 }
