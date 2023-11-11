@@ -7,7 +7,7 @@
                 <form class="ms-auto position-relative">
                     <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
                             class="fa-solid fa-magnifying-glass"></i></div>
-                    <input class="form-control ps-5" type="text" placeholder="search">
+                    <input class="form-control ps-5" type="text" placeholder="Category Name" wire:model="search">
                 </form>
             </div>
             <div class="table-responsive mt-3">
