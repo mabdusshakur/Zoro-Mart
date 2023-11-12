@@ -194,7 +194,7 @@
                                         <div
                                             class="product__filter-right d-flex align-items-center justify-content-md-end">
                                             <div class="product__sorting product__show-no">
-                                                <select wire:model="per_page_item">
+                                                <select class="form-select" wire:model="per_page_item">
                                                     <option selected>Item Count</option>
                                                     <option value="10">10</option>
                                                     <option value="20">20</option>
@@ -203,7 +203,7 @@
                                                 </select>
                                             </div>
                                             <div class="product__sorting product__show-position ml-20">
-                                                <select wire:model="filter_item">
+                                                <select class="form-select" wire:model="filter_item">
                                                     <option value="by_name">Poduct Name A-Z,1-0</option>
                                                     <option value="by_lowest_price">Lowest Price</option>
                                                     <option value="by_highest_price">Highest Price</option>
