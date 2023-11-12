@@ -9,18 +9,21 @@ use Livewire\WithPagination;
 class ProductsComponent extends Component
 { 
     use WithPagination;
-    public $minPrice;
-    public $maxPrice;
+    public $per_page_item;
+    public $minPrice, $maxPrice;
     
     public function mount()
     {
         $this->minPrice = Product::min('price');
         $this->maxPrice = Product::max('price');
     }
-
+    public function check() 
+    {
+        dd($this->per_page_item);
+    }
     public function render()
     {
-        $products = Product::whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate(2);
+        $products = Product::whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate(12);
         return view('livewire.user.products-component', ['products' => $products]);
     }
 }

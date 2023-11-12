@@ -193,12 +193,14 @@
                                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                         <div
                                             class="product__filter-right d-flex align-items-center justify-content-md-end">
+                                            <button wire:click="check" class="btn btn-info">dd</button>
                                             <div class="product__sorting product__show-no">
-                                                <select>
-                                                    <option>10</option>
-                                                    <option>20</option>
-                                                    <option>30</option>
-                                                    <option>40</option>
+                                                <select name="per_page_item" wire:model="per_page_item">
+                                                    <option selected value="5">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="30">30</option>
+                                                    <option value="40">40</option>
                                                 </select>
                                             </div>
                                             <div class="product__sorting product__show-position ml-20">
@@ -444,7 +446,7 @@
         </div>
     </section>
     <!-- product area end -->
-    
+
     <!-- shop modal start -->
     @include('partials.user._shop_modal')
     <!-- shop modal end -->
