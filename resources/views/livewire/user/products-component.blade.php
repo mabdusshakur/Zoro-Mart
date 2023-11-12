@@ -73,12 +73,14 @@
                                         <div class="accordion-body">
                                             <div class="product__widget-content">
                                                 <div class="product__price-slider">
-                                                    <div>
-                                                        <form action="#">
-                                                            <input type="text" id="amount" readonly>
-                                                        </form>
-                                                    </div>
-                                                    <div id="slider-range"></div>
+                                                    <form action="#">
+                                                       <div class="row">
+                                                        <input class="form-control form-control mb-3" type="text"
+                                                        placeholder="Product Name" wire:model="minPrice">
+                                                    <input class="form-control form-control mb-3" type="text"
+                                                        placeholder="Product Name" wire:model="maxPrice">
+                                                       </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,52 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="product__widget-item mb-15">
-                            <div class="accordion" id="productWidgetAccordion2">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button product__widget-title" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="true" aria-controls="collapseThree">
-                                            Price
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingThree" data-bs-parent="#productWidgetAccordion2">
-                                        <div class="accordion-body">
-                                            <div class="product__widget-content">
-                                                <div class="product__size pt-10">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#">S</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">M</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">L</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">XL</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">XXL</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product__widget-item mb-45">
-                            <div class="banner__item mb-20 w-img">
-                                <a href="product-details.html">
-                                    <img src="{{ asset('user/assets/img/banner/banner-sm-4.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
+
                         <div class="product__widget-item">
                             <h3 class="product__widget-title mb-25">Top Rate</h3>
                             <div class="product__sm">
