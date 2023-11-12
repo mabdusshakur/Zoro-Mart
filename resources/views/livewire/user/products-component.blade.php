@@ -203,10 +203,10 @@
                                                 </select>
                                             </div>
                                             <div class="product__sorting product__show-position ml-20">
-                                                <select>
-                                                    <option>Position</option>
-                                                    <option>Poduct Name</option>
-                                                    <option>Price</option>
+                                                <select wire:model="filter_item">
+                                                    <option value="by_name">Poduct Name A-Z,1-0</option>
+                                                    <option value="by_lowest_price">Lowest Price</option>
+                                                    <option value="by_highest_price">Highest Price</option>
                                                 </select>
                                             </div>
                                         </div>
