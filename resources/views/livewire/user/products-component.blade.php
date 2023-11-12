@@ -425,33 +425,10 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-xxl-12">
-                                    <div class="basic-pagination pt-30 pb-30">
-                                        <nav>
-                                            <ul>
-                                                <li>
-                                                    <a href="blog.html">
-                                                        <i class="fal fa-chevron-double-left"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog.html">1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog.html" class="active">2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog.html">3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="blog.html">
-                                                        <i class="fal fa-chevron-double-right"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                    {{ $products->links('partials.user._pagination') }}
                                 </div>
                             </div>
                         </div>
