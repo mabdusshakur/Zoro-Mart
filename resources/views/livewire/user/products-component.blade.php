@@ -76,9 +76,9 @@
                                                     <form action="#">
                                                         <div class="row">
                                                             <input class="form-control form-control mb-3" type="text"
-                                                                placeholder="Product Name" wire:model="minPrice">
+                                                                placeholder="Min Price" wire:model="minPrice">
                                                             <input class="form-control form-control mb-3" type="text"
-                                                                placeholder="Product Name" wire:model="maxPrice">
+                                                                placeholder="Max Price" wire:model="maxPrice">
                                                         </div>
                                                     </form>
                                                 </div>
