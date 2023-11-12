@@ -9,8 +9,6 @@ use Livewire\WithPagination;
 class ProductsComponent extends Component
 { 
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
-    
     public $minPrice;
     public $maxPrice;
     

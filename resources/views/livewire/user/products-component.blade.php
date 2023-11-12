@@ -74,12 +74,12 @@
                                             <div class="product__widget-content">
                                                 <div class="product__price-slider">
                                                     <form action="#">
-                                                       <div class="row">
-                                                        <input class="form-control form-control mb-3" type="text"
-                                                        placeholder="Product Name" wire:model="minPrice">
-                                                    <input class="form-control form-control mb-3" type="text"
-                                                        placeholder="Product Name" wire:model="maxPrice">
-                                                       </div>
+                                                        <div class="row">
+                                                            <input class="form-control form-control mb-3" type="text"
+                                                                placeholder="Product Name" wire:model="minPrice">
+                                                            <input class="form-control form-control mb-3" type="text"
+                                                                placeholder="Product Name" wire:model="maxPrice">
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -428,7 +428,13 @@
 
                             <div class="row">
                                 <div class="col-xxl-12">
-                                    {{ $products->links('partials.user._pagination') }}
+                                    <div class="basic-pagination pt-30 pb-30">
+                                        <nav>
+                                            <ul>
+                                                {{ $products->links('partials.user._pagination') }}
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -438,32 +444,7 @@
         </div>
     </section>
     <!-- product area end -->
-
-    <!-- brand area start -->
-    <section class="brand__area">
-        <div class="container custom-container">
-            <div class="row align-items-center">
-                <div class="col-xl-12">
-                    <div class="brand__slider owl-carousel">
-                        <div class="brand__item">
-                            <img src="{{ asset('user/assets/img/brand/brand-1.jpg') }}" alt="">
-                        </div>
-                        <div class="brand__item">
-                            <img src="{{ asset('user/assets/img/brand/brand-2.jpg') }}" alt="">
-                        </div>
-                        <div class="brand__item">
-                            <img src="{{ asset('user/assets/img/brand/brand-3.jpg') }}" alt="">
-                        </div>
-                        <div class="brand__item">
-                            <img src="{{ asset('user/assets/img/brand/brand-4.jpg') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- brand area end -->
-
+    
     <!-- shop modal start -->
     @include('partials.user._shop_modal')
     <!-- shop modal end -->
