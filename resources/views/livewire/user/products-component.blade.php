@@ -246,11 +246,11 @@
                                                             <ul>
                                                                 <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
-                                                                <li><a href="#" title="Quick View"
-                                                                        wire:click="showProductModal({{ $product->id }})"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#productModalId"><i
-                                                                            class="fal fa-search"></i></a></li>
+                                                                <li>
+                                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#addProductModal" title="Quick View" wire:click="showProductModal({{ $product->id }})">
+                                                                        <i class="fal fa-search"></i>
+                                                                    </a>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>

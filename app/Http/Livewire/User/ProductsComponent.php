@@ -14,6 +14,7 @@ class ProductsComponent extends Component
     public $per_page_item, $filter_item;
     public $minPrice, $maxPrice;
     
+    public $product_name, $product_description, $product_price, $product_quantity, $product_uid;
     public function mount()
     {
         $this->minPrice = Product::min('price');
@@ -33,7 +34,12 @@ class ProductsComponent extends Component
     }
     public function showProductModal($id)       
     {
-        dd($id);
+        $product = Product::find($id);
+        $this->product_name = $product->name;
+        $this->product_description = $product->description;
+        $this->product_quantity = $product->quantity;
+        $this->product_price = $product->price;
+        $this->product_uid = $product->product_uid;
     }
     public function render()
     {
