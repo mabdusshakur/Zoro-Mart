@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="product__modal-links">
                                         <ul>
-                                            <li><a href="#" title="Add to Wishlist"><i
+                                            <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
                                                         class="fal fa-heart"></i></a></li>
                                             <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a>
                                             </li>
