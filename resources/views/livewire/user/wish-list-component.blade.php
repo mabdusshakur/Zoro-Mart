@@ -25,9 +25,9 @@
                                             $images = App\Models\product_image::where('product_uid', $wishlist->product->product_uid)->get();
                                         @endphp
                                         <tr>
-                                            <td class=""><a href="product-details.html"><img src="{{ Storage::url($images[0]->image) }}" class="img-thumbnail" alt="" height="120rem" width="120rem"></a>
+                                            <td class=""><a><img src="{{ Storage::url($images[0]->image) }}" class="img-thumbnail" alt="" height="120rem" width="120rem"></a>
                                             </td>
-                                            <td class=""><a href="product-details.html">{{ $wishlist->product->name }}</a></td>
+                                            <td class=""><a>{{ $wishlist->product->name }}</a></td>
                                             <td>
                                                 <button class="t-y-btn t-y-btn-grey" type="submit">View Product</button>
                                             </td>
