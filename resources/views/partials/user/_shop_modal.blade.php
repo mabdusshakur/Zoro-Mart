@@ -19,7 +19,7 @@
                                             @foreach ($images as $image)
                                                 <div class="col-md-4">
                                                     <img src="{{ Storage::url($image->image) }}" width="140rem"
-                                                       class="img-thumbnail" height="140rem" alt="">
+                                                        class="img-thumbnail" height="140rem" alt="">
                                                 </div>
                                             @endforeach
 
@@ -35,7 +35,11 @@
                                     </div>
                                     <div class="product__stock">
                                         <span>Availability : {{ $product_quantity }}</span>
-                                        <span>In Stock</span>
+                                        @if ($product_quantity > 0)
+                                            <span>In Stock</span>
+                                        @else
+                                            <span class="text-danger">Out Of Stock</span>
+                                        @endif
                                     </div>
                                     <div class="product__review d-sm-flex">
                                         <div class="rating rating__shop mb-15 mr-35">
@@ -71,14 +75,16 @@
                                     <div class="product__modal-links">
                                         <ul>
                                             <li>
-                                                <a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist">
-                                                    <i class="fal fa-heart"></i></a></li>
+                                                <a href="javascript:;" wire:click="addToWishlist({{ $product->id }})"
+                                                    title="Add to Wishlist">
+                                                    <i class="fal fa-heart"></i></a>
+                                            </li>
                                             <li>
                                                 <a href="#" title="Print">
                                                     <i class="fal fa-print"></i></a>
                                             </li>
                                             <li><a href="#" title="Print">
-                                                <i class="fal fa-share-alt"></i></a>
+                                                    <i class="fal fa-share-alt"></i></a>
                                             </li>
                                         </ul>
                                     </div>
