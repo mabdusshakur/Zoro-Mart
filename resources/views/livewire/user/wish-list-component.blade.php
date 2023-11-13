@@ -20,14 +20,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class=""><a href="product-details.html"><img
-                                                    src="assets/img/shop/product/product-1.jpg" alt=""></a></td>
-                                        <td class=""><a href="product-details.html">Bakix Furniture</a></td>
-                                        <td>
-                                            <button class="t-y-btn t-y-btn-grey" type="submit">View Product</button>
-                                        </td>
-                                    </tr>
+                                    @foreach ($wishlists as $wishlist)
+                                        <tr>
+                                            <td class=""><a href="product-details.html"><img
+                                                        src="assets/img/shop/product/product-1.jpg" alt=""></a>
+                                            </td>
+                                            <td class=""><a href="product-details.html">{{$wishlist->product->name}}</a></td>
+                                            <td>
+                                                <button class="t-y-btn t-y-btn-grey" type="submit">View
+                                                    Product</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

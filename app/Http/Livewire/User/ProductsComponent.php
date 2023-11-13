@@ -4,7 +4,9 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Product;
 use Livewire\Component;
+use App\Models\Wishlist;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsComponent extends Component
 { 
@@ -18,6 +20,16 @@ class ProductsComponent extends Component
         $this->maxPrice = Product::max('price');
         $this->per_page_item = 10;
         $this->filter_item = 'by_name';
+    }
+    public function addToWishlist($id)
+    {
+        $product = Product::find($id);
+        $wishlist = new Wishlist();
+        $wishlist->user_id = Auth::user()->id;
+        $wishlist->product_id = $product->id;
+        $wishlist->save();
+        session()->flash('success', 'Product has been added in wishlist successfully!');
+        // return redirect()->route('user.wishlist');
     }
     public function render()
     {

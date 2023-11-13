@@ -4,6 +4,7 @@
     @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
+    @include('partials.user._alerts')
     <!-- product area start -->
     <section class="product__area box-plr-75 pb-70">
         <div class="container-fluid">
@@ -243,7 +244,7 @@
                                                         </a>
                                                         <div class="product__action p-absolute">
                                                             <ul>
-                                                                <li><a href="#" title="Add to Wishlist"><i
+                                                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
                                                                 <li><a href="#" title="Quick View"
                                                                         data-bs-toggle="modal"
