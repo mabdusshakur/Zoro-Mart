@@ -21,14 +21,15 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($wishlists as $wishlist)
+                                        @php
+                                            $images = App\Models\product_image::where('product_uid', $wishlist->product->product_uid)->get();
+                                        @endphp
                                         <tr>
-                                            <td class=""><a href="product-details.html"><img
-                                                        src="assets/img/shop/product/product-1.jpg" alt=""></a>
+                                            <td class=""><a href="product-details.html"><img src="{{ Storage::url($images[0]->image) }}" alt=""></a>
                                             </td>
-                                            <td class=""><a href="product-details.html">{{$wishlist->product->name}}</a></td>
+                                            <td class=""><a href="product-details.html">{{ $wishlist->product->name }}</a></td>
                                             <td>
-                                                <button class="t-y-btn t-y-btn-grey" type="submit">View
-                                                    Product</button>
+                                                <button class="t-y-btn t-y-btn-grey" type="submit">View Product</button>
                                             </td>
                                         </tr>
                                     @endforeach
