@@ -70,13 +70,15 @@
                                     </div>
                                     <div class="product__modal-links">
                                         <ul>
-                                            <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
-                                                        class="fal fa-heart"></i></a></li>
-                                            <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a>
+                                            <li>
+                                                <a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist">
+                                                    <i class="fal fa-heart"></i></a></li>
+                                            <li>
+                                                <a href="#" title="Print">
+                                                    <i class="fal fa-print"></i></a>
                                             </li>
-                                            <li><a href="#" title="Print"><i class="fal fa-print"></i></a>
-                                            </li>
-                                            <li><a href="#" title="Print"><i class="fal fa-share-alt"></i></a>
+                                            <li><a href="#" title="Print">
+                                                <i class="fal fa-share-alt"></i></a>
                                             </li>
                                         </ul>
                                     </div>
