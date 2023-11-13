@@ -311,7 +311,7 @@
                                                         </a>
                                                         <div class="product__action p-absolute">
                                                             <ul>
-                                                                <li><a href="#" title="Add to Wishlist"><i
+                                                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
                                                                 <li><a href="#" title="Quick View"
                                                                         data-bs-toggle="modal"
@@ -414,7 +414,7 @@
                                                             class="product__action product__action-list d-sm-flex d-lg-block d-xl-flex align-items-center">
                                                             <button class="t-y-btn mr-10">add to cart</button>
                                                             <ul>
-                                                                <li><a href="#" title="Add to Wishlist"><i
+                                                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
                                                                 <li><a href="#" title="Compare"><i
                                                                             class="far fa-sliders-h"></i></a></li>
