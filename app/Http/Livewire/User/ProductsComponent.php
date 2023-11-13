@@ -31,6 +31,10 @@ class ProductsComponent extends Component
         session()->flash('success', 'Product has been added in wishlist successfully!');
         // return redirect()->route('user.wishlist');
     }
+    public function showProductModal($id)       
+    {
+        dd($id);
+    }
     public function render()
     {
         if($this->filter_item == 'by_name')
