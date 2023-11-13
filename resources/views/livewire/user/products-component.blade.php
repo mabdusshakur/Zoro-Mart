@@ -288,11 +288,11 @@
 
                                 <div class="tab-pane fade" id="FiveCol" role="tabpanel"
                                     aria-labelledby="FiveCol-tab">
+                                    <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-4">
                                     @foreach ($products as $product)
                                         @php
                                             $images = App\Models\product_image::where('product_uid', $product->product_uid)->get();
                                         @endphp
-                                        <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-4">
                                             <div class="col">
                                                 <div class="product__item white-bg mb-30">
                                                     <div class="product__thumb p-relative">
@@ -348,8 +348,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endforeach
                                         </div>
-                                    @endforeach
                                 </div>
 
                                 <div class="tab-pane fade" id="list" role="tabpanel"
