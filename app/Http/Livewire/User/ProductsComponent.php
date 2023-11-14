@@ -66,6 +66,10 @@ class ProductsComponent extends Component
         return redirect()->route('user.cart');
     }
 
+    public function mainSearch()
+    {
+        return redirect()->route('user.product');
+    }
 
     public function render()
     {
