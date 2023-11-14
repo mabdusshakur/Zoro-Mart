@@ -1,4 +1,5 @@
 <div>
+    @include('partials.user._inlcudes')
     <!-- breadcrumb area start -->
     @section('current-page-name', 'Wish List')
     @include('partials.user._bread_crumb')

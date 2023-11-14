@@ -1,4 +1,6 @@
 <div>
+    
+    @include('partials.user._inlcudes')
     <!-- slider area satrt -->
     @include('partials.user._slider_area')
     <!-- slider area end -->

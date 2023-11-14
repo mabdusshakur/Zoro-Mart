@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class HomeComponent extends Component
 {
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid , $product_id;
+    
+    public $cart_item_count, $cartItems;
+
     public function addToWishlist($id)
     {
         $product = Product::find($id);
@@ -50,8 +53,10 @@ class HomeComponent extends Component
         return redirect()->route('user.cart');
     }
     public function render()
-    {
+    {   
         $products = Product::orderBy('name', 'ASC')->get();
+        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
+        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         return view('livewire.user.home-component');
     }
 }

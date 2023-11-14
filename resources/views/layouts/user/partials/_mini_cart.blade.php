@@ -1,6 +1,6 @@
 <div class="cart__mini-wrapper d-none d-md-flex f-right p-relative">
     <a href="javascript:void(0);" class="cart__toggle">
-        <span class="cart__total-item">01</span>
+        <span class="cart__total-item">{{$cart_item_count}}</span>
     </a>
     <span class="cart__content">
         <span class="cart__my">My Cart:</span>
@@ -15,23 +15,26 @@
             <li>
                 <div class="cart__title">
                     <h4>My Cart</h4>
-                    <span>(1 Item in Cart)</span>
+                    <span>({{$cart_item_count}} Item in Cart)</span>
                 </div>
             </li>
             <li>
+                @foreach ($cartItems as $item)
+                @php
+                    $images = \App\Models\product_image::where('product_uid', $item->product->product_uid)->get();
+                @endphp
                 <div class="cart__item d-flex justify-content-between align-items-center">
                     <div class="cart__inner d-flex">
                         <div class="cart__thumb">
                             <a href="product-details.html">
-                                <img src="{{ asset('user/assets/img/shop/product/cart/cart-mini-1.jpg') }}"
+                                <img src="{{ Storage::url($images[0]->image) }}"
                                     alt="" />
                             </a>
                         </div>
                         <div class="cart__details">
-                            <h6><a href="product-details.html"> Samsung C49J89: £875,
-                                    Debenhams Plus </a></h6>
+                            <h6><a href="product-details.html"> {{$item->product->name}} </a></h6>
                             <div class="cart__price">
-                                <span>$255.00</span>
+                                <span>${{$item->product->price}}</span>
                             </div>
                         </div>
                     </div>
@@ -39,6 +42,7 @@
                         <a href="#"><i class="fal fa-trash-alt"></i></a>
                     </div>
                 </div>
+                @endforeach
             </li>
             <li>
                 <div class="cart__sub d-flex justify-content-between align-items-center">
