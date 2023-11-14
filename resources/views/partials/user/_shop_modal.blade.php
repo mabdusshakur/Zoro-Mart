@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="pro-cart-btn mb-25">
                                                 <button class="t-y-btn" type="submit"
-                                                    wire:click="addToCart({{ $product->id }})">Add to cart</button>
+                                                    wire:click="addToCart({{ $product_id }})">Add to cart</button>
                                             </div>
                                         </div>
                                     </form>
