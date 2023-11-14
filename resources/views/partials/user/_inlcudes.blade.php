@@ -1,5 +1,5 @@
     <!-- preloader area start -->
-    @include('layouts.user.partials._preloader')
+    {{-- @include('layouts.user.partials._preloader') --}}
     <!-- preloader area end -->
 
     <!-- back to top start -->

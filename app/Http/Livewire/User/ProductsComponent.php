@@ -17,7 +17,8 @@ class ProductsComponent extends Component
 
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
     public $cart_item_count, $cartItems;
-    
+
+    public $main_search = '';
     public function mount()
     {
         $this->minPrice = Product::min('price');
@@ -48,7 +49,7 @@ class ProductsComponent extends Component
 
     public function addToCart($id)
     {
-        
+
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
         if ($cart) {
             $cart->quantity = $cart->quantity + 1;
@@ -65,14 +66,17 @@ class ProductsComponent extends Component
         return redirect()->route('user.cart');
     }
 
+
     public function render()
     {
+        $searchTerm = '%' . $this->main_search . '%';
         if ($this->filter_item == 'by_name') {
-            $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+            $products = Product::where('name', 'LIKE', $searchTerm)->orWhere('name', 'LIKE', $searchTerm)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+
         } else if ($this->filter_item == 'by_lowest_price') {
-            $products = Product::orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+            $products = Product::where('name', 'LIKE', $searchTerm)->orWhere('name', 'LIKE', $searchTerm)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
         } else if ($this->filter_item == 'by_highest_price') {
-            $products = Product::orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+            $products = Product::where('name', 'LIKE', $searchTerm)->orWhere('name', 'LIKE', $searchTerm)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
         }
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();

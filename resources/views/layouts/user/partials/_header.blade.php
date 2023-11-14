@@ -46,23 +46,9 @@
                             <div class="header__search f-left d-none d-sm-block">
                                 <form action="#">
                                     <div class="header__search-box">
-                                        <input type="text" placeholder="Search For Products..." />
-                                        <button type="submit">Search</button>
-                                    </div>
-                                    <div class="header__search-cat">
-                                        <select>
-                                            <option>All Categories</option>
-                                            <option>Best Seller Products</option>
-                                            <option>Top 10 Offers</option>
-                                            <option>New Arrivals</option>
-                                            <option>Phones & Tablets</option>
-                                            <option>Electronics & Digital</option>
-                                            <option>Fashion & Clothings</option>
-                                            <option>Health & Beauty</option>
-                                            <option>Sound & Speakers</option>
-                                            <option>TV & Audio</option>
-                                            <option>Computers</option>
-                                        </select>
+                                        <input type="text" placeholder="Search For Products..."
+                                            wire:model="main_search">
+                                        <button type="submit" wire:click="mainSearch">Search</button>
                                     </div>
                                 </form>
                             </div>
