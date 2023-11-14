@@ -25,9 +25,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($cartItems as $item)
+                                        @php
+                                            $images = App\Models\product_image::where('product_uid', $item->product->product_uid)->get();
+                                        @endphp
                                         <tr>
                                             <td class="product-thumbnail"><a href="product-details.html"><img
-                                                        src="assets/img/shop/product/product-1.jpg" alt=""></a>
+                                                        src="{{ Storage::url($images[0]->image) }}" alt="" class="img-thumbnail"></a>
                                             </td>
                                             <td class="product-name"><a
                                                     href="product-details.html">{{ $item->product->name }}</a>
@@ -39,7 +42,9 @@
                                                 <div class="col-md-6  mx-auto">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <a href="javascript:;" wire:click="decreaseQuantity({{$item->id}})" class="form-control"><i
+                                                            <a href="javascript:;"
+                                                                wire:click="decreaseQuantity({{ $item->id }})"
+                                                                class="form-control"><i
                                                                     class="fa-solid fa-minus"></i></a>
                                                         </div>
                                                         <div class="col-md-6">
@@ -47,7 +52,9 @@
                                                                 value="{{ $item->quantity }}">
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <a href="javascript:;" wire:click="increaseQuantity({{$item->id}})" class="form-control"><i
+                                                            <a href="javascript:;"
+                                                                wire:click="increaseQuantity({{ $item->id }})"
+                                                                class="form-control"><i
                                                                     class="fa-solid fa-plus"></i></a>
                                                         </div>
                                                     </div>
