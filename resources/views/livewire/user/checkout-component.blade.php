@@ -12,7 +12,6 @@
                 <div class="col-md-6">
                     <div class="coupon-accordion">
                         <!-- ACCORDION START -->
-                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
                         <div id="checkout-login" class="coupon-content">
                             <div class="coupon-info">
                                 <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed
@@ -148,20 +147,7 @@
                                         <input type="text" placeholder="Postcode / Zip" />
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list create-acc">
-                                        <input id="cbox" type="checkbox" />
-                                        <label>Create an account?</label>
-                                    </div>
-                                    <div id="cbox_info" class="checkout-form-list create-account">
-                                        <p>Create an account by entering the information below. If you are a returning
-                                            customer please login at the top of the page.</p>
-                                        <label>Account password <span class="required">*</span></label>
-                                        <input type="password" placeholder="password" />
-                                    </div>
-                                </div>
                             </div>
-                            <div class="different-address">
                                 <div class="ship-different-title">
                                     <h3>
                                         <label>Ship to a different address?</label>
@@ -254,7 +240,7 @@
                                             placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                     </div>
                                 </div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-lg-6">
