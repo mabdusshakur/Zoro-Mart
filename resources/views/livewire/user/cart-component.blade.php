@@ -35,7 +35,22 @@
                                                     class="amount">${{ number_format($item->product->price, 2) }}</span>
                                             </td>
                                             <td class="product-quantity">
-                                                <button class="t-y-btn t-y-btn-grey" type="submit">Add TO Cart</button>
+                                                <div class="col-md-6  mx-auto">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <a href="" class="form-control"><i
+                                                                    class="fa-solid fa-minus"></i></a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="number" class="form-control"
+                                                                value="{{ $item->quantity }}">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <a href="" class="form-control"><i
+                                                                    class="fa-solid fa-plus"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td class="product-subtotal"><span
                                                     class="amount">${{ number_format($item->product->price * $item->quantity, 2) }}</span>
