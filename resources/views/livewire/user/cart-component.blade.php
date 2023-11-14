@@ -4,6 +4,7 @@
     @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
+    @include('partials.user._alerts')
     <!-- Cart Area Strat-->
     <section class="cart-area pb-100">
         <div class="container">
@@ -38,7 +39,7 @@
                                                 <div class="col-md-6  mx-auto">
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <a href="" class="form-control"><i
+                                                            <a href="javascript:;" wire:click="decreaseQuantity({{$item->id}})" class="form-control"><i
                                                                     class="fa-solid fa-minus"></i></a>
                                                         </div>
                                                         <div class="col-md-6">
@@ -46,7 +47,7 @@
                                                                 value="{{ $item->quantity }}">
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <a href="" class="form-control"><i
+                                                            <a href="javascript:;" wire:click="increaseQuantity({{$item->id}})" class="form-control"><i
                                                                     class="fa-solid fa-plus"></i></a>
                                                         </div>
                                                     </div>
