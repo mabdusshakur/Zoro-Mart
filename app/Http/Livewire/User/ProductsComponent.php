@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Livewire\Component;
 use App\Models\Wishlist;
@@ -9,11 +10,11 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 
 class ProductsComponent extends Component
-{ 
+{
     use WithPagination;
     public $per_page_item, $filter_item;
     public $minPrice, $maxPrice;
-    
+
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
     public function mount()
     {
@@ -32,7 +33,7 @@ class ProductsComponent extends Component
         session()->flash('success', 'Product has been added in wishlist successfully!');
         // return redirect()->route('user.wishlist');
     }
-    public function showProductModal($id)       
+    public function showProductModal($id)
     {
         $product = Product::find($id);
         $this->product_name = $product->name;
@@ -42,18 +43,26 @@ class ProductsComponent extends Component
         $this->product_uid = $product->product_uid;
         $this->product_id = $product->id;
     }
+
+    public function addToCart($id)
+    {
+        $product = Product::find($id);
+        $cart = new Cart();
+        $cart->user_id = Auth::user()->id;
+        $cart->product_id = $product->id;
+        $cart->quantity = 1;
+        $cart->save();
+
+        session()->flash('success', 'Product has been added in cart successfully!');
+        return redirect()->route('user.cart');
+    }
     public function render()
     {
-        if($this->filter_item == 'by_name')
-        {
+        if ($this->filter_item == 'by_name') {
             $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
-        }
-        else if($this->filter_item == 'by_lowest_price')
-        {
+        } else if ($this->filter_item == 'by_lowest_price') {
             $products = Product::orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
-        }
-        else if($this->filter_item == 'by_highest_price')
-        {
+        } else if ($this->filter_item == 'by_highest_price') {
             $products = Product::orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
         }
         return view('livewire.user.products-component', ['products' => $products]);

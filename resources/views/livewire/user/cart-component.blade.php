@@ -23,30 +23,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="product-thumbnail"><a href="product-details.html"><img
-                                                    src="assets/img/shop/product/product-1.jpg" alt=""></a></td>
-                                        <td class="product-name"><a href="product-details.html">Bakix Furniture</a></td>
-                                        <td class="product-price"><span class="amount">$130.00</span></td>
-                                        <td class="product-quantity">
-                                            <button class="t-y-btn t-y-btn-grey" type="submit">Add TO Cart</button>
-                                        </td>
-                                        <td class="product-subtotal"><span class="amount">$130.00</span></td>
-                                        <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-thumbnail"><a href="product-details.html"><img
-                                                    src="assets/img/shop/product/product-2.jpg" alt=""></a></td>
-                                        <td class="product-name"><a href="product-details.html">Sujon Chair Set</a></td>
-                                        <td class="product-price"><span class="amount">$120.50</span></td>
-                                        <td class="product-quantity">
-                                            <button class="t-y-btn t-y-btn-grey" type="submit">Add TO Cart</button>
-                                        </td>
-                                        <td class="product-subtotal"><span class="amount">$120.50</span></td>
-                                        <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($cartItems as $item)
+                                        <tr>
+                                            <td class="product-thumbnail"><a href="product-details.html"><img
+                                                        src="assets/img/shop/product/product-1.jpg" alt=""></a>
+                                            </td>
+                                            <td class="product-name"><a
+                                                    href="product-details.html">{{ $item->product->name }}</a>
+                                            </td>
+                                            <td class="product-price"><span
+                                                    class="amount">${{ number_format($item->product->price, 2) }}</span>
+                                            </td>
+                                            <td class="product-quantity">
+                                                <button class="t-y-btn t-y-btn-grey" type="submit">Add TO Cart</button>
+                                            </td>
+                                            <td class="product-subtotal"><span
+                                                    class="amount">$</span>
+                                            </td>
+                                            <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -277,7 +277,7 @@
                                                         <span class="price">${{ $product->price }}</span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                        <button type="button"  wire:click="addToCart({{$product->id}})">Add to Cart</button>
                                                     </div>
                                                 </div>
                                             </div>
