@@ -46,16 +46,23 @@ class ProductsComponent extends Component
 
     public function addToCart($id)
     {
-        $product = Product::find($id);
-        $cart = new Cart();
-        $cart->user_id = Auth::user()->id;
-        $cart->product_id = $product->id;
-        $cart->quantity = 1;
-        $cart->save();
-
-        session()->flash('success', 'Product has been added in cart successfully!');
+        
+        $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
+        if ($cart) {
+            $cart->quantity = $cart->quantity + 1;
+            $cart->save();
+            session()->flash('success', 'Product has been added in cart successfully!');
+        } else {
+            $cart = new Cart();
+            $cart->user_id = Auth::user()->id;
+            $cart->product_id = $this->product_id;
+            $cart->quantity = 1;
+            $cart->save();
+            session()->flash('success', 'Product has been added in cart successfully!');
+        }
         return redirect()->route('user.cart');
     }
+
     public function render()
     {
         if ($this->filter_item == 'by_name') {
