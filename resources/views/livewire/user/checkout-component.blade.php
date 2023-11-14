@@ -67,7 +67,7 @@
     <!-- checkout-area start -->
     <section class="checkout-area pb-70">
         <div class="container">
-            <form action="#">
+            <form wire:submit.prevent="placeOrder">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="checkbox-form">
@@ -76,168 +76,73 @@
                                 <div class="col-md-12">
                                     <div class="country-select">
                                         <label>Country <span class="required">*</span></label>
-                                        <select>
-                                            <option value="volvo">bangladesh</option>
-                                            <option value="saab">Algeria</option>
-                                            <option value="mercedes">Afghanistan</option>
-                                            <option value="audi">Ghana</option>
-                                            <option value="audi2">Albania</option>
-                                            <option value="audi3">Bahrain</option>
-                                            <option value="audi4">Colombia</option>
-                                            <option value="audi5">Dominican Republic</option>
+                                        <select wire:model="country">
+                                            <option>Select Country</option>
+                                             @foreach ($countryList as $country)
+                                                <option value="{{$country->id}}">{{ $country->name }}</option>  
+                                            @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                </div> 
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>First Name <span class="required">*</span></label>
-                                        <input type="text" placeholder="" />
+                                        <input type="text" placeholder="" wire:model="first_name"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Last Name <span class="required">*</span></label>
-                                        <input type="text" placeholder="" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
-                                        <label>Company Name</label>
-                                        <input type="text" placeholder="" />
+                                        <input type="text" placeholder="" wire:model="last_name"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Address <span class="required">*</span></label>
-                                        <input type="text" placeholder="Street address" />
+                                        <input type="text" placeholder="Street address" wire:model="address_1"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
-                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)" />
+                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)" wire:model="address_2"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Town / City <span class="required">*</span></label>
-                                        <input type="text" placeholder="Town / City" />
+                                        <input type="text" placeholder="Town / City" wire:model="city"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>State / County <span class="required">*</span></label>
-                                        <input type="text" placeholder="" />
+                                        <input type="text" placeholder="" wire:model="country"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Postcode / Zip <span class="required">*</span></label>
-                                        <input type="text" placeholder="Postcode / Zip" />
+                                        <input type="text" placeholder="Postcode / Zip" wire:model="zipcode"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Email Address <span class="required">*</span></label>
-                                        <input type="email" placeholder="" />
+                                        <input type="email" placeholder="" wire:model="email"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Phone <span class="required">*</span></label>
-                                        <input type="text" placeholder="Postcode / Zip" />
+                                        <input type="text" placeholder="Phone" wire:model="phone"/>
                                     </div>
                                 </div>
                             </div>
-                                <div class="ship-different-title">
-                                    <h3>
-                                        <label>Ship to a different address?</label>
-                                        <input id="ship-box" type="checkbox" />
-                                    </h3>
-                                </div>
-                                <div id="ship-box-info">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="country-select">
-                                                <label>Country <span class="required">*</span></label>
-                                                <select>
-                                                    <option value="volvo">bangladesh</option>
-                                                    <option value="saab">Algeria</option>
-                                                    <option value="mercedes">Afghanistan</option>
-                                                    <option value="audi">Ghana</option>
-                                                    <option value="audi2">Albania</option>
-                                                    <option value="audi3">Bahrain</option>
-                                                    <option value="audi4">Colombia</option>
-                                                    <option value="audi5">Dominican Republic</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>First Name <span class="required">*</span></label>
-                                                <input type="text" placeholder="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Last Name <span class="required">*</span></label>
-                                                <input type="text" placeholder="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="checkout-form-list">
-                                                <label>Company Name</label>
-                                                <input type="text" placeholder="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="checkout-form-list">
-                                                <label>Address <span class="required">*</span></label>
-                                                <input type="text" placeholder="Street address" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="checkout-form-list">
-                                                <input type="text"
-                                                    placeholder="Apartment, suite, unit etc. (optional)" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="checkout-form-list">
-                                                <label>Town / City <span class="required">*</span></label>
-                                                <input type="text" placeholder="Town / City" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>State / County <span class="required">*</span></label>
-                                                <input type="text" placeholder="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Postcode / Zip <span class="required">*</span></label>
-                                                <input type="text" placeholder="Postcode / Zip" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Email Address <span class="required">*</span></label>
-                                                <input type="email" placeholder="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Phone <span class="required">*</span></label>
-                                                <input type="text" placeholder="Postcode / Zip" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="order-notes">
                                     <div class="checkout-form-list">
                                         <label>Order Notes</label>
                                         <textarea id="checkout-mess" cols="30" rows="10"
-                                            placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                            placeholder="Notes about your order, e.g. special notes for delivery." wire:model="notes"></textarea>
                                     </div>
                                 </div>
 
@@ -357,7 +262,7 @@
                                     </div>
                                 </div>
                                 <div class="order-button-payment mt-20">
-                                    <button type="submit" class="t-y-btn t-y-btn-grey">Place order</button>
+                                    <button type="submit" class="t-y-btn t-y-btn-grey" >Place order</button>
                                 </div>
                             </div>
                         </div>
