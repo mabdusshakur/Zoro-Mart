@@ -1,6 +1,4 @@
 <div>
-
-    @include('partials.user._inlcudes')
     <!-- breadcrumb area start -->
     @section('current-page-name', 'Login')
     @include('partials.user._bread_crumb')

@@ -1,5 +1,4 @@
 <div>
-    @include('partials.user._inlcudes')
     <!-- breadcrumb area start -->
     @section('current-page-name', 'Register')
     @include('partials.user._bread_crumb')
@@ -13,13 +12,27 @@
                         <h3 class="text-center mb-60">Signup From Here</h3>
                         <form wire:submit.prevent="register">
 
-                            <label for="name">Name <span>**</span></label>
-                            <input id="name" type="text"
-                                class="form-control @error('user_name') is-invalid @enderror"
-                                placeholder="Enter Username" wire:model='user_name' />
-                            @error('user_name')
-                                <span class="invalid-feedback"> {{ $message }}</span>
-                            @enderror
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="name">First Name <span>**</span></label>
+                                    <input id="name" type="text"
+                                        class="form-control @error('user_first_name') is-invalid @enderror"
+                                        placeholder="Enter Username" wire:model='user_first_name' />
+                                    @error('user_first_name')
+                                        <span class="invalid-feedback"> {{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="name">Last Name <span>**</span></label>
+                                    <input id="name" type="text"
+                                        class="form-control @error('user_last_name') is-invalid @enderror"
+                                        placeholder="Enter Username" wire:model='user_last_name' />
+                                    @error('user_last_name')
+                                        <span class="invalid-feedback"> {{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <label for="email">Email Address <span>**</span></label>
                             <input id="email" type="email"

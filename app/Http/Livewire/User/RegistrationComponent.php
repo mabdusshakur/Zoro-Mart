@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Session;
 
 class RegistrationComponent extends Component
 {
-    public $user_name, $email, $password, $c_password;
+    public $user_first_name,$user_last_name, $email, $password, $c_password;
     public function register()
     {
         $validatedData = $this->validate([
-            'user_name' => 'required|min:6',
+            'user_first_name' => 'required',
+            'user_last_name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|same:c_password',
             'c_password' => 'required|min:6',
@@ -33,7 +34,8 @@ class RegistrationComponent extends Component
         }
         
         User::create([
-            'name' => $this->user_name,
+            'user_first_name' => $this->user_first_name,
+            'user_last_name' => $this->user_last_name,
             'email' => $this->email,
             'password' => bcrypt($this->password),
         ]);
