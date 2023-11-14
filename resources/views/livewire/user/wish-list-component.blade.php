@@ -4,6 +4,7 @@
     @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
+    @include('partials.user._alerts')
     <!-- Cart Area Strat-->
     <section class="cart-area pb-100">
         <div class="container">
@@ -29,7 +30,9 @@
                                             </td>
                                             <td class=""><a>{{ $wishlist->product->name }}</a></td>
                                             <td>
-                                                <button class="t-y-btn t-y-btn-grey" type="submit">View Product</button>
+                                                <a href="javascript:;"><i class="fa-solid fa-eye"></i></a>
+                                                <a href="javascript:;" class="text-danger m-2" wire:click="removeProduct({{$wishlist->id}})"><i class="fa-solid fa-trash"></i></a>
+                                                {{-- <button class="t-y-btn t-y-btn-grey" type="submit">View Product</button> --}}
                                             </td>
                                         </tr>
                                     @endforeach

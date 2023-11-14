@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('user/assets/css/ui-range-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/default.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/plugins/fontawesome-free-6.4.2-web/css/all.min.css') }}">
     @livewireStyles
 </head>
 
