@@ -277,7 +277,7 @@
                                                         <span class="price">${{ $product->price }}</span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button"  wire:click="addToCart({{$product->id}})">Add to Cart</button>
+                                                        <button type="button" wire:click="addToCart({{$product->id}})">Add to Cart</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -341,7 +341,7 @@
                                                         <span class="price">${{ $product->price }}</span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button">Add to Cart</button>
+                                                        <button type="button" wire:click="addToCart({{$product->id}})">Add to Cart</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -409,7 +409,7 @@
                                                         </div>
                                                         <div
                                                             class="product__action product__action-list d-sm-flex d-lg-block d-xl-flex align-items-center">
-                                                            <button class="t-y-btn mr-10">add to cart</button>
+                                                            <button class="t-y-btn mr-10" wire:click="addToCart({{$product->id}})">add to cart</button>
                                                             <ul>
                                                                 <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
