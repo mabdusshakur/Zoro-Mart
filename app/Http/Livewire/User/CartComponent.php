@@ -4,9 +4,11 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
+    public $cart_item_count, $cartItems;
     public function increaseQuantity($id)
     {
         $cart = Cart::find($id);
@@ -27,7 +29,8 @@ class CartComponent extends Component
     }
     public function render()
     {
-        $cartItems = Cart::where('user_id', auth()->user()->id)->get();
-        return view('livewire.user.cart-component', ['cartItems' => $cartItems]);
+        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
+        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
+        return view('livewire.user.cart-component');
     }
 }

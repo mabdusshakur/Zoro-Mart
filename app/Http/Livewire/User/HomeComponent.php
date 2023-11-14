@@ -35,8 +35,7 @@ class HomeComponent extends Component
         $this->product_id = $product->id;
     }
     public function addToCart($id)
-    {
-        
+    {    
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
         if ($cart) {
             $cart->quantity = $cart->quantity + 1;
@@ -45,7 +44,7 @@ class HomeComponent extends Component
         } else {
             $cart = new Cart();
             $cart->user_id = Auth::user()->id;
-            $cart->product_id = $this->product_id;
+            $cart->product_id = $id;
             $cart->quantity = 1;
             $cart->save();
             session()->flash('success', 'Product has been added in cart successfully!');
