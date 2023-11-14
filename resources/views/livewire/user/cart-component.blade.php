@@ -38,7 +38,7 @@
                                                 <button class="t-y-btn t-y-btn-grey" type="submit">Add TO Cart</button>
                                             </td>
                                             <td class="product-subtotal"><span
-                                                    class="amount">$</span>
+                                                    class="amount">${{ number_format($item->product->price * $item->quantity, 2) }}</span>
                                             </td>
                                             <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
                                             </td>
