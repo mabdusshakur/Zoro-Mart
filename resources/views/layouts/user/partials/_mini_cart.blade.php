@@ -47,9 +47,9 @@
                 </div>
             </li>
             <li>
-                <a href="checkout.html" class="t-y-btn w-100 mb-10">Proceed to
+                <a href="{{ route('user.checkout') }}" class="t-y-btn w-100 mb-10">Proceed to
                     checkout</a>
-                <a href="cart.html" class="t-y-btn t-y-btn-border w-100 mb-10">view
+                <a href="{{ route('user.cart') }}" class="t-y-btn t-y-btn-border w-100 mb-10">view
                     add edit cart</a>
             </li>
         </ul>
