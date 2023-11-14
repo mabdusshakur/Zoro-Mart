@@ -75,7 +75,7 @@
                                     <div class="product__modal-links">
                                         <ul>
                                             <li>
-                                                <a href="javascript:;" wire:click="addToWishlist({{ $product->id }})"
+                                                <a href="javascript:;" wire:click="addToWishlist({{ $product_id }})"
                                                     title="Add to Wishlist">
                                                     <i class="fal fa-heart"></i></a>
                                             </li>
