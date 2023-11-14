@@ -34,8 +34,8 @@ class RegistrationComponent extends Component
         }
         
         User::create([
-            'user_first_name' => $this->user_first_name,
-            'user_last_name' => $this->user_last_name,
+            'first_name' => $this->user_first_name,
+            'ast_name' => $this->user_last_name,
             'email' => $this->email,
             'password' => bcrypt($this->password),
         ]);
