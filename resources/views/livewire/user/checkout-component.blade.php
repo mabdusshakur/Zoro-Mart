@@ -155,13 +155,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
-                                            $sub_total_price = 0;
-                                        @endphp
                                         @foreach ($cartItems as $item)
-                                            @php
-                                                $sub_total_price += $item->product->price;
-                                            @endphp
                                             <tr class="cart_item">
                                                 <td class="product-name">
                                                     {{ $item->product->name }} <strong class="product-quantity"> ×
@@ -177,11 +171,12 @@
                                     <tfoot>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">${{ number_format($sub_total_price , 2)}}</span></td>
+                                            <td><span class="amount">${{ number_format($total_price, 2) }}</span></td>
                                         </tr>
                                         <tr class="order-total">
                                             <th>Order Total</th>
-                                            <td><strong><span class="amount">${{ number_format($sub_total_price , 2)}}</span></strong>
+                                            <td><strong><span
+                                                        class="amount">${{ number_format($total_price, 2) }}</span></strong>
                                             </td>
                                         </tr>
                                     </tfoot>
@@ -189,7 +184,17 @@
                             </div>
 
                             <div class="payment-method">
-                                <div class="accordion" id="checkoutAccordion">
+
+                                @foreach ($payment_options as $option)
+                                    <div class="form-check">
+                                        <input type="radio" id="{{ $option['value'] }}" class="form-check-input"
+                                            wire:model="payment_method" value="{{ $option['value'] }}">
+                                        <label for="{{ $option['value'] }}"
+                                            class="form-check-label">{{ $option['label'] }}</label>
+                                    </div>
+                                @endforeach
+                                
+                                {{-- <div class="accordion" id="checkoutAccordion">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="paypalThree">
                                             <button class="accordion-button collapsed" type="button"
@@ -206,7 +211,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="order-button-payment mt-20">
                                     <button type="submit" class="t-y-btn t-y-btn-grey">Place order</button>
                                 </div>
