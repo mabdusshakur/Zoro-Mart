@@ -5,6 +5,8 @@
     @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
+
+    @include('partials.user._alerts')
     <!-- coupon-area start -->
     <section class="coupon-area pb-30">
         <div class="container">

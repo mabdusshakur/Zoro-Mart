@@ -17,6 +17,7 @@ class CheckoutComponent extends Component
     public $payment_options = [
         ['value' => "cod", 'label' => 'Cash On Delivery'],
         ['value' => "bip", 'label' => 'Binance Pay'],
+        ['value' => "stripe", 'label' => 'Stripe'],
     ];
 
     public $countryList;
@@ -65,24 +66,50 @@ class CheckoutComponent extends Component
             'zipcode' => $this->zipcode,
         ]);
 
-        $order = new Order();
-        $order->user_id = Auth::user()->id;
-        $order->total = $this->total_price;
-        $order->status = 'ordered';
-        $order->payment_method = $this->payment_method;
-        if($order->save())
-        {
-            foreach($this->cartItems as $item)
-            {
-                $orderItem = new OrderItem();
-                $orderItem->order_id = $order->id;
-                $orderItem->product_id = $item->product_id;
-                $orderItem->quantity = $item->quantity;
-                $orderItem->price = $item->product->price;
-                $orderItem->save();
-                $item->delete();
+
+        if ($this->payment_method == 'cod') {
+            $order = new Order();
+            $order->user_id = Auth::user()->id;
+            $order->total = $this->total_price;
+            $order->status = 'ordered';
+            $order->payment_method = $this->payment_method;
+            if ($order->save()) {
+                foreach ($this->cartItems as $item) {
+                    $orderItem = new OrderItem();
+                    $orderItem->order_id = $order->id;
+                    $orderItem->product_id = $item->product_id;
+                    $orderItem->quantity = $item->quantity;
+                    $orderItem->price = $item->product->price;
+                    $orderItem->save();
+                    $item->delete();
+                }
+                return redirect()->route('user.home')->with('success', 'Your order has been placed successfully');
             }
-            return redirect()->route('user.home')->with('success', 'Your order has been placed successfully');
+        } else if ($this->payment_method == 'stripe') {
+            $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+
+            $line_items = [];
+            
+            foreach ($this->cartItems as $item) {
+                $line_items[] = [
+                    'price_data' => [
+                        'currency' => 'usd',
+                        'product_data' => [
+                            'name' => $item->product->name,
+                        ],
+                        'unit_amount' => $item->product->price * 100,
+                    ],
+                    'quantity' => $item->quantity,
+                ];
+            }
+
+            $checkout_session = $stripe->checkout->sessions->create([
+                'line_items' => $line_items,
+                'mode' => 'payment',
+                'success_url' => route('user.home'),
+                'cancel_url' => route('user.checkout'),
+            ]);
+            return redirect($checkout_session->url);
         }
     }
     public function render()
