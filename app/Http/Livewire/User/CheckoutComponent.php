@@ -40,16 +40,16 @@ class CheckoutComponent extends Component
         //     'zipcode' => 'required',
         // ]);
 
-        // $allDetails = Auth::user()->update([
-        //     'phone' => $this->phone,
-        //     'address_1' => $this->address_1,
-        //     'address_2' => $this->address_2,
-        //     'city' => $this->city,
-        //     'country' => $this->country,
-        //     'zipcode' => $this->zipcode,
-        // ]);
+        $allDetails = Auth::user()->update([
+            'phone' => $this->phone,
+            'address_1' => $this->address_1,
+            'address_2' => $this->address_2,
+            'city' => $this->city,
+            'country' => $this->country,
+            'zipcode' => $this->zipcode,
+        ]);
 
-        dd($this->country);
+        dd($allDetails);
     }
     public function render()
     {

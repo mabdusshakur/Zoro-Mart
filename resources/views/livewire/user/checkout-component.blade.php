@@ -115,12 +115,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>State / County <span class="required">*</span></label>
-                                        <input type="text" placeholder="" wire:model="country"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
                                         <label>Postcode / Zip <span class="required">*</span></label>
                                         <input type="text" placeholder="Postcode / Zip" wire:model="zipcode"/>
                                     </div>
@@ -160,22 +154,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="cart_item">
-                                            <td class="product-name">
-                                                Vestibulum suscipit <strong class="product-quantity"> × 1</strong>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="amount">$165.00</span>
-                                            </td>
-                                        </tr>
-                                        <tr class="cart_item">
-                                            <td class="product-name">
-                                                Vestibulum dictum magna <strong class="product-quantity"> × 1</strong>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="amount">$50.00</span>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                     <tfoot>
                                         <tr class="cart-subtotal">
