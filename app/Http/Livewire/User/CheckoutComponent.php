@@ -89,7 +89,7 @@ class CheckoutComponent extends Component
             $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
 
             $line_items = [];
-            
+
             foreach ($this->cartItems as $item) {
                 $line_items[] = [
                     'price_data' => [
@@ -106,10 +106,30 @@ class CheckoutComponent extends Component
             $checkout_session = $stripe->checkout->sessions->create([
                 'line_items' => $line_items,
                 'mode' => 'payment',
-                'success_url' => route('user.home'),
-                'cancel_url' => route('user.checkout'),
+                'success_url' => route('user.checkout.success') . '?session_id={CHECKOUT_SESSION_ID}',
+                'cancel_url' => route('user.checkout.cancel'),
             ]);
-            return redirect($checkout_session->url);
+
+            $order = new Order();
+            $order->user_id = Auth::user()->id;
+            $order->total = $this->total_price;
+            $order->status = 'unpaid';
+            $order->payment_method = $this->payment_method;
+            $order->transaction_id = $checkout_session->id;
+            session()->put('checkout_session_id', $checkout_session->id);
+            
+            if ($order->save()) {
+                foreach ($this->cartItems as $item) {
+                    $orderItem = new OrderItem();
+                    $orderItem->order_id = $order->id;
+                    $orderItem->product_id = $item->product_id;
+                    $orderItem->quantity = $item->quantity;
+                    $orderItem->price = $item->product->price;
+                    $orderItem->save();
+                    $item->delete();
+                }
+                return redirect($checkout_session->url);
+            }
         }
     }
     public function render()

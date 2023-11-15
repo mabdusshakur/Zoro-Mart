@@ -1,6 +1,8 @@
 <?php
 use App\Http\Livewire\User\CartComponent;
+use App\Http\Livewire\User\CheckoutCancelComponent;
 use App\Http\Livewire\User\CheckoutComponent;
+use App\Http\Livewire\User\CheckoutSuccessComponent;
 use App\Http\Livewire\User\HomeComponent;
 use App\Http\Livewire\User\LoginComponent;
 use App\Http\Livewire\User\ProductDetailsComponent;
@@ -19,7 +21,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/product-details', ProductDetailsComponent::class)->name('user.product-details');
     Route::get('/wishlist', WishListComponent::class)->name('user.wishlist');
     Route::get('/cart', CartComponent::class)->name('user.cart');
+
     Route::get('/checkout', CheckoutComponent::class)->name('user.checkout');
+    Route::get('/checkout-success', CheckoutSuccessComponent::class)->name('user.checkout.success');
+    Route::get('/checkout-cancel', CheckoutCancelComponent::class)->name('user.checkout.cancel');
 
     Route::get('/logout', function(){Auth::logout();})->name('user.logout');
 });
