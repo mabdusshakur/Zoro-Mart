@@ -78,67 +78,68 @@
                                         <label>Country <span class="required">*</span></label>
                                         <select wire:model="country">
                                             <option>Select Country</option>
-                                             @foreach ($countryList as $country)
-                                                <option value="{{$country->id}}">{{ $country->name }}</option>  
+                                            @foreach ($countryList as $country)
+                                                <option value="{{ $country->id }}">{{ $country->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>First Name <span class="required">*</span></label>
-                                        <input type="text" placeholder="" wire:model="first_name"/>
+                                        <input type="text" placeholder="" wire:model="first_name" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Last Name <span class="required">*</span></label>
-                                        <input type="text" placeholder="" wire:model="last_name"/>
+                                        <input type="text" placeholder="" wire:model="last_name" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Address <span class="required">*</span></label>
-                                        <input type="text" placeholder="Street address" wire:model="address_1"/>
+                                        <input type="text" placeholder="Street address" wire:model="address_1" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
-                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)" wire:model="address_2"/>
+                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)"
+                                            wire:model="address_2" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
                                         <label>Town / City <span class="required">*</span></label>
-                                        <input type="text" placeholder="Town / City" wire:model="city"/>
+                                        <input type="text" placeholder="Town / City" wire:model="city" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Postcode / Zip <span class="required">*</span></label>
-                                        <input type="text" placeholder="Postcode / Zip" wire:model="zipcode"/>
+                                        <input type="text" placeholder="Postcode / Zip" wire:model="zipcode" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Email Address <span class="required">*</span></label>
-                                        <input type="email" placeholder="" wire:model="email"/>
+                                        <input type="email" placeholder="" wire:model="email" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
                                         <label>Phone <span class="required">*</span></label>
-                                        <input type="text" placeholder="Phone" wire:model="phone"/>
+                                        <input type="text" placeholder="Phone" wire:model="phone" />
                                     </div>
                                 </div>
                             </div>
-                                <div class="order-notes">
-                                    <div class="checkout-form-list">
-                                        <label>Order Notes</label>
-                                        <textarea id="checkout-mess" cols="30" rows="10"
-                                            placeholder="Notes about your order, e.g. special notes for delivery." wire:model="notes"></textarea>
-                                    </div>
+                            <div class="order-notes">
+                                <div class="checkout-form-list">
+                                    <label>Order Notes</label>
+                                    <textarea id="checkout-mess" cols="30" rows="10"
+                                        placeholder="Notes about your order, e.g. special notes for delivery." wire:model="notes"></textarea>
                                 </div>
+                            </div>
 
                         </div>
                     </div>
@@ -154,21 +155,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $sub_total_price = 0;
+                                        @endphp
                                         @foreach ($cartItems as $item)
-                                        <tr class="cart_item">
-                                            <td class="product-name">
-                                                {{$item->product->name}} <strong class="product-quantity"> × {{$item->quantity}}</strong>
-                                            </td>
-                                            <td class="product-total">
-                                                <span class="amount">${{ number_format($item->product->price * $item->quantity, 2) }}</span>
-                                            </td>
-                                        </tr>
+                                            @php
+                                                $sub_total_price += $item->product->price;
+                                            @endphp
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                    {{ $item->product->name }} <strong class="product-quantity"> ×
+                                                        {{ $item->quantity }}</strong>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span
+                                                        class="amount">${{ number_format($item->product->price * $item->quantity, 2) }}</span>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">$215.00</span></td>
+                                            <td><span class="amount">${{ $sub_total_price }}</span></td>
                                         </tr>
                                         <tr class="shipping">
                                             <th>Shipping</th>
@@ -250,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div class="order-button-payment mt-20">
-                                    <button type="submit" class="t-y-btn t-y-btn-grey" >Place order</button>
+                                    <button type="submit" class="t-y-btn t-y-btn-grey">Place order</button>
                                 </div>
                             </div>
                         </div>
