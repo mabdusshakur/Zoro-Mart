@@ -177,7 +177,7 @@
                                     <tfoot>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">${{ $sub_total_price }}</span></td>
+                                            <td><span class="amount">${{ number_format($sub_total_price , 2)}}</span></td>
                                         </tr>
                                         <tr class="shipping">
                                             <th>Shipping</th>
