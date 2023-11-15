@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
 use App\Models\Country;
+use App\Models\Order;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,16 +30,16 @@ class CheckoutComponent extends Component
 
     public function placeOrder()
     {
-        // $this->validate([
-        //     'first_name' => 'required',
-        //     'last_name' => 'required',
-        //     'email' => 'required|email',
-        //     'phone' => 'required|numeric',
-        //     'address_1' => 'required',
-        //     'city' => 'required',
-        //     'country' => 'required',
-        //     'zipcode' => 'required',
-        // ]);
+        $this->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric',
+            'address_1' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'zipcode' => 'required',
+        ]);
 
         $allDetails = Auth::user()->update([
             'phone' => $this->phone,
@@ -49,7 +50,7 @@ class CheckoutComponent extends Component
             'zipcode' => $this->zipcode,
         ]);
 
-        dd($allDetails);
+       
     }
     public function render()
     {
