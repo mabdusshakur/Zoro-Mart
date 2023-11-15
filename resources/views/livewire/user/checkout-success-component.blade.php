@@ -8,5 +8,5 @@
 
     @include('partials.user._alerts')
 
-    <h1>Thanks, {{$userName}} for choosing us.</h1>
+    <h1>Thanks, for choosing us.</h1>
 </div>

@@ -87,9 +87,6 @@ class CheckoutComponent extends Component
             }
         } else if ($this->payment_method == 'stripe') {
             $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-
-            $line_items = [];
-
             foreach ($this->cartItems as $item) {
                 $line_items[] = [
                     'price_data' => [
@@ -117,7 +114,7 @@ class CheckoutComponent extends Component
             $order->payment_method = $this->payment_method;
             $order->transaction_id = $checkout_session->id;
             session()->put('checkout_session_id', $checkout_session->id);
-            
+
             if ($order->save()) {
                 foreach ($this->cartItems as $item) {
                     $orderItem = new OrderItem();
