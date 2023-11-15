@@ -154,7 +154,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @foreach ($cartItems as $item)
+                                        <tr class="cart_item">
+                                            <td class="product-name">
+                                                {{$item->product->name}} <strong class="product-quantity"> × {{$item->quantity}}</strong>
+                                            </td>
+                                            <td class="product-total">
+                                                <span class="amount">${{ number_format($item->product->price * $item->quantity, 2) }}</span>
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr class="cart-subtotal">
