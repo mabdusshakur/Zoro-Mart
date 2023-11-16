@@ -103,7 +103,7 @@ class CheckoutComponent extends Component
             $checkout_session = $stripe->checkout->sessions->create([
                 'line_items' => $line_items,
                 'mode' => 'payment',
-                'success_url' => route('user.checkout.success') . '?session_id={CHECKOUT_SESSION_ID}',
+                'success_url' => route('user.checkout.success'),
                 'cancel_url' => route('user.checkout.cancel'),
             ]);
 
