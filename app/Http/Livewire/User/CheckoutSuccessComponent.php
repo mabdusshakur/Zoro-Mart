@@ -35,7 +35,6 @@ class CheckoutSuccessComponent extends Component
                   $order->status = "paid";
                   $order->save();    
                 }
-
             }
             else
             {

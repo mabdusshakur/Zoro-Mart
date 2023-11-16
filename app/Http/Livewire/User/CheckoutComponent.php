@@ -134,7 +134,7 @@ class CheckoutComponent extends Component
     public function stripe_webhook()
     {
         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        // // This is your Stripe CLI webhook secret for testing your endpoint locally.
+        // This is your Stripe CLI webhook secret for testing your endpoint locally.
         $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
 
         $payload = @file_get_contents('php://input');
