@@ -25,7 +25,7 @@ class CheckoutSuccessComponent extends Component
             }
             if(!$session->payment_status == "paid")
             {
-                return redirect()->route('user.home');
+                throw new \Exception("Invalid Payment Status");
             }
             if($session->status == "complete")
             {
@@ -34,7 +34,12 @@ class CheckoutSuccessComponent extends Component
                 {
                   $order->status = "paid";
                   $order->save();    
+                  session()->forget('checkout_session_id');
                 }
+            }
+            else
+            {
+                throw new \Exception("Invalid Payment Status C");
             }
         } catch (\Throwable $th) {
             throw new \Exception("Invalid Checkout Session ID");
