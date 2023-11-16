@@ -2,27 +2,27 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Cart;
 use App\Models\Order;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CheckoutSuccessComponent extends Component
 {
+    public $cart_item_count, $cartItems;
+
     public $userName;
     public function mount()
-    {
-        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        $session = $stripe->checkout->sessions->retrieve(session()->get('checkout_session_id'));
-        dd($this->userName);
-        $customer = $stripe->customers->retrieve($session->customer);
-       
+    {   
+        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
+        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
+        
         try {
+            $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+            $session = $stripe->checkout->sessions->retrieve(session()->get('checkout_session_id'));
             if (!$session) {
                 throw new \Exception("Invalid Checkout Session ID");
             }
-            // $customer = $stripe->customers->retrieve($session->customer);
-
             $order = Order::where('transaction_id', $session->id)->first();
             if($order && $order->status == "unpaid")
             {
