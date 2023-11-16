@@ -19,15 +19,22 @@ class CheckoutSuccessComponent extends Component
         
         try {
             $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-            $session = $stripe->checkout->sessions->retrieve(session()->get('checkout_session_id'));
+            $session = $stripe->checkout->sessions->retrieve(session()->get('checkout_session_id'));   
             if (!$session) {
                 throw new \Exception("Invalid Checkout Session ID");
             }
-            $order = Order::where('transaction_id', $session->id)->first();
-            if($order && $order->status == "unpaid")
+            if(!$session->payment_status == "paid")
             {
-              $order->status = "paid";
-              $order->save();    
+                return redirect()->route('user.home');
+            }
+            if($session->status == "complete")
+            {
+                $order = Order::where('transaction_id', $session->id)->first();
+                if($order && $order->status == "unpaid")
+                {
+                  $order->status = "paid";
+                  $order->save();    
+                }
             }
         } catch (\Throwable $th) {
             throw new \Exception("Invalid Checkout Session ID");
