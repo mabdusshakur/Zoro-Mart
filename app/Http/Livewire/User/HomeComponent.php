@@ -54,8 +54,9 @@ class HomeComponent extends Component
     public function render()
     {   
         $products = Product::orderBy('name', 'ASC')->get();
+        $best_selling_products = Product::orderBy('sold', 'DESC')->take(2)->get();
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-        return view('livewire.user.home-component');
+        return view('livewire.user.home-component',['products' => $products, 'best_selling_products' => $best_selling_products]);
     }
 }
