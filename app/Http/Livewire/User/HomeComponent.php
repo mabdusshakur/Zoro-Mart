@@ -60,6 +60,11 @@ class HomeComponent extends Component
         }
         return redirect()->route('user.cart');
     }
+
+    public function goTogCategoryProducts($id,$slug)
+    {
+        return redirect()->route('user.products', ['id' => $id, 'slug' => $slug]);
+    }
     public function render()
     {   
         $products = Product::orderBy('name', 'ASC')->get();

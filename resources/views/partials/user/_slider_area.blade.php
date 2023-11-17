@@ -14,7 +14,10 @@
                                     </li>
 
                                     @foreach ($categories as $category)
-                                        <li><a href="product.html">{{ $category->name }} </a>
+                                        <li>
+                                            <a href="javascript:;" wire:click="goTogCategoryProducts({{$category->id}},'{{ $category->slug}}')">
+                                                {{ $category->name }}
+                                            </a>
                                             <ul class="mega-menu">
                                                 @foreach ($category->sub_categories as $subcategory)
                                                     <li>
