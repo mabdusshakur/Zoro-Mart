@@ -10,50 +10,26 @@
                             <nav id="mobile-menu">
                                 <ul>
                                     <li>
-                                        <a href="{{route('user.products')}}">All Products</a>
+                                        <a href="{{ route('user.products') }}">All Products</a>
                                     </li>
-                                    <li>
-                                        <a href="product.html">Best Sell Products
-                                            <span class="cat-label">hot!</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">Top 10 Offers
-                                            <span class="cat-label green">new!</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">New Arrivals </a>
-                                    </li>
-                                    <li><a href="product.html">Phones & Tablets</a></li>
-                                    <li><a href="product.html">Electronics & Digital</a></li>
-                                    <li class="d-laptop-none"><a href="product.html">Fashion & Clothings</a>
-                                    <li><a href="product.html">Health & Beauty</a></li>
-                                    <li><a href="product.html">TV & Audio</a></li>
-                                    <li><a href="product.html">Digital Products <i class="far fa-angle-down"></i></a>
-                                        <ul class="mega-menu">
-                                            <li><a href="product.html">Windows Keys</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Windows 11</a></li>
-                                                    <li><a href="product-details.html">Windows 10 Pro</a></li>
-                                                </ul>
-                                            </li>
 
-                                            <li><a href="product.html">Netflix Subscriptions</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">1 Month</a></li>
-                                                    <li><a href="product-details.html">3 Month</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li><a href="product.html">Games</a>
-                                                <ul class="mega-item">
-                                                    <li><a href="product-details.html">Gta 5</a></li>
-                                                    <li><a href="product-details.html">Valorant</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    @foreach ($categories as $category)
+                                        <li><a href="product.html">{{ $category->name }} </a>
+                                            <ul class="mega-menu">
+                                                @foreach ($category->sub_categories as $subcategory)
+                                                    <li>
+                                                        <ul class="mega-item">
+                                                            <li>
+                                                                <a href="product-details.html">
+                                                                    {{ $subcategory->name }}
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </nav>
                         </div>

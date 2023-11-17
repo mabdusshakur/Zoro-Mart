@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
 use App\Models\Wishlist;
@@ -14,6 +15,14 @@ class HomeComponent extends Component
     
     public $cart_item_count, $cartItems;
 
+    public $categories;
+
+    public function mount()
+    {
+        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
+        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
+        $this->categories = Category::all();
+    }
     public function addToWishlist($id)
     {
         $product = Product::find($id);
@@ -55,8 +64,6 @@ class HomeComponent extends Component
     {   
         $products = Product::orderBy('name', 'ASC')->get();
         $best_selling_products = Product::orderBy('sold', 'DESC')->take(8)->get();
-        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         return view('livewire.user.home-component',['products' => $products, 'best_selling_products' => $best_selling_products]);
     }
 }
