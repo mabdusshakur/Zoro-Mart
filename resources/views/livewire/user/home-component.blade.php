@@ -629,14 +629,16 @@
                     <div class="sale__slider owl-carousel">
                         @foreach ($products as $product)
                             @if ($product->on_sale == true)
+                            @php
+                                $images = $images = \App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                            @endphp
                             <div class="product__item-wrapper">
                                 <div class="product__item product__item-2 white-bg d-flex mb-20">
                                     <div class="product__thumb product__thumb-sale p-relative">
                                         <a href="product-details.html" class="w-img">
-                                            <img src="{{ asset('user/assets/img/shop/product/product-14.jpg') }}"
-                                                alt="product" />
+                                            <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                             <img class="second-img"
-                                                src="{{ asset('user/assets/img/shop/product/product-1.jpg') }}"
+                                                src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
                                                 alt="product" />
                                         </a>
                                     </div>
