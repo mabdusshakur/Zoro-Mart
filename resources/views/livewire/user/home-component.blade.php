@@ -189,7 +189,7 @@
                                                     alt="product" />
                                                 </a>
                                                 <div class="product__offer">
-                                                    <span class="discount">-34%</span>
+                                                    <span class="discount">-{{ (($product->price - $product->discount_price) / $product->price) * 100}}%</span>
                                                 </div>
                                             </div>
                                         </div>
