@@ -663,8 +663,8 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <span class="new new-2">$90.00</span>
-                                        <span class="price-old"> <del>$100.00</del> </span>
+                                        <span class="new new-2">${{$product->discount_price}}</span>
+                                        <span class="price-old"> <del>${{$product->price}}</del> </span>
                                     </div>
                                 </div>
                             </div>
