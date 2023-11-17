@@ -92,13 +92,17 @@
                             <div class="product__slider owl-carousel">
 
                                 @foreach ($best_selling_products as $product)
+                                    @php
+                                        $images = $images = \App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                                    @endphp
+
                                     <div class="product__item product__item-2 white-bg">
                                         <div class="product__thumb p-relative">
                                             <a href="product-details.html" class="w-img">
-                                                <img src="{{ asset('user/assets/img/shop/product/product-1.jpg') }}"
+                                                <img src="{{ Storage::url($images[0]->image) }}"
                                                     alt="product" />
                                                 <img class="second-img"
-                                                    src="{{ asset('user/assets/img/shop/product/product-2.jpg') }}"
+                                                    src="{{ Storage::url($images[1]->image) }}"
                                                     alt="product" />
                                             </a>
                                             <div class="product__action p-absolute">
@@ -121,7 +125,8 @@
                                         </div>
                                         <div class="product__content text-center">
                                             <h6 class="product-name">
-                                                <a class="product-item-link" href="product-details.html">{{$product->name}}</a>
+                                                <a class="product-item-link"
+                                                    href="product-details.html">{{ $product->name }}</a>
                                             </h6>
                                             <div class="rating">
                                                 <ul>
@@ -142,7 +147,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <span class="price">${{$product->price}}</span>
+                                            <span class="price">${{ $product->price }}</span>
                                         </div>
                                         <div class="product__add-btn">
                                             <button type="button">Add to Cart</button>
