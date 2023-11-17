@@ -102,7 +102,7 @@
                                                 <img src="{{ Storage::url($images[0]->image) }}"
                                                     alt="product" />
                                                 <img class="second-img"
-                                                    src="{{ Storage::url($images[1]->image) }}"
+                                                    src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
                                                     alt="product" />
                                             </a>
                                             <div class="product__action p-absolute">
