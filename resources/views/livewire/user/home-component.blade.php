@@ -71,34 +71,6 @@
         </div>
     </section>
     <!-- features area end -->
-
-    <!-- banner area start -->
-    <section class="banner__area pt-20 pb-10">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="banner__item w-img mb-30">
-                        <a href="product-details.html"><img src="{{ asset('user/assets/img/banner/banner-1.jpg') }}"
-                                alt="" /></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img src="{{ asset('user/assets/img/banner/banner-2.jpg') }}"
-                                alt="" /></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img src="{{ asset('user/assets/img/banner/banner-3.jpg') }}"
-                                alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner area end -->
-
     <!-- best selling area start -->
     <section class="best__sell pt-15 pb-40">
         <div class="container">
@@ -1733,27 +1705,6 @@
     </section>
     <!-- best selling area end -->
 
-    <!-- banner area start -->
-    <section class="banner__area pt-20 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img
-                                src="{{ asset('user/assets/img/banner/banner-4.jpg') }}" alt="" /></a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img
-                                src="{{ asset('user/assets/img/banner/banner-5.jpg') }}" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner area end -->
-
     <!-- deal off the day area start -->
     <section class="deal__area pb-40">
         <div class="container">
@@ -2180,33 +2131,6 @@
         </div>
     </section>
     <!-- deal off the day area end -->
-
-    <!-- banner area start -->
-    <section class="banner__area pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img
-                                src="{{ asset('user/assets/img/banner/banner-6.jpg') }}" alt="" /></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img
-                                src="{{ asset('user/assets/img/banner/banner-7.jpg') }}" alt="" /></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img
-                                src="{{ asset('user/assets/img/banner/banner-8.jpg') }}" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner area end -->
 
     <!-- onsale product area start -->
     <section class="onsell__area pt-15 pb-40">

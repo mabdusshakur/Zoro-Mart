@@ -23,6 +23,9 @@ return new class extends Migration {
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('sub_category_id')->references('id')->on('sub_categories')->onDelete('cascade');
             $table->string('product_uid')->unique();
+            $table->integer('sold')->default(0);
+            $table->decimal('discount_price')->nullable();
+            $table->boolean('on_sale')->default(false);
             $table->timestamps();
         });
     }
