@@ -163,27 +163,6 @@
     </section>
     <!-- best selling area end -->
 
-    <!-- banner area start -->
-    <section class="banner__area pt-20 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img src="{{ asset('user/assets/img/banner/banner-4.jpg') }}"
-                                alt="" /></a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="banner__item mb-30 w-img">
-                        <a href="product-details.html"><img src="{{ asset('user/assets/img/banner/banner-5.jpg') }}"
-                                alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner area end -->
-
     <!-- deal off the day area start -->
     <section class="deal__area pb-40">
         <div class="container">
