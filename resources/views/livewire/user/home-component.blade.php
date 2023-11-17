@@ -80,7 +80,7 @@
                 <div class="col-xl-12">
                     <div class="section__head d-md-flex justify-content-between mb-40">
                         <div class="section__title">
-                            <h3>Best Selling<span>Products</span></h3>
+                            <h3>Best Selling<span> Products</span></h3>
                         </div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
                 <div class="col-xl-6">
                     <div class="section__head d-md-flex justify-content-between mb-40">
                         <div class="section__title">
-                            <h3>Deals<span>Of The Day</span></h3>
+                            <h3>Deals <span>Of The Day</span></h3>
                         </div>
                     </div>
                     <div class="product__deal owl-carousel">
@@ -254,6 +254,67 @@
                         @endforeach
                     </div>
                 </div>
+
+                <div class="col-xl-6">
+                    <div class="section__head d-md-flex justify-content-between mb-40">
+                        <div class="section__title">
+                            <h3>Most Viewed <span> Products</span></h3>
+                        </div>
+                    </div>
+                    <div class="product__deal owl-carousel">
+                        @foreach ($products as $product)
+                            @php
+                                $images = $images = \App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                            @endphp
+                            <div class="product__deal-item">
+                                <div class="product__item product__item-2 product__sale mb-30">
+                                    <div class="row">
+                                        <div class="col-xl-6  col-lg-6 col-md-6 col-sm-6">
+                                            <div class="product__thumb product__thumb-big p-relative">
+                                                <a href="product-details.html" class="w-img">
+                                                    <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
+                                                <img class="second-img"
+                                                    src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
+                                                    alt="product" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <div class="product__content product__content-2">
+                                                <h6 class="product-name product__deal-name">
+                                                    <a class="product-item-link" href="product-details.html">
+                                                        {{ $product->name }} </a>
+                                                </h6>
+                                                <div class="rating rating-2">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#"><i class="far fa-star"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"><i class="far fa-star"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"><i class="far fa-star"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"><i class="far fa-star"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"><i class="far fa-star"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <span class="new mb-5">${{ $product->discount_price }}</span>
+                                                <span class="price-old mb-5"> <del>${{ $product->price }}</del> </span>
+                                                <p class="mt-10">{{ $product->description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -266,7 +327,7 @@
                 <div class="col-xl-12">
                     <div class="section__head d-flex justify-content-between mb-40">
                         <div class="section__title">
-                            <h3>On Sale<span>Products</span></h3>
+                            <h3>On Sale <span>Products</span></h3>
                         </div>
                     </div>
                 </div>
