@@ -126,6 +126,9 @@ class CheckoutComponent extends Component
                     $orderItem->quantity = $item->quantity;
                     $orderItem->price = $item->product->price;
                     $orderItem->save();
+                    $item->product->quantity = $item->product->quantity - $item->quantity;
+                    $item->product->sold = $item->product->sold + $item->quantity;
+                    $item->product->save();
                     $item->delete();
                 }
                 return redirect($checkout_session->url);
