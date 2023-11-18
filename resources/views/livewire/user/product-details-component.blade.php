@@ -5,6 +5,7 @@
     @include('partials.user._bread_crumb')
     <!-- breadcrumb area end -->
 
+    @include('partials.user._alerts')
     <!-- product area start -->
     <section class="product__area box-plr-75 pb-70">
         <div class="container-fluid">
@@ -105,21 +106,19 @@
                             </ul>
                         </div> --}}
                         <div class="product__details-quantity mb-20">
-                            <form action="#">
                                 <div class="pro-quan-area d-lg-flex align-items-center">
                                     <div class="product-quantity mr-20 mb-25">
                                         <div class="cart-plus-minus p-relative"><input type="text"
                                                 value="1" /></div>
                                     </div>
                                     <div class="pro-cart-btn mb-25">
-                                        <button class="t-y-btn" type="submit">Add to cart</button>
+                                        <button class="t-y-btn" type="submit" wire:click="addToCart({{$product->id}})">Add to cart</button>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                         <div class="product__details-action">
                             <ul>
-                                <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
+                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
                                 <li><a href="#" title="Share"><i class="fal fa-share-alt"></i></a></li>
                             </ul>
                         </div>
