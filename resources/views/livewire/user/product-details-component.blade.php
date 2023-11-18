@@ -202,11 +202,8 @@
                             </div>
                             <div class="product__details-action">
                                 <ul>
-                                    <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a>
-                                    </li>
-                                    <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a></li>
-                                    <li><a href="#" title="Print"><i class="fal fa-print"></i></a></li>
-                                    <li><a href="#" title="Print"><i class="fal fa-share-alt"></i></a></li>
+                                    <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
+                                    <li><a href="#" title="Share"><i class="fal fa-share-alt"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -520,7 +517,7 @@
                 <div class="col-xxl-12">
                     <div class="section__head mb-40">
                         <div class="section__title">
-                            <h3>Best Selling<span>Products</span></h3>
+                            <h3>Best Selling<span> Products</span></h3>
                         </div>
                     </div>
                 </div>
