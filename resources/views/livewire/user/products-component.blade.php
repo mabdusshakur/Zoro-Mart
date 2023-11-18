@@ -257,8 +257,7 @@
                                                     </div>
                                                     <div class="product__content text-center">
                                                         <h6 class="product-name">
-                                                            <a class="product-item-link"
-                                                                href="{{ route('user.product-details') }}">
+                                                            <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
                                                                 {{ $product->name }}</a>
                                                         </h6>
                                                         <div class="rating">
