@@ -484,12 +484,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="review-input-box d-flex align-items-start">
-                                                    <h4 class="review-input-title">Nickname</h4>
-                                                    <div class="review-input">
-                                                        <input type="text" required>
-                                                    </div>
-                                                </div>
-                                                <div class="review-input-box d-flex align-items-start">
                                                     <h4 class="review-input-title">Summary</h4>
                                                     <div class="review-input">
                                                         <input type="text" required>
