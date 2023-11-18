@@ -9,109 +9,29 @@
     <section class="product__area box-plr-75 pb-70">
         <div class="container-fluid">
             <div class="row">
+                @foreach ($products as $product)
+                @php
+                    $images = App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                @endphp
+
                 <div class="col-xxl-5 col-xl-5 col-lg-5">
                     <div class="product__details-nav d-sm-flex align-items-start">
-                        <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab"
-                            role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="thumbOne-tab" data-bs-toggle="tab"
-                                    data-bs-target="#thumbOne" type="button" role="tab" aria-controls="thumbOne"
-                                    aria-selected="true">
-                                    <img src="{{ 'user/assets/img/shop/product/details/product-nav-1.jpg' }}"
-                                        alt="">
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="thumbTwo-tab" data-bs-toggle="tab"
-                                    data-bs-target="#thumbTwo" type="button" role="tab" aria-controls="thumbTwo"
-                                    aria-selected="false">
-                                    <img src="{{ 'user/assets/img/shop/product/details/product-nav-2.jpg' }}"
-                                        alt="">
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="thumbThree-tab" data-bs-toggle="tab"
-                                    data-bs-target="#thumbThree" type="button" role="tab"
-                                    aria-controls="thumbThree" aria-selected="false">
-                                    <img src="{{ 'user/assets/img/shop/product/details/product-nav-3.jpg' }}"
-                                        alt="">
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="thumbFour-tab" data-bs-toggle="tab"
-                                    data-bs-target="#thumbFour" type="button" role="tab" aria-controls="thumbFour"
-                                    aria-selected="false">
-                                    <img src="{{ 'user/assets/img/shop/product/details/product-nav-4.jpg' }}"
-                                        alt="">
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="thumbFive-tab" data-bs-toggle="tab"
-                                    data-bs-target="#thumbFive" type="button" role="tab" aria-controls="thumbFive"
-                                    aria-selected="false">
-                                    <img src="{{ 'user/assets/img/shop/product/details/product-nav-5.jpg' }}"
-                                        alt="">
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="thumbSix-tab" data-bs-toggle="tab"
-                                    data-bs-target="#thumbSix" type="button" role="tab" aria-controls="thumbSix"
-                                    aria-selected="false">
-                                    <img src="{{ 'user/assets/img/shop/product/details/product-nav-6.jpg' }}"
-                                        alt="">
-                                </button>
-                            </li>
-                        </ul>
                         <div class="product__details-thumb">
                             <div class="tab-content" id="productThumbContent">
-                                <div class="tab-pane fade show active" id="thumbOne" role="tabpanel"
-                                    aria-labelledby="thumbOne-tab">
-                                    <div class="product__details-nav-thumb">
-                                        <img src="{{ 'user/assets/img/shop/product/details/big/product-nav-big-1.jpg' }}"
-                                            alt="">
+                              <div class="row">
+                                @foreach ($images as $image)
+                                    <div class="col-md-3">
+                                        <img src="{{Storage::url($image->image)}}"
+                                           class="img-thumbnail" alt="">
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="thumbTwo" role="tabpanel"
-                                    aria-labelledby="thumbTwo-tab">
-                                    <div class="product__details-nav-thumb">
-                                        <img src="{{ 'user/assets/img/shop/product/details/big/product-nav-big-2.jpg' }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="thumbThree" role="tabpanel"
-                                    aria-labelledby="thumbThree-tab">
-                                    <div class="product__details-nav-thumb">
-                                        <img src="{{ 'user/assets/img/shop/product/details/big/product-nav-big-3.jpg' }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="thumbFour" role="tabpanel"
-                                    aria-labelledby="thumbFour-tab">
-                                    <div class="product__details-nav-thumb">
-                                        <img src="{{ 'user/assets/img/shop/product/details/big/product-nav-big-4.jpg' }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="thumbFive" role="tabpanel"
-                                    aria-labelledby="thumbFive-tab">
-                                    <div class="product__details-nav-thumb">
-                                        <img src="{{ 'user/assets/img/shop/product/details/big/product-nav-big-5.jpg' }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="thumbSix" role="tabpanel"
-                                    aria-labelledby="thumbSix-tab">
-                                    <div class="product__details-nav-thumb">
-                                        <img src="{{ 'user/assets/img/shop/product/details/big/product-nav-big-6.jpg' }}"
-                                            alt="">
-                                    </div>
-                                </div>
+                                @endforeach
+                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-              @foreach ($products as $product)
+
+
               <div class="col-xxl-7 col-xl-7 col-lg-7">
                 <div class="product__details-wrapper">
                     <div class="product__details">
@@ -134,8 +54,12 @@
                             </div>
                         </div>
                         <div class="product__price">
+                            @if ($product->discount_price == null)
+                                <span class="new">${{$product->price}}</span>
+                            @else
                             <span class="new">${{$product->price}}</span>
                             <span class="old">${{$product->discount_price}}</span>
+                            @endif
                         </div>
                         <div class="product__stock">
                             <span>Availability :</span>
@@ -145,14 +69,14 @@
                             <p>{{$product->description}}</p>
                         </div>
                         <div class="product__details-stock">
-                            <h3><span>Hurry Up!</span> Only 98 products left in stock.</h3>
-                            <div class="progress">
+                            <h3><span>Hurry Up!</span> Only {{$product->quantity}} products left in stock.</h3>
+                            {{-- <div class="progress">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated"
                                     role="progressbar" aria-valuemin="0" aria-valuemax="100"
                                     data-width="70%"></div>
-                            </div>
+                            </div> --}}
                         </div>
-                        <div class="product__details-color d-flex align-items-center mb-15">
+                        {{-- <div class="product__details-color d-flex align-items-center mb-15">
                             <span>Colors</span>
                             <ul>
                                 <li>
@@ -179,7 +103,7 @@
                                     <a href="#">70</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <div class="product__details-quantity mb-20">
                             <form action="#">
                                 <div class="pro-quan-area d-lg-flex align-items-center">
