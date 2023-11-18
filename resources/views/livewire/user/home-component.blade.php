@@ -262,7 +262,7 @@
                         </div>
                     </div>
                     <div class="product__deal owl-carousel">
-                        @foreach ($products as $product)
+                        @foreach ($most_viewed_products as $product)
                             @php
                                 $images = $images = \App\Models\product_image::where('product_uid', $product->product_uid)->get();
                             @endphp
