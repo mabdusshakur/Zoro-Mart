@@ -219,8 +219,12 @@
                                                         </li>
                                                     </ul>
                                                 </div>
+                                                @if ($product->on_sale == true)
                                                 <span class="new mb-5">${{ $product->discount_price }}</span>
                                                 <span class="price-old mb-5"> <del>${{ $product->price }}</del>
+                                                @else
+                                                    <span class="new mb-5">${{ $product->price }}</span>
+                                                @endif
                                                 </span>
                                                 <p class="mt-10">{{ $product->description }}</p>
                                                 <div class="product__countdown">
