@@ -124,8 +124,8 @@
                                         </div>
                                         <div class="product__content text-center">
                                             <h6 class="product-name">
-                                                <a class="product-item-link"
-                                                    href="product-details.html">{{ $product->name }}</a>
+                                                <a class="product-item-link" href="javascript:;"
+                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">{{ $product->name }}</a>
                                             </h6>
                                             <div class="rating">
                                                 <ul>
@@ -184,19 +184,20 @@
                                             <div class="product__thumb product__thumb-big p-relative">
                                                 <a href="product-details.html" class="w-img">
                                                     <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
-                                                <img class="second-img"
-                                                    src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
-                                                    alt="product" />
+                                                    <img class="second-img"
+                                                        src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
+                                                        alt="product" />
                                                 </a>
                                                 <div class="product__offer">
-                                                    <span class="discount">-{{ number_format((($product->price - $product->discount_price) / $product->price) * 100, 0)}}%</span>
+                                                    <span
+                                                        class="discount">-{{ number_format((($product->price - $product->discount_price) / $product->price) * 100, 0) }}%</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__content product__content-2">
                                                 <h6 class="product-name product__deal-name">
-                                                    <a class="product-item-link" href="product-details.html">
+                                                    <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
                                                         {{ $product->name }} </a>
                                                 </h6>
                                                 <div class="rating rating-2">
@@ -219,7 +220,8 @@
                                                     </ul>
                                                 </div>
                                                 <span class="new mb-5">${{ $product->discount_price }}</span>
-                                                <span class="price-old mb-5"> <del>${{ $product->price }}</del> </span>
+                                                <span class="price-old mb-5"> <del>${{ $product->price }}</del>
+                                                </span>
                                                 <p class="mt-10">{{ $product->description }}</p>
                                                 <div class="product__countdown">
                                                     <h4>Hurry Up! Offer ends in:</h4>
@@ -272,17 +274,18 @@
                                         <div class="col-xl-6  col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__thumb product__thumb-big p-relative">
                                                 <a href="product-details.html" class="w-img">
-                                                    <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
-                                                <img class="second-img"
-                                                    src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
-                                                    alt="product" />
+                                                    <img src="{{ Storage::url($images[0]->image) }}"
+                                                        alt="product" />
+                                                    <img class="second-img"
+                                                        src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
+                                                        alt="product" />
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__content product__content-2">
                                                 <h6 class="product-name product__deal-name">
-                                                    <a class="product-item-link" href="product-details.html">
+                                                    <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
                                                         {{ $product->name }} </a>
                                                 </h6>
                                                 <div class="rating rating-2">
@@ -305,7 +308,8 @@
                                                     </ul>
                                                 </div>
                                                 <span class="new mb-5">${{ $product->discount_price }}</span>
-                                                <span class="price-old mb-5"> <del>${{ $product->price }}</del> </span>
+                                                <span class="price-old mb-5"> <del>${{ $product->price }}</del>
+                                                </span>
                                                 <p class="mt-10">{{ $product->description }}</p>
                                             </div>
                                         </div>
@@ -353,7 +357,7 @@
                                         <div class="product__content">
                                             <h6 class="product-name">
                                                 <a class="product-item-link"
-                                                    href="product-details.html">{{ $product->name }}</a>
+                                                href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">{{ $product->name }}</a>
                                             </h6>
                                             <div class="rating">
                                                 <ul>
