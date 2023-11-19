@@ -97,7 +97,7 @@
                                 <ul>
                                     <li class="product__sm-item d-flex align-items-center">
                                         <div class="product__sm-thumb mr-20">
-                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
+                                            <a href="javascript:;">
                                                 <img src="{{ asset('user/assets/img/shop/product/sm/product-sm-1.jpg') }}"
                                                     alt="">
                                             </a>
