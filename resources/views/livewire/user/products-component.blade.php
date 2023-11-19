@@ -97,7 +97,7 @@
                                 <ul>
                                     <li class="product__sm-item d-flex align-items-center">
                                         <div class="product__sm-thumb mr-20">
-                                            <a href="product-details.html">
+                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
                                                 <img src="{{ asset('user/assets/img/shop/product/sm/product-sm-1.jpg') }}"
                                                     alt="">
                                             </a>
@@ -122,7 +122,7 @@
                                     </li>
                                     <li class="product__sm-item d-flex align-items-center">
                                         <div class="product__sm-thumb mr-20">
-                                            <a href="product-details.html">
+                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
                                                 <img src="{{ asset('user/assets/img/shop/product/sm/product-sm-2.jpg') }}"
                                                     alt="">
                                             </a>
@@ -229,7 +229,7 @@
                                             <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4">
                                                 <div class="product__item white-bg mb-30">
                                                     <div class="product__thumb p-relative">
-                                                        <a href="product-details.html" class="w-img">
+                                                        <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
 
                                                             @if ($images->count() > 0)
                                                                 <img src="{{ Storage::url($images[0]->image) }}"
@@ -295,7 +295,7 @@
                                             <div class="col">
                                                 <div class="product__item white-bg mb-30">
                                                     <div class="product__thumb p-relative">
-                                                        <a href="product-details.html" class="w-img">
+                                                        <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
                                                             @if ($images->count() > 0)
                                                                 <img src="{{ Storage::url($images[0]->image) }}"
                                                                     alt="product">
@@ -321,7 +321,7 @@
                                                     </div>
                                                     <div class="product__content text-center">
                                                         <h6 class="product-name">
-                                                            <a class="product-item-link" href="product-details.html">
+                                                            <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
                                                                 {{ $product->name }}</a>
                                                         </h6>
                                                         <div class="rating">
@@ -359,7 +359,7 @@
                                             <div class="col-xxl-12">
                                                 <div class="product__item product__list white-bg mb-30 d-md-flex">
                                                     <div class="product__thumb p-relative mr-20">
-                                                        <a href="product-details.html" class="w-img">
+                                                        <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
                                                             @if ($images->count() > 0)
                                                                 <img src="{{ Storage::url($images[0]->image) }}"
                                                                     alt="product">
@@ -375,7 +375,7 @@
                                                     <div class="product__content">
                                                         <h6 class="product-name">
                                                             <a class="product-item-link"
-                                                                href="product-details.html">{{ $product->name }}</a>
+                                                                href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">{{ $product->name }}</a>
                                                         </h6>
                                                         <div
                                                             class="rating d-sm-flex d-lg-block d-xl-flex align-items-center">
