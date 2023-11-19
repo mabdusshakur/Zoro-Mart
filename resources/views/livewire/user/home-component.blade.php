@@ -98,7 +98,7 @@
 
                                     <div class="product__item product__item-2 white-bg">
                                         <div class="product__thumb p-relative">
-                                            <a href="product-details.html" class="w-img">
+                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
                                                 <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                                 <img class="second-img"
                                                     src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
@@ -182,7 +182,7 @@
                                     <div class="row">
                                         <div class="col-xl-6  col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__thumb product__thumb-big p-relative">
-                                                <a href="product-details.html" class="w-img">
+                                                <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
                                                     <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                                     <img class="second-img"
                                                         src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
@@ -273,7 +273,7 @@
                                     <div class="row">
                                         <div class="col-xl-6  col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__thumb product__thumb-big p-relative">
-                                                <a href="product-details.html" class="w-img">
+                                                <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
                                                     <img src="{{ Storage::url($images[0]->image) }}"
                                                         alt="product" />
                                                     <img class="second-img"
@@ -347,7 +347,7 @@
                                 <div class="product__item-wrapper">
                                     <div class="product__item product__item-2 white-bg d-flex mb-20">
                                         <div class="product__thumb product__thumb-sale p-relative">
-                                            <a href="product-details.html" class="w-img">
+                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
                                                 <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                                 <img class="second-img"
                                                     src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
