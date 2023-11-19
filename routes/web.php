@@ -17,7 +17,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/', HomeComponent::class)->name('user.home');
 
     
-    Route::get('/products/{id?}/{slug?}', ProductsComponent::class)->name('user.products');
+    Route::get('/products/{id?}/{slug?}/{sub_category_id?}', ProductsComponent::class)->name('user.products');
     Route::get('/product-details/{id}/{slug?}/{category_id?}/{sub_category_id?}/', ProductDetailsComponent::class)->name('user.product-details');
     Route::get('/wishlist', WishListComponent::class)->name('user.wishlist');
     Route::get('/cart', CartComponent::class)->name('user.cart');
