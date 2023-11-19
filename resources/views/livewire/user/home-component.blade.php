@@ -98,7 +98,9 @@
 
                                     <div class="product__item product__item-2 white-bg">
                                         <div class="product__thumb p-relative">
-                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
+                                            <a href="javascript:;"
+                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                class="w-img">
                                                 <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                                 <img class="second-img"
                                                     src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
@@ -182,22 +184,28 @@
                                     <div class="row">
                                         <div class="col-xl-6  col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__thumb product__thumb-big p-relative">
-                                                <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
-                                                    <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
+                                                <a href="javascript:;"
+                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                    class="w-img">
+                                                    <img src="{{ Storage::url($images[0]->image) }}"
+                                                        alt="product" />
                                                     <img class="second-img"
                                                         src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
                                                         alt="product" />
                                                 </a>
-                                                <div class="product__offer">
-                                                    <span
-                                                        class="discount">-{{ number_format((($product->price - $product->discount_price) / $product->price) * 100, 0) }}%</span>
-                                                </div>
+                                                @if ($product->on_sale == true)
+                                                    <div class="product__offer">
+                                                        <span
+                                                            class="discount">-{{ number_format((($product->price - $product->discount_price) / $product->price) * 100, 0) }}%</span>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__content product__content-2">
                                                 <h6 class="product-name product__deal-name">
-                                                    <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
+                                                    <a class="product-item-link" href="javascript:;"
+                                                        wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">
                                                         {{ $product->name }} </a>
                                                 </h6>
                                                 <div class="rating rating-2">
@@ -220,10 +228,10 @@
                                                     </ul>
                                                 </div>
                                                 @if ($product->on_sale == true)
-                                                <span class="new mb-5">${{ $product->discount_price }}</span>
-                                                <span class="price-old mb-5"> <del>${{ $product->price }}</del>
-                                                @else
-                                                    <span class="new mb-5">${{ $product->price }}</span>
+                                                    <span class="new mb-5">${{ $product->discount_price }}</span>
+                                                    <span class="price-old mb-5"> <del>${{ $product->price }}</del>
+                                                    @else
+                                                        <span class="new mb-5">${{ $product->price }}</span>
                                                 @endif
                                                 </span>
                                                 <p class="mt-10">{{ $product->description }}</p>
@@ -277,7 +285,9 @@
                                     <div class="row">
                                         <div class="col-xl-6  col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__thumb product__thumb-big p-relative">
-                                                <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
+                                                <a href="javascript:;"
+                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                    class="w-img">
                                                     <img src="{{ Storage::url($images[0]->image) }}"
                                                         alt="product" />
                                                     <img class="second-img"
@@ -289,7 +299,8 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                             <div class="product__content product__content-2">
                                                 <h6 class="product-name product__deal-name">
-                                                    <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
+                                                    <a class="product-item-link" href="javascript:;"
+                                                        wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">
                                                         {{ $product->name }} </a>
                                                 </h6>
                                                 <div class="rating rating-2">
@@ -351,7 +362,9 @@
                                 <div class="product__item-wrapper">
                                     <div class="product__item product__item-2 white-bg d-flex mb-20">
                                         <div class="product__thumb product__thumb-sale p-relative">
-                                            <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
+                                            <a href="javascript:;"
+                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                class="w-img">
                                                 <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                                 <img class="second-img"
                                                     src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
@@ -360,8 +373,8 @@
                                         </div>
                                         <div class="product__content">
                                             <h6 class="product-name">
-                                                <a class="product-item-link"
-                                                href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">{{ $product->name }}</a>
+                                                <a class="product-item-link" href="javascript:;"
+                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">{{ $product->name }}</a>
                                             </h6>
                                             <div class="rating">
                                                 <ul>
