@@ -81,6 +81,7 @@ class HomeComponent extends Component
         $products = Product::orderBy('name', 'ASC')->get();
         $best_selling_products = Product::orderBy('sold', 'DESC')->take(8)->get();
         $most_viewed_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->take(8)->get();
-        return view('livewire.user.home-component',['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products]);
+        $most_sell_and_view_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->orderBy('sold', 'DESC')->take(3)->get();
+        return view('livewire.user.home-component',['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products]);
     }
 }

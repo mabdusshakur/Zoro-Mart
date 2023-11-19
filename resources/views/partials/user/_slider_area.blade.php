@@ -15,7 +15,8 @@
 
                                     @foreach ($categories as $category)
                                         <li>
-                                            <a href="javascript:;" wire:click="goTogCategoryProducts({{$category->id}},'{{ $category->slug}}')">
+                                            <a href="javascript:;"
+                                                wire:click="goTogCategoryProducts({{ $category->id }},'{{ $category->slug }}')">
                                                 {{ $category->name }}
                                             </a>
                                             <ul class="mega-menu">
@@ -23,7 +24,8 @@
                                                     <li>
                                                         <ul class="mega-item">
                                                             <li>
-                                                                <a href="javascript:;" wire:click="goTogSubCategoryProducts({{$category->id}},'{{ $category->slug}}', {{$subcategory->id}})">
+                                                                <a href="javascript:;"
+                                                                    wire:click="goTogSubCategoryProducts({{ $category->id }},'{{ $category->slug }}', {{ $subcategory->id }})">
                                                                     {{ $subcategory->name }}
                                                                 </a>
                                                             </li>
@@ -56,21 +58,16 @@
                     </div>
                     <div class="col-xl-3 custom-col-3 col-lg-4 d-none d-md-block">
                         <div class="banner__area">
-                            <div class="banner__item mb-20 w-img">
-                                <a href="product-details.html"><img
-                                        src="{{ asset('user/assets/img/banner/top/banner-top-3.jpg') }}"
-                                        alt="" /></a>
-                            </div>
-                            <div class="banner__item mb-20 w-img">
-                                <a href="product-details.html"><img
-                                        src="{{ asset('user/assets/img/banner/top/banner-top-4.jpg') }}"
-                                        alt="" /></a>
-                            </div>
-                            <div class="banner__item w-img">
-                                <a href="product-details.html"><img
-                                        src="{{ asset('user/assets/img/banner/top/banner-top-5.jpg') }}"
-                                        alt="" /></a>
-                            </div>
+                            @foreach ($most_sell_and_view_products as $product)
+                                @php
+                                    $image = \App\Models\product_image::where('product_uid', $product->product_uid)->first();
+                                @endphp
+                                <div class="banner__item mb-20 w-img">
+                                    <a>
+                                        <img src="{{ Storage::url($image->image) }}" height="158rem"/>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
