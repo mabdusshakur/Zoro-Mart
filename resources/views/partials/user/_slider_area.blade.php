@@ -23,7 +23,7 @@
                                                     <li>
                                                         <ul class="mega-item">
                                                             <li>
-                                                                <a href="product-details.html">
+                                                                <a href="javascript:;" wire:click="goTogSubCategoryProducts({{$category->id}},'{{ $category->slug}}', {{$subcategory->id}})">
                                                                     {{ $subcategory->name }}
                                                                 </a>
                                                             </li>
