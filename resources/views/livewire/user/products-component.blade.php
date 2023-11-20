@@ -108,21 +108,21 @@
                                             </h3>
                                             <div class="rating">
                                                 <ul>
-                                                    @if ($product->productReviews->count() > 0)
-                                                @for ($i = 0; $i < 5; $i++)
-                                                    @if ($i < $product->productReviews->avg('rating'))
-                                                        <li><a><i class="fa-solid fa-star"
-                                                                    style="color: #e6c002;"></i></a>
-                                                        </li>
-                                                    @else
-                                                        <li>
-                                                            <a>
-                                                                <i class="fa-regular fa-star"></i>
-                                                            </a>
-                                                        </li>
-                                                    @endif
-                                                @endfor
-                                            @endif
+                                                    {{-- @if ($product->productReviews->count() > 0)
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            @if ($i < $product->productReviews->avg('rating'))
+                                                                <li><a><i class="fa-solid fa-star"
+                                                                            style="color: #e6c002;"></i></a>
+                                                                </li>
+                                                            @else
+                                                                <li>
+                                                                    <a>
+                                                                        <i class="fa-regular fa-star"></i>
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endfor
+                                                    @endif --}}
                                                 </ul>
                                             </div>
                                             <div class="product__sm-price">
@@ -143,21 +143,21 @@
                                             </h3>
                                             <div class="rating">
                                                 <ul>
-                                                    @if ($product->productReviews->count() > 0)
-                                                    @for ($i = 0; $i < 5; $i++)
-                                                        @if ($i < $product->productReviews->avg('rating'))
-                                                            <li><a><i class="fa-solid fa-star"
-                                                                        style="color: #e6c002;"></i></a>
-                                                            </li>
-                                                        @else
-                                                            <li>
-                                                                <a>
-                                                                    <i class="fa-regular fa-star"></i>
-                                                                </a>
-                                                            </li>
-                                                        @endif
-                                                    @endfor
-                                                @endif
+                                                    {{-- @if ($product->productReviews->count() > 0)
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            @if ($i < $product->productReviews->avg('rating'))
+                                                                <li><a><i class="fa-solid fa-star"
+                                                                            style="color: #e6c002;"></i></a>
+                                                                </li>
+                                                            @else
+                                                                <li>
+                                                                    <a>
+                                                                        <i class="fa-regular fa-star"></i>
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endfor
+                                                    @endif --}}
                                                 </ul>
                                             </div>
                                             <div class="product__sm-price">
@@ -249,7 +249,9 @@
                                             <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4">
                                                 <div class="product__item white-bg mb-30">
                                                     <div class="product__thumb p-relative">
-                                                        <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
+                                                        <a href="javascript:;"
+                                                            wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                            class="w-img">
 
                                                             @if ($images->count() > 0)
                                                                 <img src="{{ Storage::url($images[0]->image) }}"
@@ -265,10 +267,15 @@
                                                         </a>
                                                         <div class="product__action p-absolute">
                                                             <ul>
-                                                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
+                                                                <li><a href="javascript:;"
+                                                                        wire:click="addToWishlist({{ $product->id }})"
+                                                                        title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
                                                                 <li>
-                                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#addProductModal" title="Quick View" wire:click="showProductModal({{ $product->id }})">
+                                                                    <a href="#" data-bs-toggle="modal"
+                                                                        data-bs-target="#addProductModal"
+                                                                        title="Quick View"
+                                                                        wire:click="showProductModal({{ $product->id }})">
                                                                         <i class="fal fa-search"></i>
                                                                     </a>
                                                                 </li>
@@ -277,32 +284,35 @@
                                                     </div>
                                                     <div class="product__content text-center">
                                                         <h6 class="product-name">
-                                                            <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
+                                                            <a class="product-item-link" href="javascript:;"
+                                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">
                                                                 {{ $product->name }}</a>
                                                         </h6>
                                                         <div class="rating">
                                                             <ul>
                                                                 @if ($product->productReviews->count() > 0)
-                                                                @for ($i = 0; $i < 5; $i++)
-                                                                    @if ($i < $product->productReviews->avg('rating'))
-                                                                        <li><a><i class="fa-solid fa-star"
-                                                                                    style="color: #e6c002;"></i></a>
-                                                                        </li>
-                                                                    @else
-                                                                        <li>
-                                                                            <a>
-                                                                                <i class="fa-regular fa-star"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    @endif
-                                                                @endfor
-                                                            @endif
+                                                                    @for ($i = 0; $i < 5; $i++)
+                                                                        @if ($i < $product->productReviews->avg('rating'))
+                                                                            <li><a><i class="fa-solid fa-star"
+                                                                                        style="color: #e6c002;"></i></a>
+                                                                            </li>
+                                                                        @else
+                                                                            <li>
+                                                                                <a>
+                                                                                    <i class="fa-regular fa-star"></i>
+                                                                                </a>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endfor
+                                                                @endif
                                                             </ul>
                                                         </div>
                                                         <span class="price">${{ $product->price }}</span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button" wire:click="addToCart({{$product->id}})">Add to Cart</button>
+                                                        <button type="button"
+                                                            wire:click="addToCart({{ $product->id }})">Add to
+                                                            Cart</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,14 +323,16 @@
                                 <div class="tab-pane fade" id="FiveCol" role="tabpanel"
                                     aria-labelledby="FiveCol-tab">
                                     <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-4">
-                                    @foreach ($products as $product)
-                                        @php
-                                            $images = App\Models\product_image::where('product_uid', $product->product_uid)->get();
-                                        @endphp
+                                        @foreach ($products as $product)
+                                            @php
+                                                $images = App\Models\product_image::where('product_uid', $product->product_uid)->get();
+                                            @endphp
                                             <div class="col">
                                                 <div class="product__item white-bg mb-30">
                                                     <div class="product__thumb p-relative">
-                                                        <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
+                                                        <a href="javascript:;"
+                                                            wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                            class="w-img">
                                                             @if ($images->count() > 0)
                                                                 <img src="{{ Storage::url($images[0]->image) }}"
                                                                     alt="product">
@@ -335,7 +347,9 @@
                                                         </a>
                                                         <div class="product__action p-absolute">
                                                             <ul>
-                                                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
+                                                                <li><a href="javascript:;"
+                                                                        wire:click="addToWishlist({{ $product->id }})"
+                                                                        title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
                                                                 <li><a href="#" title="Quick View"
                                                                         data-bs-toggle="modal"
@@ -346,37 +360,40 @@
                                                     </div>
                                                     <div class="product__content text-center">
                                                         <h6 class="product-name">
-                                                            <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">
+                                                            <a class="product-item-link" href="javascript:;"
+                                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">
                                                                 {{ $product->name }}</a>
                                                         </h6>
                                                         <div class="rating">
                                                             <ul>
                                                                 @if ($product->productReviews->count() > 0)
-                                                                @for ($i = 0; $i < 5; $i++)
-                                                                    @if ($i < $product->productReviews->avg('rating'))
-                                                                        <li><a><i class="fa-solid fa-star"
-                                                                                    style="color: #e6c002;"></i></a>
-                                                                        </li>
-                                                                    @else
-                                                                        <li>
-                                                                            <a>
-                                                                                <i class="fa-regular fa-star"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    @endif
-                                                                @endfor
-                                                            @endif
+                                                                    @for ($i = 0; $i < 5; $i++)
+                                                                        @if ($i < $product->productReviews->avg('rating'))
+                                                                            <li><a><i class="fa-solid fa-star"
+                                                                                        style="color: #e6c002;"></i></a>
+                                                                            </li>
+                                                                        @else
+                                                                            <li>
+                                                                                <a>
+                                                                                    <i class="fa-regular fa-star"></i>
+                                                                                </a>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endfor
+                                                                @endif
                                                             </ul>
                                                         </div>
                                                         <span class="price">${{ $product->price }}</span>
                                                     </div>
                                                     <div class="product__add-btn">
-                                                        <button type="button" wire:click="addToCart({{$product->id}})">Add to Cart</button>
+                                                        <button type="button"
+                                                            wire:click="addToCart({{ $product->id }})">Add to
+                                                            Cart</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endforeach
-                                        </div>
+                                        @endforeach
+                                    </div>
                                 </div>
 
                                 <div class="tab-pane fade" id="list" role="tabpanel"
@@ -389,7 +406,9 @@
                                             <div class="col-xxl-12">
                                                 <div class="product__item product__list white-bg mb-30 d-md-flex">
                                                     <div class="product__thumb p-relative mr-20">
-                                                        <a href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})" class="w-img">
+                                                        <a href="javascript:;"
+                                                            wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
+                                                            class="w-img">
                                                             @if ($images->count() > 0)
                                                                 <img src="{{ Storage::url($images[0]->image) }}"
                                                                     alt="product">
@@ -404,27 +423,27 @@
                                                     </div>
                                                     <div class="product__content">
                                                         <h6 class="product-name">
-                                                            <a class="product-item-link"
-                                                                href="javascript:;" wire:click="viewProductDetails({{$product->id}},'{{$product->slug}}',{{$product->category_id}},{{$product->sub_category_id}})">{{ $product->name }}</a>
+                                                            <a class="product-item-link" href="javascript:;"
+                                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">{{ $product->name }}</a>
                                                         </h6>
                                                         <div
                                                             class="rating d-sm-flex d-lg-block d-xl-flex align-items-center">
                                                             <ul>
                                                                 @if ($product->productReviews->count() > 0)
-                                                                @for ($i = 0; $i < 5; $i++)
-                                                                    @if ($i < $product->productReviews->avg('rating'))
-                                                                        <li><a><i class="fa-solid fa-star"
-                                                                                    style="color: #e6c002;"></i></a>
-                                                                        </li>
-                                                                    @else
-                                                                        <li>
-                                                                            <a>
-                                                                                <i class="fa-regular fa-star"></i>
-                                                                            </a>
-                                                                        </li>
-                                                                    @endif
-                                                                @endfor
-                                                            @endif
+                                                                    @for ($i = 0; $i < 5; $i++)
+                                                                        @if ($i < $product->productReviews->avg('rating'))
+                                                                            <li><a><i class="fa-solid fa-star"
+                                                                                        style="color: #e6c002;"></i></a>
+                                                                            </li>
+                                                                        @else
+                                                                            <li>
+                                                                                <a>
+                                                                                    <i class="fa-regular fa-star"></i>
+                                                                                </a>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endfor
+                                                                @endif
                                                             </ul>
                                                             <div class="product-review-action ml-30">
                                                                 <span><a href="#">2 Reviews</a></span>
@@ -444,9 +463,13 @@
                                                         </div>
                                                         <div
                                                             class="product__action product__action-list d-sm-flex d-lg-block d-xl-flex align-items-center">
-                                                            <button class="t-y-btn mr-10" wire:click="addToCart({{$product->id}})">add to cart</button>
+                                                            <button class="t-y-btn mr-10"
+                                                                wire:click="addToCart({{ $product->id }})">add to
+                                                                cart</button>
                                                             <ul>
-                                                                <li><a href="javascript:;" wire:click="addToWishlist({{$product->id}})" title="Add to Wishlist"><i
+                                                                <li><a href="javascript:;"
+                                                                        wire:click="addToWishlist({{ $product->id }})"
+                                                                        title="Add to Wishlist"><i
                                                                             class="fal fa-heart"></i></a></li>
                                                             </ul>
                                                         </div>
