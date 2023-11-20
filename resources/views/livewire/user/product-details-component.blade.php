@@ -305,7 +305,7 @@
                                         <ul>
                                             @for ($i = 0; $i < 5; $i++)
                                                 @if ($i < $product->productReviews->avg('rating'))
-                                                    <li><a><i class="fa-solid fa-star"></i></a>
+                                                    <li><a><i class="fa-solid fa-star" style="color: #e6c002;"></i></a>
                                                     </li>
                                                 @else
                                                     <li>
