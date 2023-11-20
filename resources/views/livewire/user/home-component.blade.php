@@ -131,21 +131,21 @@
                                             </h6>
                                             <div class="rating">
                                                 <ul>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
+                                                    @if ($product->productReviews->count() > 0)
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            @if ($i < $product->productReviews->avg('rating'))
+                                                                <li><a><i class="fa-solid fa-star"
+                                                                            style="color: #e6c002;"></i></a>
+                                                                </li>
+                                                            @else
+                                                                <li>
+                                                                    <a>
+                                                                        <i class="fa-regular fa-star"></i>
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endfor
+                                                    @endif
                                                 </ul>
                                             </div>
                                             <span class="price">${{ $product->price }}</span>
@@ -187,8 +187,7 @@
                                                 <a href="javascript:;"
                                                     wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
                                                     class="w-img">
-                                                    <img src="{{ Storage::url($images[0]->image) }}"
-                                                        alt="product" />
+                                                    <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
                                                     <img class="second-img"
                                                         src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
                                                         alt="product" />
@@ -210,21 +209,21 @@
                                                 </h6>
                                                 <div class="rating rating-2">
                                                     <ul>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
+                                                        @if ($product->productReviews->count() > 0)
+                                                            @for ($i = 0; $i < 5; $i++)
+                                                                @if ($i < $product->productReviews->avg('rating'))
+                                                                    <li><a><i class="fa-solid fa-star"
+                                                                                style="color: #e6c002;"></i></a>
+                                                                    </li>
+                                                                @else
+                                                                    <li>
+                                                                        <a>
+                                                                            <i class="fa-regular fa-star"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                @endif
+                                                            @endfor
+                                                        @endif
                                                     </ul>
                                                 </div>
                                                 @if ($product->on_sale == true)
@@ -305,21 +304,21 @@
                                                 </h6>
                                                 <div class="rating rating-2">
                                                     <ul>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><i class="far fa-star"></i></a>
-                                                        </li>
+                                                        @if ($product->productReviews->count() > 0)
+                                                            @for ($i = 0; $i < 5; $i++)
+                                                                @if ($i < $product->productReviews->avg('rating'))
+                                                                    <li><a><i class="fa-solid fa-star"
+                                                                                style="color: #e6c002;"></i></a>
+                                                                    </li>
+                                                                @else
+                                                                    <li>
+                                                                        <a>
+                                                                            <i class="fa-regular fa-star"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                @endif
+                                                            @endfor
+                                                        @endif
                                                     </ul>
                                                 </div>
                                                 @if ($product->on_sale == true)
@@ -382,21 +381,21 @@
                                             </h6>
                                             <div class="rating">
                                                 <ul>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="far fa-star"></i></a>
-                                                    </li>
+                                                    @if ($product->productReviews->count() > 0)
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            @if ($i < $product->productReviews->avg('rating'))
+                                                                <li><a><i class="fa-solid fa-star"
+                                                                            style="color: #e6c002;"></i></a>
+                                                                </li>
+                                                            @else
+                                                                <li>
+                                                                    <a>
+                                                                        <i class="fa-regular fa-star"></i>
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endfor
+                                                    @endif
                                                 </ul>
                                             </div>
                                             @if ($product->on_sale == true)
