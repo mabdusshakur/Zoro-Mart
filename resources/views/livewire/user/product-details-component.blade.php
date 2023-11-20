@@ -303,18 +303,21 @@
                                     </h6>
                                     <div class="rating">
                                         <ul>
-                                            @for ($i = 0; $i < 5; $i++)
-                                                @if ($i < $product->productReviews->avg('rating'))
-                                                    <li><a><i class="fa-solid fa-star" style="color: #e6c002;"></i></a>
-                                                    </li>
-                                                @else
-                                                    <li>
-                                                        <a>
-                                                            <i class="fa-regular fa-star"></i>
-                                                        </a>
-                                                    </li>
-                                                @endif
-                                            @endfor
+                                            @if ($product->productReviews->count() > 0)
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    @if ($i < $product->productReviews->avg('rating'))
+                                                        <li><a><i class="fa-solid fa-star"
+                                                                    style="color: #e6c002;"></i></a>
+                                                        </li>
+                                                    @else
+                                                        <li>
+                                                            <a>
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endfor
+                                            @endif
                                         </ul>
                                     </div>
                                     <span class="price">${{ $product->price }}</span>
