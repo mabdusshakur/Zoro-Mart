@@ -303,11 +303,19 @@
                                     </h6>
                                     <div class="rating">
                                         <ul>
-                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                            <li><a href="#"><i class="far fa-star"></i></a></li>
+                                            
+                                            {{-- @for ($i = 0; $i < 5; $i++)
+                                                @if ($i < $review->rating)
+                                                    <li><a><i class="fa-solid fa-star"></i></a>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <a>
+                                                            <i class="fa-regular fa-star"></i>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                            @endfor --}}
                                         </ul>
                                     </div>
                                     <span class="price">${{ $product->price }}</span>
