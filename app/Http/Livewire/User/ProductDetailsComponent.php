@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductView;
+use App\Models\Review;
 use Livewire\Component;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +64,12 @@ class ProductDetailsComponent extends Component
 
     public function addReview()
     {
-        
+        Review::create([
+            'rating' => $this->rating,
+            'review' => $this->review,
+            'user_id' => Auth::user()->id,
+            'product_id' => $this->product_id
+        ]);
     }
     
     public function render()
