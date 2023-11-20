@@ -321,7 +321,7 @@
                                     <div class="col-xxl-4 col-xl-4 col-lg-4">
                                         <div class="review-form">
                                             <h3>Your Reviewing</h3>
-                                            <p>Australian Certified Organic Royal Gala Apples</p>
+                                            <p>{{$product->name}}</p>
                                             <form action="#">
                                                 <div class="review-input-box mb-15 d-flex align-items-start">
                                                     <h4 class="review-input-title">Your Rating</h4>
@@ -329,39 +329,6 @@
                                                         <div class="review-ratings mb-10">
                                                             <div
                                                                 class="review-ratings-single d-flex align-items-center">
-                                                                <span>Quality</span>
-                                                                <ul>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div
-                                                                class="review-ratings-single d-flex align-items-center">
-                                                                <span>Price</span>
-                                                                <ul>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div
-                                                                class="review-ratings-single d-flex align-items-center">
-                                                                <span>Value</span>
                                                                 <ul>
                                                                     <li><a href="#"><i
                                                                                 class="fas fa-star"></i></a></li>
@@ -376,12 +343,6 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="review-input-box d-flex align-items-start">
-                                                    <h4 class="review-input-title">Summary</h4>
-                                                    <div class="review-input">
-                                                        <input type="text" required>
                                                     </div>
                                                 </div>
                                                 <div class="review-input-box d-flex align-items-start">
