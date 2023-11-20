@@ -16,13 +16,14 @@ class ProductDetailsComponent extends Component
     
     public $products, $best_selling_products;
 
+    public $review, $rating;
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
         $this->products = Product::where('id', $id)->get();
         $this->best_selling_products = Product::where('category_id',$category_id)->orWhere('sub_category_id', $sub_category_id)->orderBy('sold', 'DESC')->take(10)->get();
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-
+        $this->product_id = $id;
         ProductView::create([
             'product_id' => $id,
             'user_id' => Auth::user()->id,
@@ -58,6 +59,11 @@ class ProductDetailsComponent extends Component
             session()->flash('success', 'Product has been added in cart successfully!');
         }
         return redirect()->route('user.cart');
+    }
+
+    public function addReview()
+    {
+        
     }
     
     public function render()

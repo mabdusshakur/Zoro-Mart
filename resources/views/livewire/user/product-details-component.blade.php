@@ -321,26 +321,21 @@
                                     <div class="col-xxl-4 col-xl-4 col-lg-4">
                                         <div class="review-form">
                                             <h3>Your Reviewing</h3>
-                                            <p>{{$product->name}}</p>
-                                            <form action="#">
+                                            <p>{{ $product->name }}</p>
+                                            <form wire:submit.prevent="addReview">
                                                 <div class="review-input-box mb-15 d-flex align-items-start">
                                                     <h4 class="review-input-title">Your Rating</h4>
                                                     <div class="review-input">
                                                         <div class="review-ratings mb-10">
                                                             <div
                                                                 class="review-ratings-single d-flex align-items-center">
-                                                                <ul>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                    <li><a href="#"><i
-                                                                                class="fas fa-star"></i></a></li>
-                                                                </ul>
+                                                                <select class="form-select" wire:model.lazy="rating">
+                                                                    <option value="1">1 Star</option>
+                                                                    <option value="2">2 Star</option>
+                                                                    <option value="3">3 Star</option>
+                                                                    <option value="4">4 Star</option>
+                                                                    <option value="5">5 Star</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -348,7 +343,7 @@
                                                 <div class="review-input-box d-flex align-items-start">
                                                     <h4 class="review-input-title">Review</h4>
                                                     <div class="review-input">
-                                                        <textarea></textarea>
+                                                        <textarea wire:model.lazy="review"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="review-sub-btn">
