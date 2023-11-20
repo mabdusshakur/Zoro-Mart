@@ -169,153 +169,37 @@
                                     <div class="col-xxl-6 col-xl-6 col-lg-6">
                                         <div class="review-wrapper">
                                             <h3 class="block-title">Customer Reviews</h3>
-                                            <div class="review-item">
-                                                <h3 class="review-title">Awesome product</h3>
-                                                <div class="review-ratings mb-10">
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Quality</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
+
+                                            @foreach ($reviews as $review)
+                                                <div class="review-item">
+                                                    <h3 class="review-title">Nice</h3>
+                                                    <div class="review-ratings mb-10">
+                                                        <div class="review-ratings-single d-flex align-items-center">
+                                                            <span>Quality</span>
+                                                            <ul>
+                                                                @for ($i = 0; $i < $review->rating; $i++)
+                                                                    <li><a><i class="fal fa-star"></i></a></li>
+                                                                    <li><a><i class="fal fa-star" style="color: #e6c002;"></i></a></li>
+                                                                @endfor
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Price</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
+                                                    <div class="review-text">
+                                                        <p>{{$review->review}}</p>
                                                     </div>
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Value</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
+                                                    <div class="review-meta">
+                                                        <div class="review-author">
+                                                            <span>Review By : </span>
+                                                            <span>{{$review->user->first_name}}</span>
+                                                        </div>
+                                                        <div class="review-date">
+                                                            <span>Posted on</span>
+                                                            <span>{{ $review->created_at->format('d-M-Y') }}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="review-text">
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                                        Corrupti quia eligendi molestias illum libero et.</p>
-                                                </div>
-                                                <div class="review-meta">
-                                                    <div class="review-author">
-                                                        <span>Review By </span>
-                                                        <span>Shahnewaz Sakil</span>
-                                                    </div>
-                                                    <div class="review-date">
-                                                        <span>Posted on</span>
-                                                        <span>1/21/20</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="review-item">
-                                                <h3 class="review-title">Nice</h3>
-                                                <div class="review-ratings mb-10">
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Quality</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Price</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Value</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="review-text">
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                                        Corrupti quia eligendi molestias illum libero et.</p>
-                                                </div>
-                                                <div class="review-meta">
-                                                    <div class="review-author">
-                                                        <span>Review By </span>
-                                                        <span>Selena Gomz</span>
-                                                    </div>
-                                                    <div class="review-date">
-                                                        <span>Posted on</span>
-                                                        <span>1/21/20</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="review-item">
-                                                <h3 class="review-title">Best product</h3>
-                                                <div class="review-ratings mb-10">
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Quality</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Price</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="review-ratings-single d-flex align-items-center">
-                                                        <span>Value</span>
-                                                        <ul>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="review-text">
-                                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                                        Corrupti quia eligendi molestias illum libero et.</p>
-                                                </div>
-                                                <div class="review-meta">
-                                                    <div class="review-author">
-                                                        <span>Review By </span>
-                                                        <span>Jonson</span>
-                                                    </div>
-                                                    <div class="review-date">
-                                                        <span>Posted on</span>
-                                                        <span>1/21/20</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
+
                                         </div>
                                     </div>
                                     <div class="col-xxl-4 col-xl-4 col-lg-4">
