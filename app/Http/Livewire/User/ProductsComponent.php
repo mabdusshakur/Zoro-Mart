@@ -22,8 +22,6 @@ class ProductsComponent extends Component
     public $main_search = '';
 
     public $search_category_slug, $search_category_id, $search_sub_category_id;
-
-    public $top_rated_products;
     public function mount($id = null, $slug = null, $sub_category_id = null)
     {
         if ($id && $slug) {
@@ -120,11 +118,6 @@ class ProductsComponent extends Component
         }
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-        $this->top_rated_products = Review::select('product_id', \DB::raw('avg(rating) as average_rating'))
-            ->groupBy('product_id')
-            ->orderBy('average_rating', 'DESC')
-            ->take(10)
-            ->get();
         return view('livewire.user.products-component', ['products' => $products]);
     }
 }
