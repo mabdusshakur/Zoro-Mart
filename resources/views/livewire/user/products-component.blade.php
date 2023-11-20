@@ -108,11 +108,21 @@
                                             </h3>
                                             <div class="rating">
                                                 <ul>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                                    @if ($product->productReviews->count() > 0)
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    @if ($i < $product->productReviews->avg('rating'))
+                                                        <li><a><i class="fa-solid fa-star"
+                                                                    style="color: #e6c002;"></i></a>
+                                                        </li>
+                                                    @else
+                                                        <li>
+                                                            <a>
+                                                                <i class="fa-regular fa-star"></i>
+                                                            </a>
+                                                        </li>
+                                                    @endif
+                                                @endfor
+                                            @endif
                                                 </ul>
                                             </div>
                                             <div class="product__sm-price">
@@ -133,11 +143,21 @@
                                             </h3>
                                             <div class="rating">
                                                 <ul>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                                    @if ($product->productReviews->count() > 0)
+                                                    @for ($i = 0; $i < 5; $i++)
+                                                        @if ($i < $product->productReviews->avg('rating'))
+                                                            <li><a><i class="fa-solid fa-star"
+                                                                        style="color: #e6c002;"></i></a>
+                                                            </li>
+                                                        @else
+                                                            <li>
+                                                                <a>
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                </a>
+                                                            </li>
+                                                        @endif
+                                                    @endfor
+                                                @endif
                                                 </ul>
                                             </div>
                                             <div class="product__sm-price">
@@ -262,16 +282,21 @@
                                                         </h6>
                                                         <div class="rating">
                                                             <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
+                                                                @if ($product->productReviews->count() > 0)
+                                                                @for ($i = 0; $i < 5; $i++)
+                                                                    @if ($i < $product->productReviews->avg('rating'))
+                                                                        <li><a><i class="fa-solid fa-star"
+                                                                                    style="color: #e6c002;"></i></a>
+                                                                        </li>
+                                                                    @else
+                                                                        <li>
+                                                                            <a>
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    @endif
+                                                                @endfor
+                                                            @endif
                                                             </ul>
                                                         </div>
                                                         <span class="price">${{ $product->price }}</span>
@@ -326,16 +351,21 @@
                                                         </h6>
                                                         <div class="rating">
                                                             <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
+                                                                @if ($product->productReviews->count() > 0)
+                                                                @for ($i = 0; $i < 5; $i++)
+                                                                    @if ($i < $product->productReviews->avg('rating'))
+                                                                        <li><a><i class="fa-solid fa-star"
+                                                                                    style="color: #e6c002;"></i></a>
+                                                                        </li>
+                                                                    @else
+                                                                        <li>
+                                                                            <a>
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    @endif
+                                                                @endfor
+                                                            @endif
                                                             </ul>
                                                         </div>
                                                         <span class="price">${{ $product->price }}</span>
@@ -380,16 +410,21 @@
                                                         <div
                                                             class="rating d-sm-flex d-lg-block d-xl-flex align-items-center">
                                                             <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a>
-                                                                </li>
+                                                                @if ($product->productReviews->count() > 0)
+                                                                @for ($i = 0; $i < 5; $i++)
+                                                                    @if ($i < $product->productReviews->avg('rating'))
+                                                                        <li><a><i class="fa-solid fa-star"
+                                                                                    style="color: #e6c002;"></i></a>
+                                                                        </li>
+                                                                    @else
+                                                                        <li>
+                                                                            <a>
+                                                                                <i class="fa-regular fa-star"></i>
+                                                                            </a>
+                                                                        </li>
+                                                                    @endif
+                                                                @endfor
+                                                            @endif
                                                             </ul>
                                                             <div class="product-review-action ml-30">
                                                                 <span><a href="#">2 Reviews</a></span>
