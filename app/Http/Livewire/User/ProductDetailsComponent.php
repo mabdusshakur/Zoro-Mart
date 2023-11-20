@@ -17,7 +17,7 @@ class ProductDetailsComponent extends Component
     
     public $products, $best_selling_products;
 
-    public $review, $rating;
+    public $review, $rating, $reviews;
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
         $this->products = Product::where('id', $id)->get();
@@ -25,6 +25,7 @@ class ProductDetailsComponent extends Component
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         $this->product_id = $id;
+        $this->reviews = Review::where('product_id', $id)->get();
         ProductView::create([
             'product_id' => $id,
             'user_id' => Auth::user()->id,
