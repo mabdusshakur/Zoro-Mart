@@ -303,9 +303,8 @@
                                     </h6>
                                     <div class="rating">
                                         <ul>
-                                            
-                                            {{-- @for ($i = 0; $i < 5; $i++)
-                                                @if ($i < $review->rating)
+                                            @for ($i = 0; $i < 5; $i++)
+                                                @if ($i < $product->productReviews->avg('rating'))
                                                     <li><a><i class="fa-solid fa-star"></i></a>
                                                     </li>
                                                 @else
@@ -315,7 +314,7 @@
                                                         </a>
                                                     </li>
                                                 @endif
-                                            @endfor --}}
+                                            @endfor
                                         </ul>
                                     </div>
                                     <span class="price">${{ $product->price }}</span>
