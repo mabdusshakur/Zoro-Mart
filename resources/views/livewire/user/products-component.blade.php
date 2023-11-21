@@ -94,9 +94,6 @@
                 </div>
                 <div class="col-xxl-10 col-xl-9 col-lg-8 order-first order-lg-last">
                     <div class="product__grid-wrapper">
-                        <div class="product__grid-banner w-img">
-                            <img src="{{ asset('user/assets/img/banner/product-grid-banner.jpg') }}" alt="">
-                        </div>
                         <div class="product__grid-item-wrapper pt-70">
                             <div class="product__filter mb-50">
                                 <div class="row align-items-center">
