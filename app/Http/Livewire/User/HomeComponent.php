@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Banner;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
@@ -17,11 +18,13 @@ class HomeComponent extends Component
 
     public $categories;
 
+    public $banners;
     public function mount()
     {
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         $this->categories = Category::all();
+        $this->banners = Banner::where('banner_status', 1)->get();
     }
     public function addToWishlist($id)
     {
