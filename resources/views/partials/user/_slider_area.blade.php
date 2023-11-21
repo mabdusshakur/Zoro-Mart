@@ -45,15 +45,11 @@
                 <div class="row">
                     <div class="col-xl-9 custom-col-9 col-lg-8">
                         <div class="slider__inner slider-active">
-                            <div class="single-slider w-img">
-                                <img src="{{ asset('user/assets/img/slider/02/slider-01.jpg') }}" alt="slider" />
-                            </div>
-                            <div class="single-slider w-img">
-                                <img src="{{ asset('user/assets/img/slider/02/slider-02.jpg') }}" alt="slider" />
-                            </div>
-                            <div class="single-slider w-img">
-                                <img src="{{ asset('user/assets/img/slider/02/slider-03.jpg') }}" alt="slider" />
-                            </div>
+                            @foreach ($banners as $banner)
+                                <div class="single-slider w-img">
+                                    <img src="{{ Storage::url($banner->banner_image) }}" alt="slider" />
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-xl-3 custom-col-3 col-lg-4 d-none d-md-block">
