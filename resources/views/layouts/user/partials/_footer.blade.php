@@ -122,8 +122,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6">
                             <div class="footer__copyright-text">
-                                <p>Copyright © <a href="index.html">Topico.</a> All Rights Reserved. <a
-                                        href="#">ThemePure.</a></p>
+                                <p>Copyright © <a href="{{route('user.home')}}">{{ env('APP_NAME') }}.</a></p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
