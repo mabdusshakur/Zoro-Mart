@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\Banner;
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Feature;
 use App\Models\Product;
 use Livewire\Component;
 use App\Models\Wishlist;
@@ -19,12 +20,16 @@ class HomeComponent extends Component
     public $categories;
 
     public $banners;
+
+    public $features;
+
     public function mount()
     {
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
+        $this->features = Feature::all();
     }
     public function addToWishlist($id)
     {
