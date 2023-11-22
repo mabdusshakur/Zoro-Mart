@@ -15,66 +15,6 @@
                                             <ul>
                                                 <li><a href="#">About us</a></li>
                                                 <li><a href="#">Contact us</a></li>
-                                                <li><a href="#">Careers</a></li>
-                                                <li><a href="#">Business With Us</a></li>
-                                                <li><a href="#">Find a Store</a></li>
-                                                <li><a href="#">Press & Talent</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                                <div class="footer__widget">
-                                    <div class="footer__widget-title footer__widget-title-2">
-                                        <h4>Quick Links</h4>
-                                    </div>
-                                    <div class="footer__widget-content">
-                                        <div class="footer__link footer__link-2">
-                                            <ul>
-                                                <li><a href="#">Special Offers</a></li>
-                                                <li><a href="#"> Gift Cards</a></li>
-                                                <li><a href="#">F21 Red</a></li>
-                                                <li><a href="#">Privacy Policy</a></li>
-                                                <li><a href="#"> Teams of Use</a></li>
-                                                <li><a href="#">Portfolio</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                                <div class="footer__widget">
-                                    <div class="footer__widget-title footer__widget-title-2">
-                                        <h4>Let Us Help You</h4>
-                                    </div>
-                                    <div class="footer__widget-content">
-                                        <div class="footer__link footer__link-2">
-                                            <ul>
-                                                <li><a href="#">Orders</a></li>
-                                                <li><a href="#">Downloads</a></li>
-                                                <li><a href="#">Addresses</a></li>
-                                                <li><a href="#"> Account details</a></li>
-                                                <li><a href="#">Lost password</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-                                <div class="footer__widget">
-                                    <div class="footer__widget-title footer__widget-title-2">
-                                        <h4>Company Info</h4>
-                                    </div>
-                                    <div class="footer__widget-content">
-                                        <div class="footer__link footer__link-2">
-                                            <ul>
-                                                <li><a href="#">About us</a></li>
-                                                <li><a href="#">Contact us</a></li>
-                                                <li><a href="#">Careers</a></li>
-                                                <li><a href="#">Business With Us</a></li>
-                                                <li><a href="#">Find a Store</a></li>
-                                                <li><a href="#">Press & Talent</a></li>
                                             </ul>
                                         </div>
                                     </div>
