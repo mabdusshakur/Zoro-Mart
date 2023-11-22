@@ -444,21 +444,7 @@
         </div>
     </section>
     <!-- subscribe area end -->
-
-    <!-- back to top btn area start -->
-    <section class="back-btn-top">
-        <div class="container-fluid p-0">
-            <div class="row gx-0">
-                <div class="col-xl-12">
-                    <div id="scroll" class="back-to-top-btn back-to-top-btn-2 text-center">
-                        <a href="javascript:void(0);">back to top</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- back to top btn area end -->
-
+    
     <!-- shop modal start -->
     @include('partials.user._shop_modal')
     <!-- shop modal end -->
