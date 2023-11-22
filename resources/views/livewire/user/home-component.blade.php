@@ -427,8 +427,7 @@
                         </div>
                         <div class="subscribe__text">
                             <h4>Sign up to Newsletter</h4>
-                            <p>Get email updates about our latest shop...and receive <span>$30 Coupon For First
-                                    Shopping</span></p>
+                            <p>Get email updates about our latest shop...</p>
                         </div>
                     </div>
                 </div>
@@ -444,7 +443,7 @@
         </div>
     </section>
     <!-- subscribe area end -->
-    
+
     <!-- shop modal start -->
     @include('partials.user._shop_modal')
     <!-- shop modal end -->

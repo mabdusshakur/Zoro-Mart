@@ -44,12 +44,6 @@
                                                     class="fal fa-envelope"></i></a></li>
                                     </ul>
                                 </div>
-                                <div class="footer__download">
-                                    <h4>Download The App - Get 30% Sale Coupon</h4>
-                                    <a href="#" class="m-img"><img
-                                            src="{{ asset('user/assets/img/icon/app-store-2.jpg') }}"
-                                            alt=""></a>
-                                </div>
                             </div>
                         </div>
                     </div>
