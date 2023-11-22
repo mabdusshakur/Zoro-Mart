@@ -29,7 +29,7 @@ class HomeComponent extends Component
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
-        $this->features = Feature::all();
+        $this->features = Feature::take(5)->get();
     }
     public function addToWishlist($id)
     {
