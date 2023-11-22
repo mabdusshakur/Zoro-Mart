@@ -72,7 +72,7 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="">Home</a>
+                                            <a href="{{ route('user.home') }}">Home</a>
                                         </li>
                                         <li><a href="">about us</a></li>
                                         <li><a href="">contact</a></li>
