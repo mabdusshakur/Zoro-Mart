@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="header__hotline-info">
                                     <span>Hotline Free:</span>
-                                    <h6>017-000-00-000</h6>
+                                    <h6>{{$hotline}}</h6>
                                 </div>
                             </div>
                         </div>
