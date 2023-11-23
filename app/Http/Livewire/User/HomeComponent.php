@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Banner;
 use App\Models\Cart;
-use App\Models\Category;
+use App\Models\Banner;
 use App\Models\Feature;
 use App\Models\Product;
+use App\Models\Utility;
 use Livewire\Component;
+use App\Models\Category;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,7 @@ class HomeComponent extends Component
     public $banners;
 
     public $features;
+    public $hotline;
 
     public function mount()
     {
@@ -30,6 +32,7 @@ class HomeComponent extends Component
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
         $this->features = Feature::take(5)->get();
+        $this->hotline = Utility::first()->hotline;
     }
     public function addToWishlist($id)
     {
