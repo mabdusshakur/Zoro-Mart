@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
-use App\Models\Product;
 use App\Models\Review;
+use App\Models\Product;
+use App\Models\Utility;
 use Livewire\Component;
 use App\Models\Wishlist;
 use Livewire\WithPagination;
@@ -22,6 +23,8 @@ class ProductsComponent extends Component
     public $main_search = '';
 
     public $search_category_slug, $search_category_id, $search_sub_category_id;
+
+    public $hotline;
     public function mount($id = null, $slug = null, $sub_category_id = null)
     {
         if ($id && $slug) {
@@ -38,6 +41,7 @@ class ProductsComponent extends Component
         $this->maxPrice = Product::max('price');
         $this->per_page_item = 10;
         $this->filter_item = 'by_name';
+        $this->hotline = Utility::first()->hotline;
     }
     public function addToWishlist($id)
     {
