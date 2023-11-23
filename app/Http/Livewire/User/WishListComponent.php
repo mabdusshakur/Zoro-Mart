@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
+use App\Models\Utility;
 use Livewire\Component;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 class WishListComponent extends Component
 {
     public $cart_item_count, $cartItems;
+    public $hotline;
+    public function mount()
+    {
+        $this->hotline = Utility::first()->hotline;
+    }
     public function removeProduct($id)
     {
         $wishlist = Wishlist::find($id);
