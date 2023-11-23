@@ -27,7 +27,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/checkout-success', CheckoutSuccessComponent::class)->name('user.checkout.success');
     Route::get('/checkout-cancel', CheckoutCancelComponent::class)->name('user.checkout.cancel');
     
-    Route::get('/logout', function(){Auth::logout();})->name('user.logout');
+    Route::get('/logout', function(){
+        Auth::logout();
+        return redirect()->route('user.login');
+    })->name('user.logout');
 });
 
 Route::post('/checkout/stripe-webhook', [CheckoutComponent::class, 'stripe_webhook'])->name('user.checkout.stripe_webhook');
