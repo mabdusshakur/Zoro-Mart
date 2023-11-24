@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeComponent extends Component
 {
-    public $product_name, $product_description, $product_price, $product_quantity, $product_uid , $product_id;
-    
+    public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
+
     public $cart_item_count, $cartItems;
 
     public $categories;
@@ -27,12 +27,14 @@ class HomeComponent extends Component
 
     public function mount()
     {
-        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-        $this->categories = Category::all();
-        $this->banners = Banner::where('banner_status', 1)->get();
-        $this->features = Feature::take(5)->get();
-        $this->hotline = Utility::first()->hotline;
+        if (Auth::check()) {
+            $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
+            $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
+            $this->categories = Category::all();
+            $this->banners = Banner::where('banner_status', 1)->get();
+            $this->features = Feature::take(5)->get();
+            $this->hotline = Utility::first()->hotline;
+        }
     }
     public function addToWishlist($id)
     {
@@ -44,7 +46,7 @@ class HomeComponent extends Component
         session()->flash('success', 'Product has been added in wishlist successfully!');
         // return redirect()->route('user.wishlist');
     }
-    public function showProductModal($id)       
+    public function showProductModal($id)
     {
         $product = Product::find($id);
         $this->product_name = $product->name;
@@ -55,7 +57,7 @@ class HomeComponent extends Component
         $this->product_id = $product->id;
     }
     public function addToCart($id)
-    {    
+    {
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
         if ($cart) {
             $cart->quantity = $cart->quantity + 1;
@@ -72,12 +74,12 @@ class HomeComponent extends Component
         return redirect()->route('user.cart');
     }
 
-    public function goTogCategoryProducts($id,$slug)
+    public function goTogCategoryProducts($id, $slug)
     {
         return redirect()->route('user.products', ['id' => $id, 'slug' => $slug]);
     }
 
-    public function goTogSubCategoryProducts($id,$slug, $sub_category_id)
+    public function goTogSubCategoryProducts($id, $slug, $sub_category_id)
     {
         return redirect()->route('user.products', ['id' => $id, 'slug' => $slug, 'sub_category_id' => $sub_category_id]);
     }
@@ -88,11 +90,11 @@ class HomeComponent extends Component
     }
 
     public function render()
-    {   
+    {
         $products = Product::orderBy('name', 'ASC')->get();
         $best_selling_products = Product::orderBy('sold', 'DESC')->take(8)->get();
         $most_viewed_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->take(8)->get();
         $most_sell_and_view_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->orderBy('sold', 'DESC')->take(3)->get();
-        return view('livewire.user.home-component',['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products]);
+        return view('livewire.user.home-component', ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products]);
     }
 }
