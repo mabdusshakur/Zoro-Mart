@@ -30,11 +30,11 @@ class HomeComponent extends Component
         if (Auth::check()) {
             $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
             $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-            $this->categories = Category::all();
-            $this->banners = Banner::where('banner_status', 1)->get();
-            $this->features = Feature::take(5)->get();
-            $this->hotline = Utility::first()->hotline;
         }
+        $this->categories = Category::all();
+        $this->banners = Banner::where('banner_status', 1)->get();
+        $this->features = Feature::take(5)->get();
+        $this->hotline = Utility::first()->hotline;
     }
     public function addToWishlist($id)
     {
