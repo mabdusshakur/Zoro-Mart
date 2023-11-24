@@ -53,7 +53,9 @@
                                     </form>
                                 </div>
                             @endif
-                            @include('layouts.user.partials._mini_cart')
+                          @auth
+                          @include('layouts.user.partials._mini_cart')
+                          @endauth
                         </div>
                     </div>
                 </div>
