@@ -34,10 +34,7 @@ class HomeComponent extends Component
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
         $this->features = Feature::take(5)->get();
-        try {
-            $this->hotline = Utility::get()->first()->hotline;
-        } catch (\Throwable $th) {
-        }
+        $this->hotline = optional(Utility::first())->hotline;
     }
     public function addToWishlist($id)
     {
