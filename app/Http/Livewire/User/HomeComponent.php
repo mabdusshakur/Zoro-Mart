@@ -26,6 +26,7 @@ class HomeComponent extends Component
     public $features;
     public $hotline;
     
+    public $socialmedias;
     public function mount()
     {
         if (Auth::check()) {
@@ -36,6 +37,7 @@ class HomeComponent extends Component
         $this->banners = Banner::where('banner_status', 1)->get();
         $this->features = Feature::take(5)->get();
         $this->hotline = optional(Utility::first())->hotline;
+        $this->socialmedias = SocialMedia::all();
     }
     public function addToWishlist($id)
     {
@@ -96,7 +98,6 @@ class HomeComponent extends Component
         $best_selling_products = Product::orderBy('sold', 'DESC')->take(8)->get();
         $most_viewed_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->take(8)->get();
         $most_sell_and_view_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->orderBy('sold', 'DESC')->take(3)->get();
-        $socialmedias = SocialMedia::all();
-        return view('livewire.user.home-component', ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products, 'socialmedias' => $socialmedias]);
+        return view('livewire.user.home-component', ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products]);
     }
 }
