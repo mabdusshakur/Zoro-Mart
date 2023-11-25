@@ -9,4 +9,9 @@
     @include('partials.user._alerts')
 
     <h1>Cancel Page</h1>
+
+        <!-- footer area start -->
+        @include('layouts.user.partials._footer')
+        <!-- footer area end -->
+    
 </div>

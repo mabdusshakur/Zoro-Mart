@@ -76,4 +76,9 @@
             </div>
         </div>
     </section>
+
+        <!-- footer area start -->
+        @include('layouts.user.partials._footer')
+        <!-- footer area end -->
+    
 </div>

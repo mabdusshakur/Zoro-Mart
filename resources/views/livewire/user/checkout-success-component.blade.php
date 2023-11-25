@@ -9,4 +9,8 @@
     @include('partials.user._alerts')
 
     <h1>Thanks, for choosing us.</h1>
+        <!-- footer area start -->
+        @include('layouts.user.partials._footer')
+        <!-- footer area end -->
+    
 </div>
