@@ -30,10 +30,12 @@
                             <div class="footer__widget-content">
                                 <div class="footer__social mb-20">
                                     <ul>
-                                        
-                                        @foreach ($socialmedias as $socialmedia)
-                                            <li><a href="{{$socialmedia->link}}"><i class="{{$socialmedia->icon}}"></i></a></li>
-                                        @endforeach
+                                        @if (isset($socialmedias))
+                                            @foreach ($socialmedias as $socialmedia)
+                                                <li><a href="{{ $socialmedia->link }}"><i
+                                                            class="{{ $socialmedia->icon }}"></i></a></li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -48,14 +50,13 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6">
                             <div class="footer__copyright-text">
-                                <p>Copyright © <a href="{{route('user.home')}}">{{ env('APP_NAME') }}.</a></p>
+                                <p>Copyright © <a href="{{ route('user.home') }}">{{ env('APP_NAME') }}.</a></p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6">
                             <div class="footer__payment f-right">
                                 <a href="#" class="m-img"><img
-                                        src="{{ asset('user/assets/img/icon/payment.png') }}"
-                                        alt="" /></a>
+                                        src="{{ asset('user/assets/img/icon/payment.png') }}" alt="" /></a>
                             </div>
                         </div>
                     </div>

@@ -402,7 +402,13 @@
     </section>
     <!-- subscribe area end -->
 
+    
+    <!-- footer area start -->
+    @include('layouts.user.partials._footer')
+    <!-- footer area end -->
+
     <!-- shop modal start -->
     @include('partials.user._shop_modal')
     <!-- shop modal end -->
+
 </div>

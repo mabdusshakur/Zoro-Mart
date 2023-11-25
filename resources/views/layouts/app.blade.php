@@ -36,10 +36,6 @@
         {{$slot}}
     </main>
 
-    <!-- footer area start -->
-    @include('layouts.user.partials._footer')
-    <!-- footer area end -->
-
     <!-- JS here -->
     <script src="{{ asset('user/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('user/assets/js/vendor/waypoints.min.js') }}"></script>
