@@ -5,11 +5,18 @@ namespace App\Http\Livewire\User;
 use Http;
 use App\Models\User;
 use Livewire\Component;
+use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Session;
 
 class RegistrationComponent extends Component
 {
     public $user_first_name,$user_last_name, $email, $password, $c_password;
+    public $socialmedias;
+
+    public function mount()
+    {
+        $this->socialmedias = SocialMedia::all();
+    }
     public function register()
     {
         $validatedData = $this->validate([

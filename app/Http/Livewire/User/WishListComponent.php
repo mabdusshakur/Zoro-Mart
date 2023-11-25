@@ -6,15 +6,18 @@ use App\Models\Cart;
 use App\Models\Utility;
 use Livewire\Component;
 use App\Models\Wishlist;
+use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Auth;
 
 class WishListComponent extends Component
 {
     public $cart_item_count, $cartItems;
     public $hotline;
+    public $socialmedias;
     public function mount()
     {
         $this->hotline = Utility::first()->hotline;
+        $this->socialmedias = SocialMedia::all();
     }
     public function removeProduct($id)
     {
