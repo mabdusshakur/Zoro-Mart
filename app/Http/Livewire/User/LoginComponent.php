@@ -17,6 +17,7 @@ class LoginComponent extends Component
 
     public function mount()
     {
+        $this->socialmedias = SocialMedia::all();
         if (Cookie::get('user_email')) {
             $this->email = Cookie::get('user_email');
         }
@@ -25,7 +26,6 @@ class LoginComponent extends Component
         }
         $this->remember = true;
         $this->login();
-        $this->socialmedias = SocialMedia::all();
     }
     public function login()
     {
