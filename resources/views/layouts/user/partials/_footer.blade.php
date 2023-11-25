@@ -30,18 +30,10 @@
                             <div class="footer__widget-content">
                                 <div class="footer__social mb-20">
                                     <ul>
-                                        <li class="fb"><a href="#"><i
-                                                    class="fab fa-facebook-f"></i></a></li>
-                                        <li class="tw"><a href="#"><i
-                                                    class="fab fa-twitter"></i></a></li>
-                                        <li class="gp"><a href="#"><i
-                                                    class="fab fa-google-plus-g"></i></a></li>
-                                        <li class="yt"><a href="#"><i
-                                                    class="fab fa-youtube"></i></a></li>
-                                        <li class="pt"><a href="#"><i
-                                                    class="fab fa-pinterest-p"></i></a></li>
-                                        <li class="em"><a href="#"><i
-                                                    class="fal fa-envelope"></i></a></li>
+                                        
+                                        @foreach ($socialmedias as $socialmedia)
+                                            <li><a href="{{$socialmedia->link}}"><i class="{{$socialmedia->icon}}"></i></a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
