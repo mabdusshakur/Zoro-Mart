@@ -10,6 +10,7 @@ class Utility extends Model
     use HasFactory;
 
     protected $fillable = [
-        'hotline'
+        'hotline',
+        'about',
     ];
 }
