@@ -76,8 +76,8 @@
                                         <li>
                                             <a href="{{ route('user.home') }}">Home</a>
                                         </li>
-                                        <li><a href="">about us</a></li>
-                                        <li><a href="">contact</a></li>
+                                        <li><a href="{{ route('user.about') }}">about us</a></li>
+                                        <li><a href="{{ route('user.contact') }}">contact</a></li>
                                     </ul>
                                 </nav>
                             </div>

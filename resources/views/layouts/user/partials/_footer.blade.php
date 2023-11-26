@@ -13,8 +13,8 @@
                                     <div class="footer__widget-content">
                                         <div class="footer__link footer__link-2">
                                             <ul>
-                                                <li><a href="#">About us</a></li>
-                                                <li><a href="#">Contact us</a></li>
+                                                <li><a href="{{ route('user.about') }}">About us</a></li>
+                                                <li><a href="{{ route('user.contact') }}">Contact us</a></li>
                                             </ul>
                                         </div>
                                     </div>
