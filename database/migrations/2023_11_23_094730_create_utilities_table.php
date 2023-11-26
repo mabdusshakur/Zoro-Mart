@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('utilities', function (Blueprint $table) {
             $table->id();
-            $table->string('hotline');
+            $table->string('hotline')->nullable();
+            $table->longText('about')->nullable();
             $table->timestamps();
         });
     }
