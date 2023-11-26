@@ -12,8 +12,8 @@ class AboutComponent extends Component
 
     public function mount()
     {
-       $this->hotline = Utility::find(1)->hotline; 
-       $this->about = Utility::find(1)->about;
+       $this->hotline = optional(Utility::first())->hotline; 
+       $this->about = optional(Utility::first())->about;
     }
     public function render()
     {
