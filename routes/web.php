@@ -1,14 +1,17 @@
 <?php
+use App\Http\Livewire\User\AboutComponent;
 use App\Http\Livewire\User\CartComponent;
 use App\Http\Livewire\User\CheckoutCancelComponent;
 use App\Http\Livewire\User\CheckoutComponent;
 use App\Http\Livewire\User\CheckoutSuccessComponent;
+use App\Http\Livewire\User\ContactComponent;
 use App\Http\Livewire\User\HomeComponent;
 use App\Http\Livewire\User\LoginComponent;
 use App\Http\Livewire\User\ProductDetailsComponent;
 use App\Http\Livewire\User\ProductsComponent;
 use App\Http\Livewire\User\RegistrationComponent;
 use App\Http\Livewire\User\WishListComponent;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,6 +33,9 @@ Route::post('/checkout/stripe-webhook', [CheckoutComponent::class, 'stripe_webho
 Route::get('/', HomeComponent::class)->name('user.home');
 Route::get('/login', LoginComponent::class)->name('user.login');
 Route::get('/register', RegistrationComponent::class)->name('user.register');
+
+Route::get('/about-us', AboutComponent::class)->name('user.about');
+Route::get('/contact-us', ContactComponent::class)->name('user.contact');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/admin-panel/dashboard', \App\Http\Livewire\Admin\DashboardComponent::class)->name('admin.dashboard');
