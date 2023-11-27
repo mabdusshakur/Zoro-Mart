@@ -22,7 +22,7 @@ class ContactComponent extends Component
         $contact->email = $this->email;
         $contact->message = $this->message;
         $contact->save();
-        session()->flash('message', 'Your message has been sent successfully!');
+        session()->flash('success', 'Your message has been sent successfully!');
     }
     public function render()
     {
