@@ -5,7 +5,7 @@
             <h6 class="mb-0">Edit Sub-Category</h6>
         </div>
         <div class="card-body">
-            <form wire:submit.prevent="edit_sub_category">
+            <form wire:submit.prevent="saveUtility">
                 <div class="row">
                     <div class="col-md-4">
                         <input class="form-control form-control mb-3" type="text" placeholder="Hotline"
