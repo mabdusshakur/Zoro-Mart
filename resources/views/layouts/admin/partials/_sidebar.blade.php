@@ -87,6 +87,10 @@
                         <ion-icon name="ellipse-outline"></ion-icon>Utility
                     </a>
                 </li>
+                <li><a href="{{ route('admin.socialmedia') }}">
+                        <ion-icon name="ellipse-outline"></ion-icon>Social Media
+                    </a>
+                </li>
             </ul>
         </li>
 
