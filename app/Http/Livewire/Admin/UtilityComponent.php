@@ -9,7 +9,14 @@ class UtilityComponent extends Component
 {
     public $hotline,$about;
 
-
+    public function mount()
+    {
+        $utility = Utility::first();
+        if($utility){
+            $this->hotline = $utility->hotline;
+            $this->about = $utility->about;
+        }
+    }
     public function saveUtility()
     {
         $this->validate([
