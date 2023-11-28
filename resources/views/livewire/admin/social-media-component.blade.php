@@ -5,7 +5,7 @@
             <h6 class="mb-0">Social Media</h6>
         </div>
         <div class="card-body">
-            <form wire:submit.prevent="saveUtility">
+            <form wire:submit.prevent="saveSocial">
                 <div class="row">
                     <div class="col-md-6">
                         <input class="form-control form-control mb-3" type="text" placeholder="Name"
