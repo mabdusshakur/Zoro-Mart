@@ -51,4 +51,6 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/admin-panel/dashboard/edit-product/{id}', \App\Http\Livewire\Admin\EditProductComponent::class)->name('admin.edit-product');
     Route::get('/admin-panel/dashboard/edit-category/{id}', \App\Http\Livewire\Admin\EditCategoryComponent::class)->name('admin.edit-category');
     Route::get('/admin-panel/dashboard/edit-sub-category/{id}', \App\Http\Livewire\Admin\EditSubCategoryComponent::class)->name('admin.edit-sub-category');
+
+    Route::get('/admin-panel/dashboard/utility', \App\Http\Livewire\Admin\UtilityComponent::class)->name('admin.utility');
 });

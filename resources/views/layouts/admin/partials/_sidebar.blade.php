@@ -74,4 +74,20 @@
             </ul>
         </li>
 
+        <li class="menu-label">Setting Area</li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon">
+                    <ion-icon name="bag-handle-outline"></ion-icon>
+                </div>
+                <div class="menu-title">General Settings</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('admin.utility') }}">
+                        <ion-icon name="ellipse-outline"></ion-icon>Utility
+                    </a>
+                </li>
+            </ul>
+        </li>
+
 </aside>
