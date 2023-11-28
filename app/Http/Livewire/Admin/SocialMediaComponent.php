@@ -8,6 +8,6 @@ class SocialMediaComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.social-media-component');
+        return view('livewire.admin.social-media-component')->layout('layouts.admin');
     }
 }
