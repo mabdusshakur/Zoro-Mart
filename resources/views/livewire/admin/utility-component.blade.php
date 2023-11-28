@@ -2,7 +2,7 @@
     @include('partials.admin._alerts')
     <div class="card">
         <div class="card-header">
-            <h6 class="mb-0">Edit Sub-Category</h6>
+            <h6 class="mb-0">Utility Settings</h6>
         </div>
         <div class="card-body">
             <form wire:submit.prevent="saveUtility">
