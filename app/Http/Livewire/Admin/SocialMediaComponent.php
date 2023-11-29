@@ -26,6 +26,7 @@ class SocialMediaComponent extends Component
         $social = new SocialMedia();
         $social->name = $this->name;
         $social->icon = $this->icon;
+        $social->link = $this->link;
         $social->save();
         session()->flash('success','Social Media has been created successfully!');
     }
@@ -39,6 +40,7 @@ class SocialMediaComponent extends Component
         if($social){
             $social->name = $this->name;
             $social->icon = $this->icon;
+            $social->link = $this->link;
             $social->save();
         }else{
             session()->flash('warning','Social Media Not Found!');
