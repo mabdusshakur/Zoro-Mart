@@ -17,13 +17,25 @@ class SocialMediaComponent extends Component
             $this->icon = $social->icon;
         }
     }
-    public function saveSocial()
+    public function addSocial()
     {
         $this->validate([
             'name' => 'required',
             'icon' => 'required',
         ]);
-        $social = SocialMedia::first();
+        $social = new SocialMedia();
+        $social->name = $this->name;
+        $social->icon = $this->icon;
+        $social->save();
+        session()->flash('success','Social Media has been created successfully!');
+    }
+    public function saveSocial($id)
+    {
+        $this->validate([
+            'name' => 'required',
+            'icon' => 'required',
+        ]);
+        $social = SocialMedia::where('id',$id);
         if($social){
             $social->name = $this->name;
             $social->icon = $this->icon;
