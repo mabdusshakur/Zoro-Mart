@@ -7,12 +7,16 @@
         <div class="card-body">
             <form wire:submit.prevent="addSocial">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <input class="form-control form-control mb-3" type="text" placeholder="Name" wire:model="name">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <input class="form-control form-control mb-3" type="text"
                             placeholder="Icon, e.g. fa fa-facebook" wire:model="icon">
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control form-control" type="text"
+                        placeholder="https://website.com" wire:model="link">
                     </div>
                     <div class="col-md-12 mt-2">
                         <button type="submit" class="btn btn-success">Add Social Media</button>
@@ -33,6 +37,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Icon</th>
+                            <th>Link</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -47,6 +52,10 @@
                                 <td>
                                     <input class="form-control form-control" type="text"
                                         placeholder="Icon, e.g. fa fa-facebook" wire:model="icon" value="{{$social->icon}}">
+                                </td>
+                                <td>
+                                    <input class="form-control form-control" type="text"
+                                        placeholder="https://website.com" wire:model="link" value="{{$social->link}}">
                                 </td>
                                 <td>
                                     <div class="table-actions d-flex align-items-center gap-3 fs-6">

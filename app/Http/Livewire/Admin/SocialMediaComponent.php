@@ -7,7 +7,7 @@ use App\Models\SocialMedia;
 
 class SocialMediaComponent extends Component
 {
-    public $name,$icon;
+    public $name,$icon,$link;
 
     public function mount()
     {
