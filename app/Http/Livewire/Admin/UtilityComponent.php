@@ -17,6 +17,20 @@ class UtilityComponent extends Component
             $this->about = $utility->about;
         }
     }
+
+    public function addUtility()
+    {
+        $this->validate([
+            'hotline' => 'required',
+            'about' => 'required',
+        ]);
+        $utility = new Utility();
+        $utility->hotline = $this->hotline;
+        $utility->about = $this->about;
+        $utility->save();
+        session()->flash('success','Utility has been created successfully!');
+    }
+    
     public function saveUtility()
     {
         $this->validate([
@@ -33,6 +47,7 @@ class UtilityComponent extends Component
         }
         session()->flash('success','Utility has been saved successfully!');
     }
+    
     public function render()
     {
         return view('livewire.admin.utility-component')->layout('layouts.admin');
