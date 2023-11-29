@@ -45,8 +45,19 @@ class SocialMediaComponent extends Component
         }
         session()->flash('success','Social Media has been saved successfully!');
     }
+    public function deleteSocial($id)
+    {
+        $social = SocialMedia::where('id',$id);
+        if($social){
+            $social->delete();
+        }else{
+            session()->flash('warning','Social Media Not Found!');
+        }
+        session()->flash('success','Social Media has been deleted successfully!');
+    }
     public function render()
     {
-        return view('livewire.admin.social-media-component')->layout('layouts.admin');
+        $socials = SocialMedia::all();
+        return view('livewire.admin.social-media-component',['socials' => $socials])->layout('layouts.admin');
     }
 }
