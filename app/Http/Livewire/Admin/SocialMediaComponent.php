@@ -8,14 +8,11 @@ use App\Models\SocialMedia;
 class SocialMediaComponent extends Component
 {
     public $name,$icon,$link;
+    public $update_name,$update_icon,$update_link;
 
     public function mount()
     {
-        $social = SocialMedia::first();
-        if($social){
-            $this->name = $social->name;
-            $this->icon = $social->icon;
-        }
+
     }
     public function addSocial()
     {
@@ -59,7 +56,7 @@ class SocialMediaComponent extends Component
     }
     public function render()
     {
-        $socials = SocialMedia::all();
-        return view('livewire.admin.social-media-component',['socials' => $socials])->layout('layouts.admin');
+        $social_medias = SocialMedia::all();
+        return view('livewire.admin.social-media-component',['social_medias' => $social_medias])->layout('layouts.admin');
     }
 }

@@ -26,7 +26,6 @@
         </div>
     </div>
 
-    @if ($socials->count() != 0)
         <div class="card">
             <div class="card-header">
                 <h6 class="mb-0">Update Social Media</h6>
@@ -43,28 +42,28 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($socials as $social)
+                        @foreach ($social_medias as $social_media)
                             <tr>
                                 <td>
                                     <input class="form-control form-control" type="text" placeholder="Name"
-                                        wire:model="name" value="{{$social->name}}">
+                                        value="{{$social_media->name}}">
                                 </td>
                                 <td>
                                     <input class="form-control form-control" type="text"
-                                        placeholder="Icon, e.g. fa fa-facebook" wire:model="icon" value="{{$social->icon}}">
+                                        placeholder="Icon, e.g. fa fa-facebook"  value="{{$social_media->icon}}">
                                 </td>
                                 <td>
                                     <input class="form-control form-control" type="text"
-                                        placeholder="https://website.com" wire:model="link" value="{{$social->link}}">
+                                        placeholder="https://website.com" value="{{$social_media->link}}">
                                 </td>
                                 <td>
                                     <div class="table-actions d-flex align-items-center gap-3 fs-6">
-                                        <a href="javascript:;" wire:click="deleteSocial({{$social->id}})" class="text-danger"
+                                        <a href="javascript:;" wire:click="deleteSocial({{$social_media->id}})" class="text-danger"
                                             data-bs-toggle="tooltip" data-bs-placement="bottom" title=""
                                             data-bs-original-title="Delete" aria-label="Delete"><i
                                                 class="fa-solid fa-trash"></i></a>
-                                        <button type="button" wire:click="saveSocial({{$social->id}})"
-                                            class="btn btn-sm btn-success">Save</button>
+                                        {{-- <button type="button" wire:click="saveSocial({{$social_media->id}})"
+                                            class="btn btn-sm btn-success">Save</button> --}}
                                     </div>
                                 </td>
                             </tr>
@@ -74,6 +73,6 @@
                 </table>
             </div>
         </div>
-    @endif
+
 
 </div>
