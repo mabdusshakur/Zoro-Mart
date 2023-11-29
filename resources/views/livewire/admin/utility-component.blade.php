@@ -2,7 +2,29 @@
     @include('partials.admin._alerts')
     <div class="card">
         <div class="card-header">
-            <h6 class="mb-0">Utility Settings</h6>
+            <h6 class="mb-0">Add Utilit</h6>
+        </div>
+        <div class="card-body">
+            <form wire:submit.prevent="addUtility">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control form-control mb-3" type="text" placeholder="Hotline"
+                        wire:model="hotline">
+                    </div>
+                    <div class="col-md-8">
+                        <textarea class="form-control" cols="30" rows="10" placeholder="About Section" wire:model="about"></textarea>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <button type="submit" class="btn btn-success">Add Setting</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h6 class="mb-0">Update Utility</h6>
         </div>
         <div class="card-body">
             <form wire:submit.prevent="saveUtility">
