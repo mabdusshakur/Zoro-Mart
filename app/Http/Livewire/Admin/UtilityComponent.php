@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class UtilityComponent extends Component
 {
-    public $hotline,$about;
+    public $hotline,$about,$isOldAvailable;
 
     public function mount()
     {
         $utility = Utility::first();
         if($utility){
+            $this->isOldAvailable = true;
             $this->hotline = $utility->hotline;
             $this->about = $utility->about;
         }
@@ -30,7 +31,7 @@ class UtilityComponent extends Component
         $utility->save();
         session()->flash('success','Utility has been created successfully!');
     }
-    
+
     public function saveUtility()
     {
         $this->validate([
