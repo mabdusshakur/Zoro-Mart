@@ -103,6 +103,8 @@ class HomeComponent extends Component
         if($this->main_search != null){
             $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
         }
-        return view('livewire.user.home-component', ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products, 'live_search_products' => $live_search_products]);
+        $compact_data = ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products, 'live_search_products' => $live_search_products];
+
+        return view('livewire.user.home-component', $compact_data);
     }
 }
