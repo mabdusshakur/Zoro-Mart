@@ -49,6 +49,21 @@
                                             <input type="text" class="form-control"
                                                 placeholder="Search product name..." wire:model="main_search">
                                         </div>
+                                        <div class="col-md-8">
+                                            <div class="card">
+                                                @foreach ($live_search_products as $product)    
+                                                <div class="row align-items-center justify-content-center mt-2">
+                                                    <div class="col-md-4 col-sm-6">
+                                                        <img src="{{ asset('admin/assets/images/avatars/01.png') }}"
+                                                            alt="Product Image" width="40px" height="40px" class="rounded-circle">
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 mt-2">
+                                                        <h5>{{$product->name}}</h5>
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             @auth
