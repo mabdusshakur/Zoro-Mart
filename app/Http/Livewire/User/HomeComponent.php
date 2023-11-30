@@ -95,11 +95,14 @@ class HomeComponent extends Component
 
     public function render()
     {
+        $live_search_products = [];
         $products = Product::orderBy('name', 'ASC')->get();
         $best_selling_products = Product::orderBy('sold', 'DESC')->take(8)->get();
         $most_viewed_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->take(8)->get();
         $most_sell_and_view_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->orderBy('sold', 'DESC')->take(3)->get();
-        $live_search_products = Product::where('name', 'LIKE', '%' . $this->main_search . '%')->orderBy('name', 'ASC')->get();
+        if($this->main_search != null){
+            $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
+        }
         return view('livewire.user.home-component', ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products, 'live_search_products' => $live_search_products]);
     }
 }
