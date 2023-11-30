@@ -2,14 +2,18 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Utility;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class AboutComponent extends Component
 {
     public $hotline;
     public $about;
-
+    public $cart_item_count, $cartItems;
+    public $main_search;
     public function mount()
     {
        $this->hotline = optional(Utility::first())->hotline; 
@@ -17,6 +21,12 @@ class AboutComponent extends Component
     }
     public function render()
     {
-        return view('livewire.user.about-component');
+        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
+        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
+        $live_search_products = [];
+        if($this->main_search != null){
+            $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
+        }
+        return view('livewire.user.about-component', ['live_search_products' => $live_search_products]);
     }
 }
