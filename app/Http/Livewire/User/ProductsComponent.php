@@ -103,7 +103,7 @@ class ProductsComponent extends Component
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else {
-                $products = Product::where('name', 'LIKE', $searchTerm)->orWhere('name', 'LIKE', $searchTerm)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+                $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
 
         } else if ($this->filter_item == 'by_lowest_price') {
@@ -112,7 +112,7 @@ class ProductsComponent extends Component
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else {
-                $products = Product::where('name', 'LIKE', $searchTerm)->orWhere('name', 'LIKE', $searchTerm)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+                $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
         } else if ($this->filter_item == 'by_highest_price') {
             if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id == null) {
@@ -120,7 +120,7 @@ class ProductsComponent extends Component
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else {
-                $products = Product::where('name', 'LIKE', $searchTerm)->orWhere('name', 'LIKE', $searchTerm)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+                $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
         }
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
