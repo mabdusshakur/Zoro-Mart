@@ -44,13 +44,11 @@
                     <div class="col-xl-8 col-lg-9">
                         <div class="header__info-right">
                             @if (Route::currentRouteName() === 'user.products')
-                                <div class="header__search f-left d-none d-sm-block">
-                                    <form action="#">
+                                <div class="header__search f-left d-none d-sm-block"> 
                                         <div class="header__search-box">
                                             <input type="text" placeholder="Search For Products..."
                                                 wire:model="main_search">
                                         </div>
-                                    </form>
                                 </div>
                             @endif
                           @auth
