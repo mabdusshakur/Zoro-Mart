@@ -3,11 +3,12 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
-use App\Models\Product;
-use App\Models\ProductView;
 use App\Models\Review;
+use App\Models\Product;
+use App\Models\Utility;
 use Livewire\Component;
 use App\Models\Wishlist;
+use App\Models\ProductView;
 use Illuminate\Support\Facades\Auth;
 
 class ProductDetailsComponent extends Component
@@ -18,8 +19,11 @@ class ProductDetailsComponent extends Component
     public $products, $best_selling_products;
 
     public $review, $rating, $reviews;
+    public $hotline;
+    public $main_search = '';
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
+        $this->hotline = Utility::first()->hotline;
         $this->products = Product::where('id', $id)->get();
         $this->best_selling_products = Product::where('category_id',$category_id)->orWhere('sub_category_id', $sub_category_id)->orderBy('sold', 'DESC')->take(10)->get();
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
@@ -75,6 +79,10 @@ class ProductDetailsComponent extends Component
     
     public function render()
     {
-        return view('livewire.user.product-details-component');
+        $live_search_products = [];
+        if($this->main_search != null){
+            $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
+        }
+        return view('livewire.user.product-details-component', ['live_search_products' => $live_search_products]);
     }
 }
