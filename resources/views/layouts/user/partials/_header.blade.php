@@ -58,7 +58,8 @@
                                                             alt="Product Image" width="40px" height="40px" class="rounded-circle">
                                                     </div>
                                                     <div class="col-md-6 col-sm-6 mt-2">
-                                                        <h5>{{$product->name}}</h5>
+                                                        <a class="product-item-link" href="javascript:;"
+                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"><h5>{{$product->name}}</h5></a>
                                                     </div>
                                                 </div>
                                                 @endforeach
