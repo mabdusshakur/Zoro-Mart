@@ -5,7 +5,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6 col-md-5 d-none d-md-block">
                         <div class="header__welcome">
-                            <span>Welcome to {{env('APP_NAME')}}</span>
+                            <span>Welcome to {{ env('APP_NAME') }}</span>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-7">
@@ -36,24 +36,24 @@
                                 </div>
                                 <div class="header__hotline-info">
                                     <span>Hotline Free:</span>
-                                    <h6>{{$hotline}}</h6>
+                                    <h6>{{ $hotline }}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-9">
                         <div class="header__info-right">
-                            @if (Route::currentRouteName() === 'user.products')
-                                <div class="header__search f-left d-none d-sm-block"> 
-                                        <div class="header__search-box">
-                                            <input type="text" placeholder="Search For Products..."
-                                                wire:model="main_search">
+                                <div class="header__search f-left d-none d-sm-block">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control"
+                                                placeholder="Search product name..." wire:model="main_search">
                                         </div>
+                                    </div>
                                 </div>
-                            @endif
-                          @auth
-                          @include('layouts.user.partials._mini_cart')
-                          @endauth
+                            @auth
+                                @include('layouts.user.partials._mini_cart')
+                            @endauth
                         </div>
                     </div>
                 </div>
