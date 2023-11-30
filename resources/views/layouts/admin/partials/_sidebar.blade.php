@@ -84,11 +84,15 @@
             </a>
             <ul>
                 <li><a href="{{ route('admin.utility') }}">
-                        <ion-icon name="ellipse-outline"></ion-icon>Utility
+                        Utility
                     </a>
                 </li>
                 <li><a href="{{ route('admin.socialmedia') }}">
-                        <ion-icon name="ellipse-outline"></ion-icon>Social Media
+                        Social Media
+                    </a>
+                </li>
+                <li><a href="{{ route('admin.banner') }}">
+                        Banner
                     </a>
                 </li>
             </ul>
