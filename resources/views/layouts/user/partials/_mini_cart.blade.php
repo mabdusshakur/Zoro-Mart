@@ -3,8 +3,7 @@
         <span class="cart__total-item">{{ $cart_item_count }}</span>
     </a>
     <span class="cart__content">
-        <span class="cart__my">My Cart:</span>
-        <span class="cart__total-price">$ 255.00</span>
+        <span class="cart__my">My Cart</span>
     </span>
     <div class="cart__mini">
         <div class="cart__close">
