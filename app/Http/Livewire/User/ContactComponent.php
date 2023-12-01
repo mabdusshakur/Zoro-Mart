@@ -12,8 +12,6 @@ class ContactComponent extends Component
 {
     public $hotline;
     public $name, $email, $message;
-
-    public $cart_item_count, $cartItems;
     public $main_search;
     public function contact()
     {
@@ -36,8 +34,6 @@ class ContactComponent extends Component
         if ($this->main_search != null) {
             $live_search_products = Product::where('name', 'LIKE', '%' . $this->main_search . '%')->orderBy('name', 'ASC')->get();
         }
-        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         return view('livewire.user.contact-component', ['live_search_products' => $live_search_products]);
     }
 }

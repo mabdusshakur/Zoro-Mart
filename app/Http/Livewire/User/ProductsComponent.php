@@ -19,7 +19,6 @@ class ProductsComponent extends Component
     public $minPrice, $maxPrice;
 
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
-    public $cart_item_count, $cartItems;
 
     public $main_search = '';
 
@@ -123,8 +122,6 @@ class ProductsComponent extends Component
                 $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
         }
-        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         return view('livewire.user.products-component', ['products' => $products]);
     }
 }

@@ -9,14 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckoutSuccessComponent extends Component
 {
-    public $cart_item_count, $cartItems;
-
     public $userName;
     public function mount()
     {   
-        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-        
         try {
             $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
             $session = $stripe->checkout->sessions->retrieve(session()->get('checkout_session_id'));   

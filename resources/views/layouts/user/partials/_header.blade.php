@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             @auth
-                                @include('layouts.user.partials._mini_cart')
+                                @livewire('user.mini-cart-component')
                             @endauth
                         </div>
                     </div>

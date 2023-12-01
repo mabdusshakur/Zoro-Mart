@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
-    public $cart_item_count, $cartItems;
     public $hotline;
     public $socialmedias;
     
@@ -39,8 +38,6 @@ class CartComponent extends Component
     }
     public function render()
     {
-        $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-        $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         return view('livewire.user.cart-component');
     }
 }

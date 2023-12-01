@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Auth;
 class HomeComponent extends Component
 {
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
-
-    public $cart_item_count, $cartItems;
-
     public $categories;
 
     public $banners;
@@ -30,10 +27,6 @@ class HomeComponent extends Component
     public $main_search;
     public function mount()
     {
-        if (Auth::check()) {
-            $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
-            $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
-        }
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
         $this->features = Feature::take(5)->get();
