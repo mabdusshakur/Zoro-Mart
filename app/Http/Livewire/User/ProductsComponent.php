@@ -20,7 +20,7 @@ class ProductsComponent extends Component
 
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
 
-    public $main_search = '';
+    public $main_search;
 
     public $search_category_slug, $search_category_id, $search_sub_category_id;
 
@@ -94,34 +94,32 @@ class ProductsComponent extends Component
         return redirect()->route('user.product-details', ['id' => $id, 'slug' => $slug, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id]);
     }
     public function render()
-    {
-        $searchTerm = '%' . $this->main_search . '%';
+    {  
         if ($this->filter_item == 'by_name') {
-            if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id == null) {
-                $products = Product::where('category_id', $this->search_category_id)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+            if ($this->search_category_id == null && $this->search_category_slug == null && $this->search_sub_category_id == null) {
+                $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
-            } else {
-                $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
-
-        } else if ($this->filter_item == 'by_lowest_price') {
-            if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id == null) {
-                $products = Product::where('category_id', $this->search_category_id)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+        } 
+        else if ($this->filter_item == 'by_lowest_price') {
+            if ($this->search_category_id == null && $this->search_category_slug == null && $this->search_sub_category_id == null) {
+                $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
-            } else {
-                $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
-        } else if ($this->filter_item == 'by_highest_price') {
-            if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id == null) {
-                $products = Product::where('category_id', $this->search_category_id)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+        } 
+        else if ($this->filter_item == 'by_highest_price') {
+            if ($this->search_category_id == null && $this->search_category_slug == null && $this->search_sub_category_id == null) {
+                $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
-            } else {
-                $products = Product::where('name', 'LIKE', $searchTerm)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
         }
-        return view('livewire.user.products-component', ['products' => $products]);
+        $live_search_products = [];
+        if($this->main_search != null){
+            $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
+        }
+        return view('livewire.user.products-component', ['products' => $products, 'live_search_products' => $live_search_products]);
     }
 }
