@@ -10,7 +10,9 @@
             </div>
             <div class="col-md-12">
                 <p class="text-center">
-                    {{$about}}
+                    <span style="overflow-wrap: break-word;">
+                        {{$about}}
+                    </span>
                 </p>
             </div>
         </div>
