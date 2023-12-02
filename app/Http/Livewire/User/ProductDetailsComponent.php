@@ -20,7 +20,6 @@ class ProductDetailsComponent extends Component
 
     public $review, $rating, $reviews;
     public $hotline;
-    public $main_search = '';
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
         $this->hotline = Utility::first()->hotline;
@@ -79,10 +78,6 @@ class ProductDetailsComponent extends Component
     
     public function render()
     {
-        $live_search_products = [];
-        if($this->main_search != null){
-            $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
-        }
-        return view('livewire.user.product-details-component', ['live_search_products' => $live_search_products]);
+        return view('livewire.user.product-details-component');
     }
 }
