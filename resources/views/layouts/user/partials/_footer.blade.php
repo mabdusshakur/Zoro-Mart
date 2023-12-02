@@ -32,7 +32,7 @@
                                     <ul>
                                         @if (isset($socialmedias))
                                             @foreach ($socialmedias as $socialmedia)
-                                                <li><a href="{{ $socialmedia->link }}"><i
+                                                <li><a target="_blank" href="{{ $socialmedia->link }}"><i
                                                             class="{{ $socialmedia->icon }}"></i></a></li>
                                             @endforeach
                                         @endif
