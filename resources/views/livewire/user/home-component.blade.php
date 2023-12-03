@@ -192,31 +192,7 @@
                                                     <span class="new mb-5">${{ $product->price }}</span>
                                                 @endif
                                                 <p class="mt-10">{{ $product->description }}</p>
-                                                <div class="product__countdown">
-                                                    <h4>Hurry Up! Offer ends in:</h4>
-                                                    <div class="countdown-wrapper">
-                                                        <div data-countdown data-date="Dec 02 2022 20:20:22">
-                                                            <ul>
-                                                                <li>
-                                                                    <span data-days>0</span>
-                                                                    <p>Days</p>
-                                                                </li>
-                                                                <li>
-                                                                    <span data-hours>0</span>
-                                                                    <p>Hours</p>
-                                                                </li>
-                                                                <li>
-                                                                    <span data-minutes>0</span>
-                                                                    <p>mins</p>
-                                                                </li>
-                                                                <li>
-                                                                    <span data-seconds>0</span>
-                                                                    <p>secs</p>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
