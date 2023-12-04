@@ -13,54 +13,6 @@
                 <div class="col-xxl-2 col-xl-3 col-lg-4">
                     <div class="product__widget">
                         <div class="product__widget-item mb-15">
-                            <div class="accordion" id="productWidgetAccordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button product__widget-title" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            Color
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="product__widget-content">
-                                                <div class="product__color pt-10">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#" class="black"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="blue"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="red"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="yellow"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="pink"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="brown"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="green"></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" class="oragne"></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product__widget-item mb-15">
                             <div class="accordion" id="productWidgetAccordion1">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
