@@ -15,6 +15,12 @@
                     <label class="form-label" for="form4Example2">Email address</label>
                 </div>
     
+                <!-- Subject input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="subject" class="form-control" wire:model="subject" />
+                    <label class="form-label" for="subject">Subject</label>
+                </div>
+    
                 <!-- Message input -->
                 <div data-mdb-input-init class="form-outline mb-4">
                     <textarea class="form-control" id="form4Example3" rows="4" wire:model="message" ></textarea>

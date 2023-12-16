@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactComponent extends Component
 {
-    public $name, $email, $message;
+    public $name, $email, $message, $subject;
     public function contact()
     {
         $this->validate([
@@ -27,7 +27,7 @@ class ContactComponent extends Component
         $contact->save();
 
         $mall_data = [
-            'subject' => "New Contact Message",
+            'subject' => $this->subject,
             'email' => $this->email,
             'name' => $this->name,
             'message' => $this->message,
