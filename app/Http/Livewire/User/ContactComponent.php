@@ -2,11 +2,13 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Mail\ContactMail;
 use App\Models\Cart;
 use App\Models\Contact;
 use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ContactComponent extends Component
 {
@@ -23,7 +25,20 @@ class ContactComponent extends Component
         $contact->email = $this->email;
         $contact->message = $this->message;
         $contact->save();
-        session()->flash('success', 'Your message has been sent successfully!');
+
+        $mall_data = [
+            'subject' => "New Contact Message",
+            'email' => $this->email,
+            'name' => $this->name,
+            'message' => $this->message,
+        ];
+
+        if (Mail::to("owner@email.com")->send(new ContactMail($mall_data))) {
+            session()->flash('success', 'Your message has been sent successfully!');
+        } else {
+            session()->flash('error', 'Something went wrong!');
+        }
+
         $this->reset(['name', 'email', 'message']);
     }
     public function render()
