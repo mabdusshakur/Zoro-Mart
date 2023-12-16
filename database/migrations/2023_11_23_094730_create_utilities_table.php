@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('hotline')->nullable();
             $table->longText('about')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
