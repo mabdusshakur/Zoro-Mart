@@ -30,7 +30,7 @@
 
 <body>
 
-
+    @livewire('user.header-component')
 
     <main>
         {{$slot}}
