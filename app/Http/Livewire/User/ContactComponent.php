@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Mail;
 class ContactComponent extends Component
 {
     public $name, $email, $message, $subject;
+    public function mount()
+    {
+        if (Auth::check()) {
+            $this->name = Auth::user()->first_name . ' ' . Auth::user()->last_name;
+            $this->email = Auth::user()->email;
+        }
+    }
     public function contact()
     {
         $this->validate([
