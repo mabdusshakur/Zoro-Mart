@@ -1,6 +1,4 @@
 <div>
-    @include('partials.user._inlcudes')
-
     @include('partials.user._alerts')
     <div class="container">
         <div class="d-flex justify-content-center mt-4">

@@ -1,7 +1,4 @@
 <div>
-
-    @include('partials.user._inlcudes')
-
     @include('partials.user._alerts')
     <div class="container">
         <div class="row mt-4 mb-4">
