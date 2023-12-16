@@ -51,6 +51,8 @@
         {{$slot}}
     </main>
 
+    @livewire('user.footer-component')
+
     <!-- JS here -->
     <script src="{{ asset('user/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('user/assets/js/vendor/waypoints.min.js') }}"></script>
