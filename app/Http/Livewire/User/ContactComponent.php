@@ -2,23 +2,25 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Mail\ContactMail;
 use App\Models\Cart;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Utility;
 use Livewire\Component;
+use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class ContactComponent extends Component
 {
-    public $name, $email, $message, $subject;
+    public $name, $email, $message, $subject , $owner_email;
     public function mount()
     {
         if (Auth::check()) {
             $this->name = Auth::user()->first_name . ' ' . Auth::user()->last_name;
             $this->email = Auth::user()->email;
         }
+        $this->owner_email = optional(Utility::first())->owner_email;
     }
     public function contact()
     {
@@ -40,7 +42,7 @@ class ContactComponent extends Component
             'message' => $this->message,
         ];
 
-        if (Mail::to("owner@email.com")->send(new ContactMail($mall_data))) {
+        if (Mail::to($this->owner_email)->send(new ContactMail($mall_data))) {
             session()->flash('success', 'Your message has been sent successfully!');
         } else {
             session()->flash('error', 'Something went wrong!');
