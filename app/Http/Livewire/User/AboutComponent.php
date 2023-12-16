@@ -10,11 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AboutComponent extends Component
 {
-    public $hotline;
     public $about;
     public function mount()
     {
-       $this->hotline = optional(Utility::first())->hotline; 
        $this->about = optional(Utility::first())->about;
     }
     public function render()

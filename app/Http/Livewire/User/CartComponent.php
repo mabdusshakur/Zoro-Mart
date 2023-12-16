@@ -10,12 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
-    public $hotline;
     public $socialmedias;
     
     public function mount()
     {
-        $this->hotline = Utility::first()->hotline;
         $this->socialmedias = SocialMedia::all();
     }
     public function increaseQuantity($id)

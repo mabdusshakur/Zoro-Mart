@@ -24,7 +24,6 @@ class ProductsComponent extends Component
 
     public $search_category_slug, $search_category_id, $search_sub_category_id;
 
-    public $hotline;
     public $socialmedias;
     public function mount($id = null, $slug = null, $sub_category_id = null)
     {
@@ -42,7 +41,6 @@ class ProductsComponent extends Component
         $this->maxPrice = Product::max('price');
         $this->per_page_item = 10;
         $this->filter_item = 'by_name';
-        $this->hotline = optional(Utility::first())->hotline;
         $this->socialmedias = SocialMedia::all();
     }
     public function addToWishlist($id)

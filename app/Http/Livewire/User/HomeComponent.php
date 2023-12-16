@@ -21,7 +21,6 @@ class HomeComponent extends Component
     public $banners;
 
     public $features;
-    public $hotline;
 
     public $socialmedias;
     public function mount()
@@ -29,7 +28,6 @@ class HomeComponent extends Component
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
         $this->features = Feature::take(5)->get();
-        $this->hotline = optional(Utility::first())->hotline;
         $this->socialmedias = SocialMedia::all();
     }
     public function addToWishlist($id)

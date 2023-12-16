@@ -19,10 +19,8 @@ class ProductDetailsComponent extends Component
     public $products, $best_selling_products;
 
     public $review, $rating, $reviews;
-    public $hotline;
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
-        $this->hotline = Utility::first()->hotline;
         $this->products = Product::where('id', $id)->get();
         $this->best_selling_products = Product::where('category_id',$category_id)->orWhere('sub_category_id', $sub_category_id)->orderBy('sold', 'DESC')->take(10)->get();
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();

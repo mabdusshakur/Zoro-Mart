@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ContactComponent extends Component
 {
-    public $hotline;
     public $name, $email, $message;
     public function contact()
     {
