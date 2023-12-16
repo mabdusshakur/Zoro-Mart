@@ -18,14 +18,19 @@ class LoginComponent extends Component
     public function mount()
     {
         $this->socialmedias = SocialMedia::all();
+        $isCookieAvailable = false;
+
         if (Cookie::get('user_email')) {
             $this->email = Cookie::get('user_email');
+            $isCookieAvailable = true;
         }
         if (Cookie::get('user_password')) {
             $this->password = Cookie::get('user_password');
         }
         $this->remember = true;
-        $this->login();
+        if($isCookieAvailable){
+            $this->login();
+        }
     }
     public function login()
     {
