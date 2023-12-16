@@ -11,7 +11,7 @@ class SearchComponent extends Component
     public function render()
     {
         $live_search_products = [];
-        if($this->main_search != null){
+        if(strlen($this->main_search) > 3){
             $live_search_products = Product::where('name', 'LIKE', '%'.$this->main_search.'%')->orderBy('name', 'ASC')->get();
         }
         return view('livewire.user.search-component', ['live_search_products' => $live_search_products]);
