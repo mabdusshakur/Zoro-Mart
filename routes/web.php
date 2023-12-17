@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/checkout-cancel', CheckoutCancelComponent::class)->name('user.checkout.cancel');
     Route::get('/logout', function () {
         Auth::logout();
-        return redirect()->route('user.login');
+        return redirect()->route('user.home');
     })->name('user.logout');
 });
 
