@@ -9,7 +9,7 @@
                     height="30px" class="rounded-circle">
             </div>
             <div class="col-10">
-                <a class="product-item-link" href="javascript:;">
+                <a class="product-item-link" href="javascript:;" wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"> 
                     <h5>{{$product->name}}</h5>
                 </a>
             </div>

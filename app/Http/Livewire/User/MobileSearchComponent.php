@@ -8,6 +8,10 @@ use Livewire\Component;
 class MobileSearchComponent extends Component
 {
     public $main_search;
+    public function viewProductDetails($id, $slug, $category_id, $sub_category_id)
+    {
+        return redirect()->route('user.product-details', ['id' => $id, 'slug' => $slug, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id]);
+    }
     public function render()
     {
         $live_search_products = [];
