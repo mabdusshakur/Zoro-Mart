@@ -57,4 +57,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/admin-panel/dashboard/banner', \App\Http\Livewire\Admin\BannerComponent::class)->name('admin.banner');
 
     Route::get('/admin-panel/dashboard/news-letters/send', \App\Http\Livewire\Admin\SendNewsLetterComponent::class)->name('admin.newsletter.send');
+
+    Route::get('/admin-panel/dashboard/orders', \App\Http\Livewire\Admin\OrdersComponent::class)->name('admin.orders');
+    Route::get('/admin-panel/dashboard/orders/details', \App\Http\Livewire\Admin\OrderDetailsComponent::class)->name('admin.orders.details');
+
 });
