@@ -93,6 +93,7 @@ class ProductsComponent extends Component
     }
     public function render()
     {  
+        $products =  Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
         if ($this->filter_item == 'by_name') {
             if ($this->search_category_id == null && $this->search_category_slug == null && $this->search_sub_category_id == null) {
                 $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
