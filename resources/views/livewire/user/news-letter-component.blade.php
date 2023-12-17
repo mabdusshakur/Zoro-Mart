@@ -16,7 +16,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="subscribe__form f-right">
                         <form wire:submit.prevent="subscribeNewsLetter">
-                            <input type="email" placeholder="Enter your email here..." wire:model="email"/>
+                            <input type="email" placeholder="Enter your email here..." wire:model.lazy="email"/>
                             <button class="t-y-btn t-y-btn-sub" type="submit">subscribe</button>
                         </form>
                     </div>
