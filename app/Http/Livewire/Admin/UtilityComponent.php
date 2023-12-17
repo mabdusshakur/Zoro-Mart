@@ -4,9 +4,11 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Utility;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UtilityComponent extends Component
 {
+    use WithFileUploads;
     public $hotline,$email,$about,$isOldAvailable;
     public $favicon, $logo, $web_name;
     public $old_favicon, $old_logo;
