@@ -113,4 +113,19 @@
             </ul>
         </li>
 
+        <li class="menu-label">Orders Area</li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon">
+                    <ion-icon name="bag-handle-outline"></ion-icon>
+                </div>
+                <div class="menu-title">Orders</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('admin.orders') }}">
+                        All Orders
+                    </a>
+                </li>
+            </ul>
+        </li>
 </aside>
