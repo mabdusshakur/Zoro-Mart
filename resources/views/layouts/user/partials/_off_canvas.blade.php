@@ -13,10 +13,7 @@
                 </a>
             </div>
             <div class="offcanvas__search mb-25">
-                <form action="#">
-                    <input type="text" placeholder="What are you searching for?">
-                    <button type="submit"><i class="far fa-search"></i></button>
-                </form>
+                @livewire('user.mobile-search-component')
             </div>
             <div class="mobile-menu fix"></div>
             <div class="offcanvas__action">
