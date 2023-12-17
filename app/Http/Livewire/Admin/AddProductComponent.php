@@ -15,7 +15,7 @@ class AddProductComponent extends Component
 {
     use WithFileUploads;
 
-    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories , $category_name, $sub_category_name;
+    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories , $category_name, $sub_category_name, $on_sale;
     public $test_product_images;
     public function mount()
     {
@@ -33,6 +33,7 @@ class AddProductComponent extends Component
                 'product_image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|',
                 'category_id' => 'required',
                 'sub_category_id' => 'required'
+
             ]);
             
             
@@ -47,6 +48,7 @@ class AddProductComponent extends Component
             $product->category_id = $this->category_id;
             $product->sub_category_id = $this->sub_category_id;
             $product->product_uid = $product_uid;
+            $product->on_sale = $this->on_sale;
 
             foreach ($this->product_image as $image) {
                 $image_location = $image->storeAs('product/images', rand(1000,10000).'-'.time().'.'.$image->getClientOriginalExtension(), 'public');
