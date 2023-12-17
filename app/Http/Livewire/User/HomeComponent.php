@@ -33,11 +33,15 @@ class HomeComponent extends Component
     public function addToWishlist($id)
     {
         $product = Product::find($id);
-        $wishlist = new Wishlist();
-        $wishlist->user_id = Auth::user()->id;
-        $wishlist->product_id = $product->id;
-        $wishlist->save();
-        return redirect()->route('user.wishlist');
+        if(Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()){
+            return redirect()->route('user.wishlist');
+        }else{
+            $wishlist = new Wishlist();
+            $wishlist->user_id = Auth::user()->id;
+            $wishlist->product_id = $product->id;
+            $wishlist->save();
+            return redirect()->route('user.wishlist');
+        }
     }
     public function showProductModal($id)
     {
