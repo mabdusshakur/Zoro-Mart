@@ -19,4 +19,14 @@ class Product extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function subCategory()
+    {
+        return $this->belongsTo(subCategory::class);
+    }
 }
