@@ -14,6 +14,13 @@
                                 wire:model="hotline">
                             <input class="form-control form-control mb-3" type="text" placeholder="Email"
                                 wire:model="email">
+                            <input class="form-control form-control mb-3" type="text" placeholder="Website Name"
+                                wire:model="web_name">
+                            <label for="logo_input" class="form-label">Select Logo</label>
+                            <input class="form-control mb-3" type="file" id="logo_input" wire:model="logo">
+
+                            <label for="favicon_input" class="form-label">Select Favicon</label>
+                            <input class="form-control mb-3" type="file" id="favicon_input" wire:model="favicon">
                         </div>
                         <div class="col-md-8">
                             <textarea class="form-control" cols="30" rows="10" placeholder="About Section" wire:model="about"></textarea>
