@@ -65,7 +65,7 @@
                                             <div class="product__action p-absolute">
                                                 <ul>
                                                     <li>
-                                                        <a href="#" title="Add to Wishlist"><i
+                                                        <a href="javascript:;" wire:click="addToWishlist({{ $product->id }})" title="Add to Wishlist"><i
                                                                 class="fal fa-heart"></i></a>
                                                     </li>
                                                     <li>
