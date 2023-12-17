@@ -27,6 +27,7 @@ class ContactComponent extends Component
         $this->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'subject' => 'required|min:5',
             'message' => 'required|min:10'
         ]);
         $contact = new Contact();
