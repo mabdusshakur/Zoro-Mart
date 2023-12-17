@@ -12,6 +12,8 @@
                         <div class="col-md-4">
                             <input class="form-control form-control mb-3" type="text" placeholder="Hotline"
                                 wire:model="hotline">
+                            <input class="form-control form-control mb-3" type="text" placeholder="Email"
+                                wire:model="email">
                         </div>
                         <div class="col-md-8">
                             <textarea class="form-control" cols="30" rows="10" placeholder="About Section" wire:model="about"></textarea>

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class UtilityComponent extends Component
 {
-    public $hotline,$about,$isOldAvailable;
+    public $hotline,$email,$about,$isOldAvailable;
 
     public function mount()
     {
@@ -16,6 +16,7 @@ class UtilityComponent extends Component
             $this->isOldAvailable = true;
             $this->hotline = $utility->hotline;
             $this->about = $utility->about;
+            $this->email = $utility->email;
         }
     }
 
@@ -24,10 +25,12 @@ class UtilityComponent extends Component
         $this->validate([
             'hotline' => 'required',
             'about' => 'required',
+            'email' => 'required|email',
         ]);
         $utility = new Utility();
         $utility->hotline = $this->hotline;
         $utility->about = $this->about;
+        $utility->email = $this->email;
         $utility->save();
         session()->flash('success','Utility has been created successfully!');
     }
@@ -37,11 +40,13 @@ class UtilityComponent extends Component
         $this->validate([
             'hotline' => 'required',
             'about' => 'required',
+            'email' => 'required|email',
         ]);
         $utility = Utility::first();
         if($utility){
             $utility->hotline = $this->hotline;
             $utility->about = $this->about;
+            $utility->email = $this->email;
             $utility->save();
         }else{
             session()->flash('warning','Utility Not Found!');
