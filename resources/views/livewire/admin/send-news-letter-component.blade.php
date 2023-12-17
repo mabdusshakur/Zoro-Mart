@@ -14,7 +14,7 @@
                     <textarea class="form-control" cols="30" rows="10" placeholder="Write Your News Here" wire:model="news"></textarea>
                 </div>
                 <div class="col-md-12 mt-2" >
-                    <button type="submit" wire:click="sendNews" class="btn btn-success">Send News</button>
+                    <button type="submit" wire:loading.attr="disabled" wire:click="sendNews" class="btn btn-success">Send News</button>
                 </div>
             </div>
         </div>
