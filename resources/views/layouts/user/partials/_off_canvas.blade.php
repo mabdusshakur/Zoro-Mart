@@ -8,7 +8,8 @@
         <div class="offcanvas__content">
             <div class="offcanvas__logo mb-40">
                 <a href="index.html">
-                    <img src="{{ asset('user/assets/img/logo/logo-black.png') }}" alt="logo">
+                    {{-- <img src="{{ asset('user/assets/img/logo/logo-black.png') }}" alt="logo"> --}}
+                    {{ config('app.name') }}
                 </a>
             </div>
             <div class="offcanvas__search mb-25">
