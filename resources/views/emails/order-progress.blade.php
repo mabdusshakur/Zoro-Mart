@@ -38,10 +38,10 @@
 <body>
     <div class="container">
         <h1>Order Progress</h1>
-        <p>Dear {{ $mail_var['buyer_name'] }},</p>
+        <p>Dear {{ $mail_data['buyer_name'] }},</p>
         <p>We would like to inform you about the progress of your order.</p>
-        <p>Order ID: {{ $mail_var['order_id'] }}</p>
-        <p>Status: {{ $mail_var['order_status'] }}</p>
+        <p>Order ID: {{ $mail_data['order_id'] }}</p>
+        <p>Status: {{ $mail_data['order_status'] }}</p>
         <p>Thank you for choosing our service.</p>
         <p class="signature">Best regards,<br>The {{config('app.name')}} Team</p>
     </div>
