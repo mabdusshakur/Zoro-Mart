@@ -92,7 +92,7 @@
                         <option value="canceled">Canceled</option>
                     </select>
                     <div class="col-md-12 mt-2">
-                        <button type="button" wire:click="updateStatus" class="btn btn-success">Save Staus</button>
+                        <button type="button" wire:loading.attr="disabled" wire:click="updateStatus" class="btn btn-success">Save Staus</button>
                     </div>
                 </div>
             </div>
