@@ -11,7 +11,7 @@ class HeaderComponent extends Component
 
     public function mount()
     {
-        $this->utility = optional(Utility::first());
+        $this->utility = Utility::first();
     }
     public function render()
     {

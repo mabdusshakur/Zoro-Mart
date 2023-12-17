@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="header__hotline-info">
                                         <span>Hotline Free:</span>
-                                        <h6>{{ $hotline }}</h6>
+                                        <h6>{{ $utility->hotline }}</h6>
                                     </div>
                                 </div>
                             </div>
