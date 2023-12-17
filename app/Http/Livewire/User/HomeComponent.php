@@ -36,10 +36,10 @@ class HomeComponent extends Component
         if(Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()){
             return redirect()->route('user.wishlist');
         }else{
-            $wishlist = new Wishlist();
-            $wishlist->user_id = Auth::user()->id;
-            $wishlist->product_id = $product->id;
-            $wishlist->save();
+            Wishlist::create([
+                'user_id' => Auth::user()->id,
+                'product_id' => $product->id,
+            ]);
             return redirect()->route('user.wishlist');
         }
     }
