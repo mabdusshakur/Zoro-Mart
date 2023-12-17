@@ -27,6 +27,13 @@
                             <span class="input-group-text">0.00</span>
                             <input type="number" class="form-control" id="product_price_input" wire:model="price">
                         </div>
+
+                        <label for="product_discount_price_input" class="form-label">Enter Product Discount Price</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <span class="input-group-text">0.00</span>
+                            <input type="number" class="form-control" id="product_discount_price_input" wire:model="discount_price">
+                        </div>
                     </div>
 
                     <div class="col-md-6">
