@@ -37,8 +37,7 @@ class HomeComponent extends Component
         $wishlist->user_id = Auth::user()->id;
         $wishlist->product_id = $product->id;
         $wishlist->save();
-        session()->flash('success', 'Product has been added in wishlist successfully!');
-        // return redirect()->route('user.wishlist');
+        return redirect()->route('user.wishlist');
     }
     public function showProductModal($id)
     {
