@@ -14,6 +14,6 @@ class OrderDetailsComponent extends Component
     }
     public function render()
     {
-        return view('livewire.admin.order-details-component');
+        return view('livewire.admin.order-details-component')->layout('layouts.admin');
     }
 }
