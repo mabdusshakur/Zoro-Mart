@@ -73,10 +73,6 @@
                                                             data-bs-target="#productModalId"><i
                                                                 class="fal fa-search"></i></a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#" title="Compare"><i
-                                                                class="far fa-sliders-h"></i></a>
-                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
