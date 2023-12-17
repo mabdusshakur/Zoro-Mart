@@ -22,6 +22,7 @@
                             <th>Photo</th>
                             <th>Product ID</th>
                             <th>Price</th>
+                            <th>Discount Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,6 +38,7 @@
                             @endforeach
                             <td>{{$product->product_uid}}</td>
                             <td>${{$product->price}}</td>
+                            <td>${{$product->discount_price}}</td>
                             <td>
                                 <div class="table-actions d-flex align-items-center gap-3 fs-6">
                                     <a href="javascript:;" wire:click="view_product({{$product->id}})" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Views" aria-label="Views"><i class="fa-solid fa-eye"></i></a>
