@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('hotline')->nullable();
             $table->longText('about')->nullable();
             $table->string('email')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
+            $table->string('web_name')->nullable();
             $table->timestamps();
         });
     }
