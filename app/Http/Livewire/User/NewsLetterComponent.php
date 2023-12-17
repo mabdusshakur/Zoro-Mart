@@ -11,8 +11,12 @@ class NewsLetterComponent extends Component
     public function subscribeNewsLetter()
     {
         $this->validate([
-            'email' => 'required|email|unique:news_letters,email'
+            'email' => 'required|email|'
         ]);
+        if(NewsLetter::where('email', $this->email)->exists()){
+            session()->flash('info', 'You have already subscribed!');
+            return;
+        }
         NewsLetter::create([
             'email' => $this->email,
             'status' => 1
