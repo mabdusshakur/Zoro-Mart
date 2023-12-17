@@ -6,7 +6,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6 col-md-5 d-none d-md-block">
                             <div class="header__welcome">
-                                <span>Welcome to {{ config('app.name') }}</span>
+                                <span>Welcome to {{ $utility->web_name ?? config('app.name') }}</span>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-7">
