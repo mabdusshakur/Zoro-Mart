@@ -51,14 +51,14 @@
                             <label for="logo_input" class="form-label">Select Logo</label>
                             <input class="form-control mb-3" type="file" id="logo_input" wire:model="logo">
                             <div class="col-md-6 mt-2 mb-2">
-                                <img src="{{ Storage::url($old_logo) }}" class="img-fluid img-thumbnail" alt="Logo"
-                                    height="40px" width="40px" />
+                                <img src="{{ Storage::url($old_logo) }}" alt="Logo"
+                                    height="50px" width="50px" />
                             </div>
 
                             <label for="favicon_input" class="form-label">Select Favicon</label>
                             <input class="form-control mb-3" type="file" id="favicon_input" wire:model="favicon">
                             <div class="col-md-6 mt-2 mb-2">
-                                <img src="{{ Storage::url($old_favicon) }}" class="img-fluid img-thumbnail" alt="Logo"
+                                <img src="{{ Storage::url($old_favicon) }}" alt="Logo"
                                     height="32px" width="32px" />
                             </div>
                         </div>
