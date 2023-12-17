@@ -36,6 +36,7 @@ class CartComponent extends Component
     }
     public function render()
     {
-        return view('livewire.user.cart-component');
+        $cartItems = Cart::where('user_id', Auth::user()->id)->get();
+        return view('livewire.user.cart-component', ['cartItems' => $cartItems]);
     }
 }
