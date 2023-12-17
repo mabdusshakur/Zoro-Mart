@@ -10,17 +10,17 @@
             <div class="features__inner">
                 <div class="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
                     @foreach ($features as $feature)
-                    <div class="col">
-                        <div class="features__item d-flex white-bg">
-                            <div class="features__icon mr-15">
-                                <i class="{{$feature->icon}}"></i>
-                            </div>
-                            <div class="features__content">
-                                <h6>{{$feature->title}}</h6>
-                                <p>{{$feature->description}}</p>
+                        <div class="col">
+                            <div class="features__item d-flex white-bg">
+                                <div class="features__icon mr-15">
+                                    <i class="{{ $feature->icon }}"></i>
+                                </div>
+                                <div class="features__content">
+                                    <h6>{{ $feature->title }}</h6>
+                                    <p>{{ $feature->description }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
@@ -65,12 +65,14 @@
                                             <div class="product__action p-absolute">
                                                 <ul>
                                                     <li>
-                                                        <a href="javascript:;" wire:click="addToWishlist({{ $product->id }})" title="Add to Wishlist"><i
-                                                                class="fal fa-heart"></i></a>
+                                                        <a href="javascript:;"
+                                                            wire:click="addToWishlist({{ $product->id }})"
+                                                            title="Add to Wishlist"><i class="fal fa-heart"></i></a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" title="Quick View" data-bs-toggle="modal"
-                                                            data-bs-target="#productModalId"><i
+                                                        <a href="javascript:;"
+                                                            wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"title="Quick View"
+                                                            data-bs-toggle="modal" data-bs-target="#productModalId"><i
                                                                 class="fal fa-search"></i></a>
                                                     </li>
                                                 </ul>
