@@ -98,4 +98,19 @@
             </ul>
         </li>
 
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon">
+                    <ion-icon name="bag-handle-outline"></ion-icon>
+                </div>
+                <div class="menu-title">NewsLetters</div>
+            </a>
+            <ul>
+                <li><a href="{{ route('admin.newsletter.send') }}">
+                        Send NewsLetter
+                    </a>
+                </li>
+            </ul>
+        </li>
+
 </aside>
