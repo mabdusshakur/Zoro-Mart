@@ -23,7 +23,7 @@ class OrderDetailsComponent extends Component
             $mail_data = [
                 'subject' => 'Order Status Updated',
                 'email' => $this->order->user->email,
-                'buyer_name' => $this->order->user->name,
+                'buyer_name' => $this->order->user->first_name . ' ' . $this->order->user->last_name,
                 'order_status' => $this->status,
                 'order_id' => $this->order->id,
             ];
