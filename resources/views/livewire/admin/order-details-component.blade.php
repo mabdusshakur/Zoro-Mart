@@ -26,7 +26,7 @@
                         <h6 class="border rounded p-2">City : <span class="text-white">{{ $order->user->city }}</span>
                         </h6>
                         <h6 class="border rounded p-2">Country : <span
-                                class="text-white">{{ $order->user->country }}</span></h6>
+                                class="text-white">{{ \App\Models\Country::where('id', $order->user->country)->first()->name }}</span></h6>
                         <h6 class="border rounded p-2">ZipCode : <span
                                 class="text-white">{{ $order->user->zipcode }}</span></h6>
                     </div>
