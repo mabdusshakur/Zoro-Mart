@@ -7,7 +7,9 @@ use App\Models\Order;
 use App\Models\Country;
 use Livewire\Component;
 use App\Models\OrderItem;
+use App\Mail\OrderProgressMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutComponent extends Component
 {
@@ -169,6 +171,14 @@ class CheckoutComponent extends Component
                 if ($order && $order->status == 'unpaid') {
                     $order->status = 'paid';
                     $order->save();
+                    $mail_data = [
+                        'subject' => 'Order Confirmation',
+                        'email' => $order->user->email,
+                        'buyer_name' => $order->user->first_name . ' ' . $this->order->user->last_name,
+                        'order_status' => $order->status,
+                        'order_id' => $order->id,
+                    ];
+                    Mail::to($mail_data['email'])->send(new OrderProgressMail($mail_data));
                 }
             default:
                 echo 'Received unknown event type ' . $event->type;
