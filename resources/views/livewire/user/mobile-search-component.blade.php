@@ -1,7 +1,6 @@
 <div>
     <form action="#">
         <input type="text" placeholder="What are you searching for?" wire:model="main_search">
-        <button type="submit"><i class="far fa-search"></i></button>
     </form>
     @foreach ($live_search_products as $product)
         <div class="row align-items-center justify-content-center mt-2">
