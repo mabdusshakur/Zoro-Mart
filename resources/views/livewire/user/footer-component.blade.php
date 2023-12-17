@@ -51,7 +51,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-6">
                                 <div class="footer__copyright-text">
-                                    <p>Copyright © <a href="{{ route('user.home') }}">{{ config('app.name') }}</a></p>
+                                    <p>Copyright © <a href="{{ route('user.home') }}">{{ $web_name ?? config('app.name') }}</a></p>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
