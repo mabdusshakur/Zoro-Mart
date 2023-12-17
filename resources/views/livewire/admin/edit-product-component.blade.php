@@ -52,7 +52,10 @@
                         Available</label>
                     <input type="number" class="form-control" id="product_quantity_input" wire:model="quantity">
                 </div>
-
+                <div class="col-md-5 mb-4">
+                    <input id="on_sale" type="checkbox" wire:model="on_sale" />
+                    <label for="on_sale" class="form-label">On Sale!</label>
+                </div>
 
                 @if ($old_product_image)
                     @foreach ($old_product_image as $image)
