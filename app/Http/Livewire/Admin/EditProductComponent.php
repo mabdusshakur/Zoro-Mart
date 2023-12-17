@@ -15,7 +15,7 @@ class EditProductComponent extends Component
 {
     use WithFileUploads;
 
-    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories, $category_name, $sub_category_name, $on_sale;
+    public $product_name, $description, $price, $quantity, $product_image, $category_id, $sub_category_id, $categories, $sub_categories, $category_name, $sub_category_name, $on_sale, $discount_price;
     public $old_product;
 
     public function mount($id)
@@ -31,6 +31,7 @@ class EditProductComponent extends Component
         $this->on_sale = $product->on_sale;
         $this->categories = Category::all();
         $this->sub_categories = SubCategory::all();
+        $this->discount_price = $product->discount_price;
     }
     public function edit_product()
     {
@@ -54,6 +55,7 @@ class EditProductComponent extends Component
                 'category_id' => $this->category_id,
                 'sub_category_id' => $this->sub_category_id,
                 'on_sale' => $this->on_sale,
+                'discount_price' => $this->discount_price,
             ]);
 
             
