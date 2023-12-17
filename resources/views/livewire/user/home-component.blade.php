@@ -181,9 +181,13 @@
                                                     </ul>
                                                 </div>
                                                 @if ($product->on_sale == true)
-                                                    <span class="new mb-5">${{ $product->discount_price }}</span>
-                                                    <span class="price-old mb-5">
-                                                        <del>${{ $product->price }}</del></span>
+                                                    @if ($product->discount_price != null)
+                                                        <span class="new mb-5">${{ $product->discount_price }}</span>
+                                                        <span class="price-old mb-5">
+                                                            <del>${{ $product->price }}</del></span>
+                                                    @else
+                                                        <span class="new mb-5">${{ $product->price }}</span>
+                                                    @endif
                                                 @else
                                                     <span class="new mb-5">${{ $product->price }}</span>
                                                 @endif
