@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class HeaderComponent extends Component
 {
-    public $hotline;
+    public $utility;
 
     public function mount()
     {
-        $this->hotline = optional(Utility::first())->hotline;
+        $this->utility = optional(Utility::first());
     }
     public function render()
     {
