@@ -12,5 +12,6 @@ class Utility extends Model
     protected $fillable = [
         'hotline',
         'about',
+        'email',
     ];
 }
