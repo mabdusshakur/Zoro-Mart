@@ -7,7 +7,7 @@ use App\Models\NewsLetter;
 
 class NewsLetterComponent extends Component
 {
-    public $emial;
+    public $email;
     public function subscribeNewsLetter()
     {
         $this->validate([
