@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class OrdersComponent extends Component
 {
+    public function view_orders($id)
+    {
+        return redirect()->route('admin.orders.details', ['id' => $id]);
+    }
     public function render()
     {
         $orders = Order::all();

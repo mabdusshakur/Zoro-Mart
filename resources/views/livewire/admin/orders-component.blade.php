@@ -39,7 +39,7 @@
                                 <td>{{ $order->status }}</td>
                                 <td>
                                     <div class="table-actions d-flex align-items-center gap-3 fs-6">
-                                        <a href="javascript:;" wire:click="view_orders()"
+                                        <a href="javascript:;" wire:click="view_orders({{$order->id}})"
                                             class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                             title="" data-bs-original-title="Views" aria-label="Views"><i
                                                 class="fa-solid fa-eye"></i></a>
