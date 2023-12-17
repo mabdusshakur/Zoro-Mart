@@ -1,4 +1,5 @@
 <div>
+    @include('partials.user._alerts')
     <section class="subscribe__area pt-35 pb-30">
         <div class="container">
             <div class="row align-items-center">
