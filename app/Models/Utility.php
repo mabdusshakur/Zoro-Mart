@@ -13,5 +13,8 @@ class Utility extends Model
         'hotline',
         'about',
         'email',
+        'logo',
+        'favicon',
+        'web_name',
     ];
 }
