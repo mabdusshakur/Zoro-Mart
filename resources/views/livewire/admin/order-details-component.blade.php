@@ -83,6 +83,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <select class="form-select mb-3" wire:model="status">
+                        <option selected="">Select Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="completed">Completed</option>
+                        <option value="canceled">Canceled</option>
+                    </select>
+                    <div class="col-md-12 mt-2">
+                        <button type="button" wire:click="updateStatus" class="btn btn-success">Save Staus</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
