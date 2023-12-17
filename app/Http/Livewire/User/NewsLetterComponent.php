@@ -13,7 +13,7 @@ class NewsLetterComponent extends Component
         $this->validate([
             'email' => 'required|email|unique:news_letters,email'
         ]);
-        NewsLetter::creat([
+        NewsLetter::create([
             'email' => $this->email,
             'status' => 1
         ]);
