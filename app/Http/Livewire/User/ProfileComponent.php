@@ -7,6 +7,7 @@ use Livewire\Component;
 class ProfileComponent extends Component
 {
     public $first_name, $last_name, $current_password, $new_password, $confirm_password;
+    public $phone, $address_1, $address_2, $city, $zipcode, $country;
 
     public function mount()
     {
