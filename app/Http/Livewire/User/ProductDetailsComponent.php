@@ -54,14 +54,14 @@ class ProductDetailsComponent extends Component
     {
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
         if ($cart) {
-            $cart->quantity = $cart->quantity + 1;
+            $cart->quantity = $cart->quantity + $this->product_quantity;
             $cart->save();
             session()->flash('success', 'Product has been added in cart successfully!');
         } else {
             $cart = new Cart();
             $cart->user_id = Auth::user()->id;
             $cart->product_id = $id;
-            $cart->quantity = 1;
+            $cart->quantity = $this->product_quantity;
             $cart->save();
             session()->flash('success', 'Product has been added in cart successfully!');
         }
