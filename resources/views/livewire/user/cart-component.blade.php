@@ -34,7 +34,7 @@
                                             </td>
                                             <td class="product-name"><a
                                                 href="javascript:;"
-                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">{{ $item->product->name }}</a>
+                                                wire:click="viewProductDetails({{ $item->product->id }},'{{ $item->product->slug }}',{{ $item->product->category_id }},{{ $item->product->sub_category_id }})">{{ $item->product->name }}</a>
                                             </td>
                                             <td class="product-price"><span
                                                     class="amount">${{ number_format($item->product->price, 2) }}</span>
