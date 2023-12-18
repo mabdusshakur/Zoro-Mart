@@ -17,12 +17,18 @@ class ReviewComponent extends Component
     }
     public function addReview()
     {
-        Review::create([
+        if(Review::create([
             'rating' => $this->rating,
             'review' => $this->review,
             'user_id' => Auth::user()->id,
             'product_id' => $this->product->id,
-        ]);
+        ]))
+        {
+            session()->flash('success', 'Review has been added successfully!');
+        }
+        else {
+            session()->flash('error', 'Something went wrong!');
+        }
     }
     
 
