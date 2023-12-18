@@ -13,7 +13,7 @@
                             <div class="header__action d-flex justify-content-center justify-content-md-end">
                                 <ul>
                                     @if (Auth::check())
-                                        <li><a href="">My Account</a></li>
+                                        <li><a href="{{ route('user.profile') }}">My Account</a></li>
                                         <li><a href="{{ route('user.wishlist') }}">My Wishlist</a></li>
                                         <li><a href="{{ route('user.logout') }}">Logout</a></li>
                                     @else
