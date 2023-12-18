@@ -38,6 +38,12 @@ class CartComponent extends Component
     {
         return redirect()->route('user.product-details', ['id' => $id, 'slug' => $slug, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id]);
     }
+    public function removeFromCart($id)
+    {
+        $cart = Cart::find($id);
+        $cart->delete();
+        session()->flash('success', 'Product has been removed from cart successfully!');
+    }
     public function render()
     {
         $cartItems = Cart::where('user_id', Auth::user()->id)->get();
