@@ -21,7 +21,7 @@ class ProfileComponent extends Component
             'last_name' => 'required|min:3',
             'phone' => 'required|min:10',
             'address_1' => 'required|min:10',
-            'address_2' => 'required|min:10',
+            'address_2' => 'nullable',
             'city' => 'required|min:3',
             'zipcode' => 'required|min:3',
             'country' => 'required|min:3',
