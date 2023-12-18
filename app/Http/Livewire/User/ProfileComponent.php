@@ -22,8 +22,12 @@ class ProfileComponent extends Component
         $user = auth()->user();
         $user->first_name = $this->first_name;
         $user->last_name = $this->last_name;
-        $user->save();
-        session()->flash('success', 'Profile has been updated successfully!');
+        if ($user->save()) {
+            session()->flash('success', 'Profile has been updated successfully!');
+        } else {
+            session()->flash('error', 'Something went wrong!');
+        }
+
     }
 
     public function updatePassword()
