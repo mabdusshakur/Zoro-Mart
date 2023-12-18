@@ -110,7 +110,7 @@
                                         <div class="product-quantity mr-20 mb-25">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control" value="1" wire:model="quantity">
+                                                    <input type="number" class="form-control" value="1" wire:model="product_quantity">
                                                 </div>
                                             </div>
                                         </div>
