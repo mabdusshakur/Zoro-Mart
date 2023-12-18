@@ -1,5 +1,5 @@
 <div>
-
+    @include('partials.user._alerts')
     <form wire:submit.prevent="addReview">
         <div class="review-input-box mb-15 d-flex align-items-start">
             <h4 class="review-input-title">Your Rating</h4>
