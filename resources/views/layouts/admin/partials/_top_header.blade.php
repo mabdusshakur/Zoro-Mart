@@ -4,54 +4,10 @@
         <i class="fa-solid fa-bars"></i>
       </div>
      
-      <form class="searchbar">
-        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <input class="form-control" type="text" placeholder="Search for anything">
-        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-          <i class="fa-solid fa-xmark"></i>
-        </div>
-      </form>
+
       <div class="top-navbar-right ms-auto">
 
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item">
-            <a class="nav-link mobile-search-button" href="javascript:;">
-              <div class="">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item dropdown dropdown-large dropdown-apps">
-            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-              <div class="">
-                <i class="fa-solid fa-shapes"></i>
-              </div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-              <div class="row row-cols-3 g-3 p-3">
-                <div class="col text-center">
-                  <div class="app-box mx-auto bg-gradient-purple text-white">
-                    <i class="fa-solid fa-chart-simple"></i>
-                  </div>
-                  <div class="app-title">Orders</div>
-                </div>
-                <div class="col text-center">
-                  <div class="app-box mx-auto bg-gradient-info text-white">
-                    <i class="fa-regular fa-circle-user"></i>
-                  </div>
-                  <div class="app-title">Teams</div>
-                </div>
-                <div class="col text-center">
-                  <div class="app-box mx-auto bg-gradient-success text-white">
-                    <i class="fa-solid fa-shield-halved"></i>
-                  </div>
-                  <div class="app-title">Tasks</div>
-                </div>
-              </div>
-            </div>
-          </li>
           <li class="nav-item dropdown dropdown-large">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
               <div class="position-relative">
