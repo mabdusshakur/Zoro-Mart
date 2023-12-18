@@ -33,7 +33,7 @@
                                             <td class=""><a>{{ $wishlist->product->name }}</a></td>
                                             <td>
                                                 <a href="javascript:;"
-                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"><i
+                                                    wire:click="viewProductDetails({{ $wishlist->product->id }},'{{ $wishlist->product->slug }}',{{ $wishlist->product->category_id }},{{ $wishlist->product->sub_category_id }})"><i
                                                         class="fa-solid fa-eye"></i></a>
                                                 <a href="javascript:;" class="text-danger m-2"
                                                     wire:click="removeProduct({{ $wishlist->id }})"><i
