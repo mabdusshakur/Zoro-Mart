@@ -26,12 +26,18 @@
                                             $images = App\Models\product_image::where('product_uid', $wishlist->product->product_uid)->get();
                                         @endphp
                                         <tr>
-                                            <td class=""><a><img src="{{ Storage::url($images[0]->image) }}" class="img-thumbnail" alt="" height="120rem" width="120rem"></a>
+                                            <td class=""><a><img src="{{ Storage::url($images[0]->image) }}"
+                                                        class="img-thumbnail" alt="" height="120rem"
+                                                        width="120rem"></a>
                                             </td>
                                             <td class=""><a>{{ $wishlist->product->name }}</a></td>
                                             <td>
-                                                <a href="javascript:;"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="javascript:;" class="text-danger m-2" wire:click="removeProduct({{$wishlist->id}})"><i class="fa-solid fa-trash"></i></a>
+                                                <a href="javascript:;"
+                                                    wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"><i
+                                                        class="fa-solid fa-eye"></i></a>
+                                                <a href="javascript:;" class="text-danger m-2"
+                                                    wire:click="removeProduct({{ $wishlist->id }})"><i
+                                                        class="fa-solid fa-trash"></i></a>
                                                 {{-- <button class="t-y-btn t-y-btn-grey" type="submit">View Product</button> --}}
                                             </td>
                                         </tr>
