@@ -34,6 +34,10 @@ class CartComponent extends Component
             session()->flash('error', 'Cart item quantity can not be less than 1!');
         }
     }
+    public function viewProductDetails($id, $slug, $category_id, $sub_category_id)
+    {
+        return redirect()->route('user.product-details', ['id' => $id, 'slug' => $slug, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id]);
+    }
     public function render()
     {
         $cartItems = Cart::where('user_id', Auth::user()->id)->get();
