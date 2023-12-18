@@ -30,7 +30,7 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:;">
+                            <a class="dropdown-item" href="{{route('admin.profile')}}">
                                 <div class="d-flex align-items-center">
                                     <div class="">
                                         <i class="fa-regular fa-circle-user"></i>
