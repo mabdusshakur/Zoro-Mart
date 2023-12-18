@@ -110,7 +110,8 @@
                                         <div class="product-quantity mr-20 mb-25">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control" value="1" wire:model="product_quantity">
+                                                    <input type="number" class="form-control" value="1"
+                                                        wire:model="product_quantity">
                                                 </div>
                                             </div>
                                         </div>
@@ -143,7 +144,8 @@
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review"
-                                    type="button" role="tab" aria-controls="review" aria-selected="false">Review {{$product->productReviews->count()}}</button>
+                                    type="button" role="tab" aria-controls="review" aria-selected="false">Review
+                                    {{ $product->productReviews->count() }}</button>
                             </li>
                         </ul>
                     </div>
@@ -211,7 +213,13 @@
 
                                         </div>
                                     </div>
-                                    @livewire('user.review-component', ['product_id' => $product->id])
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4">
+                                        <div class="review-form">
+                                            <h3>Your Reviewing</h3>
+                                            <p>{{ $product->name }}</p>
+                                            @livewire('user.review-component', ['product_id' => $product->id])
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -300,7 +308,7 @@
         </div>
     </section>
     <!-- product area end -->
-    
+
     <!-- shop modal start -->
     @include('partials.user._shop_modal')
     <!-- shop modal end -->
