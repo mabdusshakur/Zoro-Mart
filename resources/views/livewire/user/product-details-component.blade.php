@@ -211,7 +211,7 @@
 
                                         </div>
                                     </div>
-                                    @livewire('user.review-component')
+                                    @livewire('user.review-component', ['product_id' => $product->id])
                                 </div>
                             </div>
                         </div>
