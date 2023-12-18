@@ -40,16 +40,6 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:;">
-                                <div class="d-flex align-items-center">
-                                    <div class="">
-                                        <i class="fa-solid fa-gear"></i>
-                                    </div>
-                                    <div class="ms-3"><span>Setting</span></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
