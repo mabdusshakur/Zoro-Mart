@@ -33,7 +33,8 @@
                                                         src="{{ Storage::url($images[0]->image) }}" alt="" class="img-thumbnail"></a>
                                             </td>
                                             <td class="product-name"><a
-                                                    href="product-details.html">{{ $item->product->name }}</a>
+                                                href="javascript:;"
+                                                wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})">{{ $item->product->name }}</a>
                                             </td>
                                             <td class="product-price"><span
                                                     class="amount">${{ number_format($item->product->price, 2) }}</span>
