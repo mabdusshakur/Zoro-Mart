@@ -1,7 +1,7 @@
 <div>
     <div>
         <!-- breadcrumb area start -->
-        @section('current-page-name', 'Register')
+        @section('current-page-name', 'Profile')
         @include('partials.user._bread_crumb')
         <!-- breadcrumb area end -->
         @include('partials.user._alerts')
