@@ -32,6 +32,7 @@ class ProductDetailsComponent extends Component
             'user_id' => Auth::user()->id,
             'viewed_at' => now()
         ]);
+        $this->product_quantity = 1;
     }
 
     
