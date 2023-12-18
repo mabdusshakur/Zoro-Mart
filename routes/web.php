@@ -9,6 +9,7 @@ use App\Http\Livewire\User\HomeComponent;
 use App\Http\Livewire\User\LoginComponent;
 use App\Http\Livewire\User\ProductDetailsComponent;
 use App\Http\Livewire\User\ProductsComponent;
+use App\Http\Livewire\User\ProfileComponent;
 use App\Http\Livewire\User\RegistrationComponent;
 use App\Http\Livewire\User\WishListComponent;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -23,6 +24,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/checkout', CheckoutComponent::class)->name('user.checkout');
     Route::get('/checkout-success', CheckoutSuccessComponent::class)->name('user.checkout.success');
     Route::get('/checkout-cancel', CheckoutCancelComponent::class)->name('user.checkout.cancel');
+    Route::get('/profile', ProfileComponent::class)->name('user.profile');
+
     Route::get('/logout', function () {
         Auth::logout();
         return redirect()->route('user.home');
