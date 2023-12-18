@@ -24,6 +24,8 @@ class ReviewComponent extends Component
             'product_id' => $this->product->id,
         ]))
         {
+            $this->rating = '';
+            $this->emit('reviewAdded');
             session()->flash('success', 'Review has been added successfully!');
         }
         else {
