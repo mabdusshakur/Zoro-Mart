@@ -8,63 +8,7 @@
       <div class="top-navbar-right ms-auto">
 
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item dropdown dropdown-large">
-            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-              <div class="position-relative">
-                <span class="notify-badge">8</span>
-                <i class="fa-regular fa-bell"></i>
-              </div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end">
-              <a href="javascript:;">
-                <div class="msg-header">
-                  <p class="msg-header-title">Notifications</p>
-                  <p class="msg-header-clear ms-auto">Marks all as read</p>
-                </div>
-              </a>
-              <div class="header-notifications-list">
-                <a class="dropdown-item" href="javascript:;">
-                  <div class="d-flex align-items-center">
-                    <div class="notify text-primary">
-                      <i class="fa-solid fa-cart-shopping"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
-                          ago</span></h6>
-                      <p class="msg-info">You have recived new orders</p>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="javascript:;">
-                  <div class="d-flex align-items-center">
-                    <div class="notify text-danger">
-                      <i class="fa-regular fa-circle-user"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
-                          ago</span></h6>
-                      <p class="msg-info">5 new user registered</p>
-                    </div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="javascript:;">
-                  <div class="d-flex align-items-center">
-                    <div class="notify text-success">
-                      <i class="fa-regular fa-file"></i>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
-                          ago</span></h6>
-                      <p class="msg-info">The pdf files generated</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <a href="javascript:;">
-                <div class="text-center msg-footer">View All Notifications</div>
-              </a>
-            </div>
-          </li>
+
           <li class="nav-item dropdown dropdown-user-setting">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
               <div class="user-setting">
