@@ -64,7 +64,7 @@
                                             <td class="product-subtotal"><span
                                                     class="amount">${{ number_format($item->product->price * $item->quantity, 2) }}</span>
                                             </td>
-                                            <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a>
+                                            <td class="product-remove"><a href="javascript:;" wire:click="removeFromCart({{ $item->id }})"><i class="fa fa-times"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
