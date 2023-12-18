@@ -31,6 +31,37 @@
                                             <span class="invalid-feedback"> {{ $message }}</span>
                                         @enderror
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label>Address <span class="required">*</span></label>
+                                            <input type="text" placeholder="Street address" wire:model="address_1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <input type="text" placeholder="Apartment, suite, unit etc. (optional)"
+                                                wire:model="address_2" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label>Town / City <span class="required">*</span></label>
+                                            <input type="text" placeholder="Town / City" wire:model="city" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>Postcode / Zip <span class="required">*</span></label>
+                                            <input type="text" placeholder="Postcode / Zip" wire:model="zipcode" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label>Phone <span class="required">*</span></label>
+                                            <input type="text" placeholder="Phone" wire:model="phone" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="mt-10"></div>
                                 <button type="submit" class="t-y-btn w-100">Save Info</button>
