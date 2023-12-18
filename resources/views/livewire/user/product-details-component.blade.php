@@ -143,8 +143,7 @@
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review"
-                                    type="button" role="tab" aria-controls="review" aria-selected="false">Review
-                                    5</button>
+                                    type="button" role="tab" aria-controls="review" aria-selected="false">Review {{$product->productReviews->count()}}</button>
                             </li>
                         </ul>
                     </div>
