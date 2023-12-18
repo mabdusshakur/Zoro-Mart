@@ -108,8 +108,11 @@
                                 <div class="product__details-quantity mb-20">
                                     <div class="pro-quan-area d-lg-flex align-items-center">
                                         <div class="product-quantity mr-20 mb-25">
-                                            <div class="cart-plus-minus p-relative"><input type="text"
-                                                    value="1" /></div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="number" class="form-control" value="1" wire:model="quantity">
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="pro-cart-btn mb-25">
                                             <button class="t-y-btn" type="submit"
