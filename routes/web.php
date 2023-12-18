@@ -64,4 +64,6 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/admin-panel/dashboard/orders', \App\Http\Livewire\Admin\OrdersComponent::class)->name('admin.orders');
     Route::get('/admin-panel/dashboard/orders/details/{id}', \App\Http\Livewire\Admin\OrderDetailsComponent::class)->name('admin.orders.details');
 
+    Route::get('/admin-panel/dashboard/profile', \App\Http\Livewire\Admin\ProfileComponent::class)->name('admin.profile');
+
 });
