@@ -19,10 +19,22 @@ class ProfileComponent extends Component
         $this->validate([
             'first_name' => 'required|min:3',
             'last_name' => 'required|min:3',
+            'phone' => 'required|min:10',
+            'address_1' => 'required|min:10',
+            'address_2' => 'required|min:10',
+            'city' => 'required|min:3',
+            'zipcode' => 'required|min:3',
+            'country' => 'required|min:3',
         ]);
         $user = auth()->user();
         $user->first_name = $this->first_name;
         $user->last_name = $this->last_name;
+        $user->phone = $this->phone;
+        $user->address_1 = $this->address_1;
+        $user->address_2 = $this->address_2;
+        $user->city = $this->city;
+        $user->zipcode = $this->zipcode;
+        $user->country = $this->country;
         if ($user->save()) {
             session()->flash('success', 'Profile has been updated successfully!');
         } else {
