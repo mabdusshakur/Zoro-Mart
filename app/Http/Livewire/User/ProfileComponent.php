@@ -13,6 +13,12 @@ class ProfileComponent extends Component
     {
         $this->first_name = auth()->user()->first_name;
         $this->last_name = auth()->user()->last_name;
+        $this->phone = auth()->user()->phone;
+        $this->address_1 = auth()->user()->address_1;
+        $this->address_2 = auth()->user()->address_2;
+        $this->city = auth()->user()->city;
+        $this->zipcode = auth()->user()->zipcode;
+        $this->country = auth()->user()->country;
     }
     public function saveProfile()
     {
