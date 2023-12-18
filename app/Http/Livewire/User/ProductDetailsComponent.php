@@ -18,7 +18,7 @@ class ProductDetailsComponent extends Component
     
     public $products, $best_selling_products;
 
-    public $review, $rating, $reviews;
+    public $reviews;
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
         $this->products = Product::where('id', $id)->get();
@@ -68,16 +68,6 @@ class ProductDetailsComponent extends Component
         return redirect()->route('user.cart');
     }
 
-    public function addReview()
-    {
-        Review::create([
-            'rating' => $this->rating,
-            'review' => $this->review,
-            'user_id' => Auth::user()->id,
-            'product_id' => $this->product_id
-        ]);
-    }
-    
     public function render()
     {
         return view('livewire.user.product-details-component');
