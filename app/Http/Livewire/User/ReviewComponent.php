@@ -25,7 +25,6 @@ class ReviewComponent extends Component
         ]))
         {
             $this->rating = '';
-            $this->emit('reviewAdded');
             session()->flash('success', 'Review has been added successfully!');
         }
         else {
