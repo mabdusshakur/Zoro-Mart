@@ -25,6 +25,22 @@ class ProfileComponent extends Component
         $user->save();
         session()->flash('success', 'Profile has been updated successfully!');
     }
+
+    public function updatePassword()
+    {
+        $this->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|confirmed',
+        ]);
+        $user = auth()->user();
+        if (\Hash::check($this->current_password, $user->password)) {
+            $user->password = \Hash::make($this->new_password);
+            $user->save();
+            session()->flash('success', 'Password has been updated successfully!');
+        } else {
+            session()->flash('error', 'Current password is incorrect!');
+        }
+    }
     public function render()
     {
         return view('livewire.user.profile-component');
