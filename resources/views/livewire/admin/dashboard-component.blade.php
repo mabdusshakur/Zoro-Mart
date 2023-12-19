@@ -51,6 +51,21 @@
                 </div>
             </div>
         </div>
+        <div class="col">
+            <div class="card rounded-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="">
+                            <p class="mb-1">Total Sales</p>
+                            <h4 class="mb-0">{{$total_sales}}</h4>
+                        </div>
+                        <div class="ms-auto widget-icon bg-warning text-white">
+                            <i class="bi bi-basket2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
