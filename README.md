@@ -9,6 +9,7 @@ This is a simple e-commerce website built with Laravel Livewire. It includes the
 - Add to cart functionality
 - Contact and about pages
 - Review optionalities
+- Stripe webhook functionality
 
 ## Installation
 
