@@ -5,7 +5,6 @@ namespace App\Http\Livewire\User;
 use App\Models\Cart;
 use App\Models\Review;
 use App\Models\Product;
-use App\Models\Utility;
 use Livewire\Component;
 use App\Models\Wishlist;
 use App\Models\ProductView;

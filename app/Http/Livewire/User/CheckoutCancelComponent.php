@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Cart;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 
 class CheckoutCancelComponent extends Component
 {

@@ -2,11 +2,9 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Cart;
 use App\Models\Order;
 use Livewire\Component;
 use App\Mail\OrderProgressMail;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class CheckoutSuccessComponent extends Component

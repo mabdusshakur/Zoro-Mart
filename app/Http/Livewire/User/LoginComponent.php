@@ -4,9 +4,7 @@ namespace App\Http\Livewire\User;
 
 use Livewire\Component;
 use App\Models\SocialMedia;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 

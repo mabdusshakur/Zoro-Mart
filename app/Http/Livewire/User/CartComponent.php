@@ -3,9 +3,6 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Cart;
-use App\Models\Utility;
-use Livewire\Component;
-use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends BaseComponent

@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Cart;
 use App\Models\Contact;
-use App\Models\Product;
 use App\Models\Utility;
 use Livewire\Component;
 use App\Mail\ContactMail;

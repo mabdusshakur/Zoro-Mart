@@ -2,11 +2,8 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Cart;
-use App\Models\Product;
 use App\Models\Utility;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 
 class AboutComponent extends Component
 {

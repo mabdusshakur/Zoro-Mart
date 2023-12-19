@@ -6,11 +6,7 @@ use App\Models\Cart;
 use App\Models\Banner;
 use App\Models\Feature;
 use App\Models\Product;
-use App\Models\SocialMedia;
-use App\Models\Utility;
-use Livewire\Component;
 use App\Models\Category;
-use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 
 class HomeComponent extends BaseComponent
