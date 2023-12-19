@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-xl-3 custom-col-3 col-lg-4 d-none d-md-block">
                         <div class="banner__area">
-                            @foreach ($most_sell_and_view_products as $product)
+                            @foreach ($products->withCount('productViews')->sortByDesc('product_views_count')->sortByDesc('sold')->take(3) as $product)
                                 @php
                                     $image = \App\Models\product_image::where('product_uid', $product->product_uid)->first();
                                 @endphp
