@@ -10,7 +10,7 @@ use App\Models\Wishlist;
 use App\Models\ProductView;
 use Illuminate\Support\Facades\Auth;
 
-class ProductDetailsComponent extends Component
+class ProductDetailsComponent extends BaseComponent
 {
     public $cart_item_count, $cartItems;
 
