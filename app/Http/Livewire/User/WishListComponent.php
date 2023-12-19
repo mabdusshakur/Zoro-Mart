@@ -17,10 +17,7 @@ class WishListComponent extends Component
         $wishlist->delete();
         session()->flash('success', 'Product has been removed from wishlist successfully!');
     }
-    public function viewProductDetails($id, $slug, $category_id, $sub_category_id)
-    {
-        return redirect()->route('user.product-details', ['id' => $id, 'slug' => $slug, 'category_id' => $category_id, 'sub_category_id' => $sub_category_id]);
-    }
+
     public function render()
     {
         $wishlists = Wishlist::where('user_id', auth()->user()->id)->get();
