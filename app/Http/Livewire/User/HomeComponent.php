@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeComponent extends BaseComponent
 {
-    public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
     public $categories;
 
     public $banners;
@@ -31,16 +30,6 @@ class HomeComponent extends BaseComponent
         $this->socialmedias = SocialMedia::all();
     }
 
-    public function showProductModal($id)
-    {
-        $product = Product::find($id);
-        $this->product_name = $product->name;
-        $this->product_description = $product->description;
-        $this->product_quantity = $product->quantity;
-        $this->product_price = $product->price;
-        $this->product_uid = $product->product_uid;
-        $this->product_id = $product->id;
-    }
     public function addToCart($id)
     {
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
