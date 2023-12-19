@@ -13,7 +13,7 @@ This is a simple e-commerce website built with Laravel Livewire. It includes the
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+1. Clone the repository: `git clone https://github.com/mabdusshakur/Zoro-Mart.git`
 2. Install dependencies: `composer install`
 3. Set up your environment variables: Rename `.env.example` to `.env` and update the necessary values.
 4. Add your Stripe API secrets: Open the `.env` file and add your Stripe API keys in the `STRIPE_KEY`, `STRIPE_SECRET` and `STRIPE_WEBHOOK_SECRET` variables.
