@@ -12,7 +12,7 @@ use App\Models\SocialMedia;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 
-class ProductsComponent extends Component
+class ProductsComponent extends BaseComponent
 {
     use WithPagination;
     public $per_page_item, $filter_item;
