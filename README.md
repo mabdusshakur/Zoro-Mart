@@ -21,7 +21,10 @@ This is a simple e-commerce website built with Laravel Livewire. It includes the
 6. Connect the database: Open the `.env` file and update the `DB_*` variables with your database connection details.
 7. Generate an application key: `php artisan key:generate`
 8. Run database migrations: `php artisan migrate`
-9. Start the development server: `php artisan serve`
+9. Seed the database: `php artisan db:seed`
+10. Start the development server: `php artisan serve`
+
+Note: The database seeding will populate the countries table and create an admin user.
 
 ## Usage
 
