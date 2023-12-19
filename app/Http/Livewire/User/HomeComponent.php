@@ -33,9 +33,9 @@ class HomeComponent extends Component
     public function addToWishlist($id)
     {
         $product = Product::find($id);
-        if(Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()){
+        if (Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()) {
             return redirect()->route('user.wishlist');
-        }else{
+        } else {
             Wishlist::create([
                 'user_id' => Auth::user()->id,
                 'product_id' => $product->id,
@@ -89,10 +89,6 @@ class HomeComponent extends Component
     public function render()
     {
         $products = Product::get();
-        // $best_selling_products = Product::orderBy('sold', 'DESC')->take(8)->get();
-        // $most_viewed_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->take(8)->get();
-        // $most_sell_and_view_products = Product::withCount('productViews')->orderBy('product_views_count', 'DESC')->orderBy('sold', 'DESC')->take(3)->get();
-        // $compact_data = ['products' => $products, 'best_selling_products' => $best_selling_products, 'most_viewed_products' => $most_viewed_products, 'most_sell_and_view_products' => $most_sell_and_view_products];
-        return view('livewire.user.home-component', ['products'=>$products]);
+        return view('livewire.user.home-component', ['products' => $products]);
     }
 }
