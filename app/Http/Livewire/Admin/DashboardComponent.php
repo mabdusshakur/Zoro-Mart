@@ -20,7 +20,7 @@ class DashboardComponent extends Component
         $this->total_products = Product::count();
         $this->total_categories = Category::count();
         $this->total_subcategories = SubCategory::count();
-        $this->total_sales = Order::where('status', 'delivered')->sum('total');
+        $this->total_sales = Order::where('status', 'delivered')->orWhere('status', 'completed')->sum('total');
     }
     public function render()
     {
