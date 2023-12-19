@@ -43,7 +43,8 @@ class EditProductComponent extends Component
                 'quantity' => 'required|numeric',
                 'product_image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|',
                 'category_id' => 'required',
-                'sub_category_id' => 'required'
+                'sub_category_id' => 'required',
+                'on_sale' => 'nullable|boolean',
             ]);
 
             $this->old_product->update([
