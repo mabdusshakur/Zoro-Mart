@@ -209,7 +209,7 @@
                         </div>
                     </div>
                     <div class="product__deal owl-carousel">
-                        @foreach ($products->withCount('productViews')->sortByDesc('product_views_count')->take(10) as $product)
+                        @foreach ($products->sortByDesc(function ($product) { return $product->productViews->count(); })->take(10) as $product)
                             @php
                                 $images = $images = \App\Models\product_image::where('product_uid', $product->product_uid)->get();
                             @endphp
