@@ -2,12 +2,8 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Cart;
-use App\Models\Utility;
-use Livewire\Component;
+
 use App\Models\Wishlist;
-use App\Models\SocialMedia;
-use Illuminate\Support\Facades\Auth;
 
 class WishListComponent extends BaseComponent
 {
