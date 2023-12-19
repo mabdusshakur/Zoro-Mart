@@ -106,14 +106,14 @@ class ProductsComponent extends Component
         } 
         else if ($this->filter_item == 'by_lowest_price') {
             if ($this->search_category_id == null && $this->search_category_slug == null && $this->search_sub_category_id == null) {
-                $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+                $products = Product::orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('price', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
         } 
         else if ($this->filter_item == 'by_highest_price') {
             if ($this->search_category_id == null && $this->search_category_slug == null && $this->search_sub_category_id == null) {
-                $products = Product::orderBy('name', 'ASC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
+                $products = Product::orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             } else if ($this->search_category_id && $this->search_category_slug && $this->search_sub_category_id) {
                 $products = Product::where('sub_category_id', $this->search_sub_category_id)->orderBy('price', 'DESC')->whereBetween('price', [$this->minPrice, $this->maxPrice])->paginate($this->per_page_item ? $this->per_page_item : 5);
             }
