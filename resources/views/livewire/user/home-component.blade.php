@@ -47,7 +47,7 @@
                         <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
                             <div class="product__slider owl-carousel">
 
-                                @foreach ($best_selling_products as $product)
+                                @foreach ($products->sortByDesc('sold') as $product)
                                     @php
                                         $images = $images = \App\Models\product_image::where('product_uid', $product->product_uid)->get();
                                     @endphp
