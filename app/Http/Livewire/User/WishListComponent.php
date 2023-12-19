@@ -9,7 +9,7 @@ use App\Models\Wishlist;
 use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Auth;
 
-class WishListComponent extends Component
+class WishListComponent extends BaseComponent
 {
     public function removeProduct($id)
     {

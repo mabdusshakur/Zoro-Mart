@@ -8,7 +8,7 @@ use Livewire\Component;
 use App\Models\SocialMedia;
 use Illuminate\Support\Facades\Auth;
 
-class CartComponent extends Component
+class CartComponent extends BaseComponent
 {
     public function increaseQuantity($id)
     {
