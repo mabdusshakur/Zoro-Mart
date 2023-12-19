@@ -27,6 +27,9 @@ class HomeComponent extends BaseComponent
 
     public function addToCart($id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('user.login');
+        }
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
         if ($cart) {
             $cart->quantity = $cart->quantity + 1;

@@ -14,14 +14,14 @@ class ProductDetailsComponent extends Component
 {
     public $cart_item_count, $cartItems;
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
-    
+
     public $products, $best_selling_products;
 
     public $reviews;
     public function mount($id, $slug = null, $category_id = null, $sub_category_id = null)
     {
         $this->products = Product::where('id', $id)->get();
-        $this->best_selling_products = Product::where('category_id',$category_id)->orWhere('sub_category_id', $sub_category_id)->orderBy('sold', 'DESC')->take(10)->get();
+        $this->best_selling_products = Product::where('category_id', $category_id)->orWhere('sub_category_id', $sub_category_id)->orderBy('sold', 'DESC')->take(10)->get();
         $this->cart_item_count = Cart::where('user_id', Auth::user()->id)->count();
         $this->cartItems = Cart::where('user_id', Auth::user()->id)->get();
         $this->product_id = $id;
@@ -34,13 +34,13 @@ class ProductDetailsComponent extends Component
         $this->product_quantity = 1;
     }
 
-    
+
     public function addToWishlist($id)
     {
         $product = Product::find($id);
-        if(Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()){
+        if (Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()) {
             return redirect()->route('user.wishlist');
-        }else{
+        } else {
             Wishlist::create([
                 'user_id' => Auth::user()->id,
                 'product_id' => $product->id,
@@ -51,6 +51,9 @@ class ProductDetailsComponent extends Component
 
     public function addToCart($id)
     {
+        if (!Auth::check()) {
+            return redirect()->route('user.login');
+        }
         $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $id)->first();
         if ($cart) {
             $cart->quantity = $cart->quantity + $this->product_quantity;
