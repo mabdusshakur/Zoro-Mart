@@ -13,7 +13,7 @@ use App\Models\Category;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 
-class HomeComponent extends Component
+class HomeComponent extends BaseComponent
 {
     public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
     public $categories;
