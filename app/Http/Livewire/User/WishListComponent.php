@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class WishListComponent extends Component
 {
-    public $socialmedias;
-    public function mount()
-    {
-        $this->socialmedias = SocialMedia::all();
-    }
     public function removeProduct($id)
     {
         $wishlist = Wishlist::find($id);

@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
-    public $socialmedias;
-    
-    public function mount()
-    {
-        $this->socialmedias = SocialMedia::all();
-    }
     public function increaseQuantity($id)
     {
         $cart = Cart::find($id);
