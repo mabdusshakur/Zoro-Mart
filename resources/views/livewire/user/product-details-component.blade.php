@@ -170,7 +170,7 @@
                             <div class="product__details-review">
                                 <div class="row">
                                     <div class="col-xxl-6 col-xl-6 col-lg-6">
-                                    @livewire('user.all-reviews-component', ['product_id' => $product->id])
+                                        @livewire('user.all-reviews-component', ['product_id' => $product->id])
                                     </div>
                                     <div class="col-xxl-4 col-xl-4 col-lg-4">
                                         <div class="review-form">
