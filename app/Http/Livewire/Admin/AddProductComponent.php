@@ -33,8 +33,8 @@ class AddProductComponent extends Component
                 'product_image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|',
                 'category_id' => 'required',
                 'sub_category_id' => 'required',
-                'discount_price' => 'nullable|numeric'
-
+                'discount_price' => 'nullable|numeric',
+                'on_sale' => 'nullable|boolean',
             ]);
             
             
