@@ -1,7 +1,7 @@
 <div>
 
     <!--start breadcrumb-->
-    @section('current-page-name', '')
+    @section('current-page-name', 'Dashboard')
     @include('partials.admin._bread_crumb')
     <!--end breadcrumb-->
 
