@@ -15,7 +15,7 @@
                             <h4 class="mb-0">{{$total_users}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-primary text-white">
-                            <i class="bi bi-basket2"></i>
+                            <i class="fa-solid fa-user"></i>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                             <h4 class="mb-0">{{$total_products}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-info text-white">
-                            <i class="bi bi-basket2"></i>
+                            <i class="fa-solid fa-boxes-stacked"></i>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                             <h4 class="mb-0">{{$total_orders}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-success text-white">
-                            <i class="bi bi-basket2"></i>
+                            <i class="fa-solid fa-truck-fast"></i>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                             <h4 class="mb-0">{{$total_sales}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-warning text-white">
-                            <i class="bi bi-basket2"></i>
+                            <i class="fa-solid fa-dollar-sign"></i>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                             <h4 class="mb-0">{{$total_categories}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-dark text-white">
-                            <i class="bi bi-basket2"></i>
+                            <i class="fa-solid fa-table-columns"></i>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                             <h4 class="mb-0">{{$total_subcategories}}</h4>
                         </div>
                         <div class="ms-auto widget-icon bg-danger text-white">
-                            <i class="bi bi-basket2"></i>
+                            <i class="fa-solid fa-table-cells"></i>
                         </div>
                     </div>
                 </div>
