@@ -21,13 +21,12 @@ class HomeComponent extends BaseComponent
 
     public $features;
 
-    public $socialmedias;
+  
     public function mount()
     {
         $this->categories = Category::all();
         $this->banners = Banner::where('banner_status', 1)->get();
         $this->features = Feature::take(5)->get();
-        $this->socialmedias = SocialMedia::all();
     }
 
     public function addToCart($id)
