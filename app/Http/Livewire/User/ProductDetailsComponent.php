@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 class ProductDetailsComponent extends Component
 {
     public $cart_item_count, $cartItems;
-    public $product_name, $product_description, $product_price, $product_quantity, $product_uid, $product_id;
 
     public $products, $best_selling_products;
 
@@ -32,21 +31,6 @@ class ProductDetailsComponent extends Component
             'viewed_at' => now()
         ]);
         $this->product_quantity = 1;
-    }
-
-
-    public function addToWishlist($id)
-    {
-        $product = Product::find($id);
-        if (Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()) {
-            return redirect()->route('user.wishlist');
-        } else {
-            Wishlist::create([
-                'user_id' => Auth::user()->id,
-                'product_id' => $product->id,
-            ]);
-            return redirect()->route('user.wishlist');
-        }
     }
 
     public function addToCart($id)
