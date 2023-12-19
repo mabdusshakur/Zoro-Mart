@@ -9,11 +9,11 @@ use Livewire\Component;
 
 class DashboardComponent extends Component
 {
-    public $total_user, $total_orders, $total_products, $total_categories, $total_subcategories, $total_sales;
+    public $total_users, $total_orders, $total_products, $total_categories, $total_subcategories, $total_sales;
 
     public function mount()
     {
-        $this->total_user = User::count();
+        $this->total_users = User::count();
         $this->total_orders = Order::count();
         $this->total_products = Product::count();
     }
