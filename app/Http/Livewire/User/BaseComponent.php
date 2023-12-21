@@ -13,6 +13,9 @@ class BaseComponent extends Component
    
     public function addToWishlist($id)
     {
+        if(!Auth::check()){
+            return redirect()->route('login');
+        }
         $product = Product::find($id);
         if (Wishlist::where('user_id', Auth::user()->id)->where('product_id', $product->id)->first()) {
             return redirect()->route('user.wishlist');
