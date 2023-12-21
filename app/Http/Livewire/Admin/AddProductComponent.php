@@ -30,7 +30,7 @@ class AddProductComponent extends Component
                 'description' => 'required',
                 'price' => 'required|numeric',
                 'quantity' => 'required|numeric',
-                'product_image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|',
+                'product_image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
                 'category_id' => 'required',
                 'sub_category_id' => 'required',
                 'discount_price' => 'nullable|numeric',
