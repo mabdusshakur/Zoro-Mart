@@ -49,14 +49,7 @@ class AddProductComponent extends Component
             $product->category_id = $this->category_id;
             $product->sub_category_id = $this->sub_category_id;
             $product->product_uid = $product_uid;
-            if($this->on_sale == null)
-            {
-                $product->on_sale = false;
-            }
-            else
-            {
-                $product->on_sale = $this->on_sale;
-            }
+            $product->on_sale = $this->on_sale ?? false;
             $product->discount_price = $this->discount_price;
 
             foreach ($this->product_image as $image) {
