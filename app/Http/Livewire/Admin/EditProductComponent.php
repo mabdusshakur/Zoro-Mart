@@ -55,7 +55,7 @@ class EditProductComponent extends Component
                 'quantity' => $this->quantity,
                 'category_id' => $this->category_id,
                 'sub_category_id' => $this->sub_category_id,
-                'on_sale' => $this->on_sale,
+                'on_sale' => $this->on_sale ?? false,
                 'discount_price' => $this->discount_price,
             ]);
 
