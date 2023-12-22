@@ -22,6 +22,10 @@ class ProductsComponent extends Component
         $product = Product::find($id);
         if ($product) {
             $product->delete();
+            $product_images = product_image::where('product_uid', $product->product_uid)->get();
+            foreach ($product_images as $product_image) {
+                $product_image->delete();
+            }
         }
         session()->flash('success', 'Product has been deleted successfully!');
     }
