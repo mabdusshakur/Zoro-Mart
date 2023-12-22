@@ -57,10 +57,10 @@
                                             <a href="javascript:;"
                                                 wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
                                                 class="w-img">
-                                                <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
+                                                <img src="{{ Storage::url($images[0]->image) }}" alt="product" height="200rem" style="object-fit:contain;"/>
                                                 <img class="second-img"
                                                     src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
-                                                    alt="product" />
+                                                    alt="product" height="200rem" style="object-fit:contain;"/>
                                             </a>
                                             <div class="product__action p-absolute">
                                                 <ul>
