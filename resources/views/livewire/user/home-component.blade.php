@@ -141,10 +141,10 @@
                                                 <a href="javascript:;"
                                                     wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
                                                     class="w-img">
-                                                    <img src="{{ Storage::url($images[0]->image) }}" alt="product" />
+                                                    <img src="{{ Storage::url($images[0]->image) }}" alt="product" height="220rem"/>
                                                     <img class="second-img"
                                                         src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
-                                                        alt="product" />
+                                                        alt="product" height="220rem"/>
                                                 </a>
                                                 @if ($product->on_sale == true)
                                                     <div class="product__offer">
@@ -222,10 +222,10 @@
                                                     wire:click="viewProductDetails({{ $product->id }},'{{ $product->slug }}',{{ $product->category_id }},{{ $product->sub_category_id }})"
                                                     class="w-img">
                                                     <img src="{{ Storage::url($images[0]->image) }}"
-                                                        alt="product" />
+                                                        alt="product" height="220rem"/>
                                                     <img class="second-img"
                                                         src="{{ count($images) > 1 ? Storage::url($images[1]->image) : Storage::url($images[0]->image) }}"
-                                                        alt="product" />
+                                                        alt="product" height="220rem"/>
                                                 </a>
                                             </div>
                                         </div>
