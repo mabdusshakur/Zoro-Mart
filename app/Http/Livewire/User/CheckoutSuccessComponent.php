@@ -39,6 +39,7 @@ class CheckoutSuccessComponent extends Component
                 throw new \Exception("Invalid Payment Status C");
             }
             session()->forget('checkout_session_id');
+            return redirect()->route('user.home');
         } catch (\Throwable $th) {
             throw new \Exception("Invalid Checkout Session ID");
         }
