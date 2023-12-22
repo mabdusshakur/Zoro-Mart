@@ -19,7 +19,11 @@ class ProductsComponent extends Component
     }
     public function delete_product($id)
     {
-
+        $product = Product::find($id);
+        if ($product) {
+            $product->delete();
+        }
+        session()->flash('success', 'Product has been deleted successfully!');
     }
     public function render()
     {
