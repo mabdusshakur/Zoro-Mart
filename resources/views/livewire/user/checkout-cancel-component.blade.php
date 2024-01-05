@@ -7,6 +7,6 @@
 
     @include('partials.user._alerts')
 
-    <h1>Cancel Page</h1>
+    <h1 class="text-center mt-4 text-danger">Cancel Page</h1>
 
 </div>
