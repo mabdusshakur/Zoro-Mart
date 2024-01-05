@@ -194,25 +194,6 @@
                                             class="form-check-label">{{ $option['label'] }}</label>
                                     </div>
                                 @endforeach
-                                
-                                {{-- <div class="accordion" id="checkoutAccordion">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="paypalThree">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#paypal"
-                                                aria-expanded="false" aria-controls="paypal">
-                                                PayPal
-                                            </button>
-                                        </h2>
-                                        <div id="paypal" class="accordion-collapse collapse"
-                                            aria-labelledby="paypalThree" data-bs-parent="#checkoutAccordion">
-                                            <div class="accordion-body">
-                                                Pay via PayPal; you can pay with your credit card if you don’t have a
-                                                PayPal account.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <div class="order-button-payment mt-20">
                                     <button type="submit" class="t-y-btn t-y-btn-grey">Place order</button>
                                 </div>
