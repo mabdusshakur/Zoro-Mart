@@ -29,7 +29,7 @@ class AddSubCategoryComponent extends Component
             $sub_category->category_id = $this->category_id;
             $sub_category->slug = Str::slug($this->sub_category_name);
             $sub_category->save();
-            Category::find($this->category_id)->increment('sub_category_count',1);
+            Category::find($this->category_id)->increment('sub_category_count', 1);
             session()->flash('success', 'Sub Category has been created successfully!');
         } catch (\Throwable $th) {
             session()->flash('error', 'Something went wrong!' . $th->getMessage());
