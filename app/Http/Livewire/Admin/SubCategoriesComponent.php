@@ -18,7 +18,11 @@ class SubCategoriesComponent extends Component
     }
     public function delete_sub_category($id)
     {
-        
+        $sub_category = SubCategory::find($id);
+        if($sub_category){
+            $sub_category->delete();
+        }
+        session()->flash('success', 'Sub Category has been deleted successfully!');
     }
     public function render()
     {
