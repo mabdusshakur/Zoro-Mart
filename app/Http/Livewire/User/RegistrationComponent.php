@@ -2,11 +2,9 @@
 
 namespace App\Http\Livewire\User;
 
-use Http;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\SocialMedia;
-use Illuminate\Support\Facades\Session;
 
 class RegistrationComponent extends Component
 {
